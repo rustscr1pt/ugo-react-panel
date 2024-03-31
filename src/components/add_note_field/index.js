@@ -1,3 +1,3 @@
-import Note_Add from "./add_note_field";
+import NoteAdd from "./add_note_field";
 
-export default Note_Add;
+export default NoteAdd;
