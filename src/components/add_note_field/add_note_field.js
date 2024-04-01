@@ -9,7 +9,7 @@ class NoteAdd extends Component {
                 <input type="text" className="note-field-flex-box__input" onChange={this.props.updater}/>
                 <button
                     className="note-field-flex-box__button"
-                    onClick={this.props.write}>Добавить
+                    onClick={this.props.writer}>Добавить
                 </button>
             </div>
         )

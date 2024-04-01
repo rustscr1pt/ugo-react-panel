@@ -5,12 +5,14 @@ class ListFlexDisplay extends Component {
     render() {
         return (
             <div className="collapsible-container">
-                <button className="collapsible-container__activator">Пометки</button>
+                <button className="collapsible-container__activator" onClick={
+                    console.log(this.props.newElements)
+                }>{this.props.buttonTitle}</button>
                 <div className="collapsible-container__content">
                     {
-                        this.props.notable.map((object) => {
+                        this.props.newElements.map(object => {
                             return (
-                                <p key={object.id} className='styled-content'>{object.desc}</p>
+                                <h1 key={object.id} className='styled-content'>{object.text}</h1>
                             )
                         })
                     }

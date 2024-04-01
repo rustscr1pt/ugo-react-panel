@@ -6,8 +6,8 @@ class DoubleListFlex extends Component {
     render() {
         return (
             <div className="double-collapsible-holder">
-                <ListFlexDisplay/>
-                <ListFlexDisplay/>
+                <ListFlexDisplay newElements={this.props.notes} buttonTitle="Пометки"/>
+                <ListFlexDisplay newElements={this.props.logs} buttonTitle="Логи"/>
             </div>
         )
     }
