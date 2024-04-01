@@ -2,8 +2,8 @@ import React, {Component} from "react";
 import { v4 as uuidv4 } from 'uuid';
 import './request_template.sass';
 import Status_selector from "../status_selector/status_selector";
-import Collapsable_list from "../collapsible";
 import NoteAdd from "../add_note_field";
+import DoubleListFlex from "../double_list_flex";
 
 class Request_template extends Component {
     constructor() {
@@ -47,7 +47,7 @@ class Request_template extends Component {
                 <span className='request-grid-holder__self'>I am the customer who wishes to buy some product, plz send me some samples.</span>
                 <span className='request-grid-holder__added'>2024-03-29 10:53:08</span>
                 <NoteAdd updater={this.update_textfield} write={this.add_note_and_log}/>
-                <Collapsable_list notable={this.state.notes} logable={this.state.logs}/>
+                <DoubleListFlex/>
             </div>
         )
     }
