@@ -16,6 +16,10 @@ class Request_template extends Component {
         }
     }
 
+    componentDidMount() { // for check if everything works fine.
+        console.log(this.props.displayObject)
+    }
+
     update_textfield = (event) => {
         this.setState(() => {
             return {textfield : event.target.value}
