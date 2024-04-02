@@ -51,9 +51,9 @@ class Request_template extends Component {
                 <Status_selector selectedStatus={this.state.selected_status} handleChanges={this.on_status_change}/>
                 <span className='request-grid-holder__name'>Egor</span>
                 <span className='request-grid-holder__email'>iekgithub@gmail.com</span>
-                <span className='request-grid-holder__self'>I am the customer who wishes to buy some product, plz send me some samples.</span>
                 <span className='request-grid-holder__added'>2024-03-29 10:53:08</span>
-                <NoteAdd updater={this.update_textfield} writer={this.add_note_and_log}/>
+                <span className='request-grid-holder__self'>I am the customer who wishes to buy some product, plz send me some samples.</span>
+                <NoteAdd updater={this.update_textfield} writer={this.add_note_and_log} value={this.state.textfield}/>
                 <DoubleListFlex logs={this.state.logs} notes={this.state.notes}/>
             </div>
         )
