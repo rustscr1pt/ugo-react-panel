@@ -2,13 +2,27 @@ import {Component} from "react";
 import "./list_flex_display.style.sass";
 
 class ListFlexDisplay extends Component {
+    constructor() {
+        super();
+        this.state = {
+            active : "collapsible-container__content"
+        }
+    }
+
+    change_visibility = () => {
+        this.setState(() => {
+            return {
+                active : this.state.active === "collapsible-container__content" ? "collapsible-container__hidden" : "collapsible-container__content"
+            }
+        })
+    }
     render() {
         return (
             <div className="collapsible-container">
                 <button className="collapsible-container__activator" onClick={
-                    console.log(this.props.newElements)
+                    this.change_visibility
                 }>{this.props.buttonTitle}</button>
-                <div className="collapsible-container__content">
+                <div className={this.state.active}>
                     {
                         this.props.newElements.map(object => {
                             return (

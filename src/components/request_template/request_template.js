@@ -9,8 +9,8 @@ class Request_template extends Component {
     constructor() {
         super();
         this.state = {
-            logs : [{id : uuidv4(), text : "Hello world"}],
-            notes : [{id : uuidv4(), text : "Hello world"}],
+            logs : [],
+            notes : [],
             textfield : ""
         }
     }
