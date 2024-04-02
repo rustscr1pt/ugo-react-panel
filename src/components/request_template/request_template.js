@@ -11,7 +11,8 @@ class Request_template extends Component {
         this.state = {
             logs : [],
             notes : [],
-            textfield : ""
+            textfield : "",
+            selected_status : "NULL"
         }
     }
 
@@ -35,11 +36,19 @@ class Request_template extends Component {
         });
     }
 
+    on_status_change = (event) => { // Work with a status change.
+        this.setState(() => {
+            return {selected_status : event.target.value}
+        }, () => {
+            console.log(this.state.selected_status)
+        })
+    }
+
     render() {
         return (
             <div className='request-grid-holder'>
                 <span className='request-grid-holder__id'>1</span>
-                <Status_selector/>
+                <Status_selector selectedStatus={this.state.selected_status} handleChanges={this.on_status_change}/>
                 <span className='request-grid-holder__name'>Egor</span>
                 <span className='request-grid-holder__email'>iekgithub@gmail.com</span>
                 <span className='request-grid-holder__self'>I am the customer who wishes to buy some product, plz send me some samples.</span>
