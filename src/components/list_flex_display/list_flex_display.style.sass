@@ -1,19 +1,30 @@
+@font-face
+  font-family: 'bebas'
+  src: url("BebasNeue-Bold.otf")
+
 .collapsible-container
   display: flex
   flex-direction: column
   width: 48.5%
   &__activator
     width: 100%
+    background-color: black
+    border: 0
+    border-radius: 5px
+    font-size: 1.5vw
+    font-family: bebas
+    color: white
+    padding-top: 0.5%
   &__content
     max-height: 350px
     overflow: auto
-    background-color: #ccc
+    background-color: white
     border-radius: 5px
   &__hidden
     display: none
     max-height: 350px
     overflow: auto
-    background-color: #ccc
+    background-color: white
 
 .active, .collapsible:hover
   background-color: #ccc
