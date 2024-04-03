@@ -17,7 +17,32 @@ class Request_template extends Component {
     }
 
     componentDidMount() { // for check if everything works fine.
-        console.log(this.props.displayObject)
+        fetch('http://localhost:8000/api/orders/byID', {
+            method : "POST",
+            body : JSON.stringify({
+                token_id : `${this.props.displayObject.id}`
+            }),
+            headers : {
+                "Content-Type" : "application/json"
+            }
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                console.log(json)
+                if (json.is_succeed) {
+                    this.setState({
+                        logs : [...this.state.logs, ...json.reply[0].logs],
+                        notes : [...this.state.notes, ...json.reply[0].notes]
+                    })
+                } else {
+
+                }
+            })
+            .catch(
+                function(err) {
+                    console.log(err)
+                }
+            )
     }
 
     update_textfield = (event) => {
@@ -26,7 +51,7 @@ class Request_template extends Component {
         })
     }
 
-    add_note_and_log = () => {
+    add_note_and_log = () => { // ??? Add using the network and API
         this.setState({
             logs : [...this.state.logs, {
                 id : uuidv4(),
@@ -51,12 +76,12 @@ class Request_template extends Component {
     render() {
         return (
             <div className='request-grid-holder'>
-                <span className='request-grid-holder__id'>1</span>
+                <span className='request-grid-holder__id'>{this.props.displayObject.id}</span>
                 <Status_selector selectedStatus={this.state.selected_status} handleChanges={this.on_status_change}/>
-                <span className='request-grid-holder__name'>Egor</span>
-                <span className='request-grid-holder__email'>iekgithub@gmail.com</span>
-                <span className='request-grid-holder__added'>2024-03-29 10:53:08</span>
-                <span className='request-grid-holder__self'>I am the customer who wishes to buy some product, plz send me some samples.</span>
+                <span className='request-grid-holder__name'>{this.props.displayObject.customer_name}</span>
+                <span className='request-grid-holder__email'>{this.props.displayObject.customer_email}</span>
+                <span className='request-grid-holder__added'>{this.props.displayObject.date_time_added}</span>
+                <span className='request-grid-holder__self'>{this.props.displayObject.customer_self_description}</span>
                 <NoteAdd updater={this.update_textfield} writer={this.add_note_and_log} value={this.state.textfield}/>
                 <DoubleListFlex logs={this.state.logs} notes={this.state.notes}/>
             </div>

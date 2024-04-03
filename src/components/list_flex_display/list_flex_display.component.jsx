@@ -26,7 +26,7 @@ class ListFlexDisplay extends Component {
                     {
                         this.props.newElements.map(object => {
                             return (
-                                <h1 key={object.id} className='styled-content'>{object.text}</h1>
+                                <h1 key={object.uuid} className='styled-content'>{object.text}</h1>
                             )
                         })
                     }
