@@ -32,8 +32,8 @@ class Request_template extends Component {
                 console.log(json)
                 if (json.is_succeed) {
                     this.setState({
-                        logs : [...this.state.logs, ...json.reply[0].logs],
-                        notes : [...this.state.notes, ...json.reply[0].notes]
+                        logs : json.reply[0].logs,
+                        notes : json.reply[0].notes
                     })
                 } else {
 
