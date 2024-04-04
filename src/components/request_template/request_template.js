@@ -4,6 +4,7 @@ import './request_template.sass';
 import NoteAdd from "../add_note_field";
 import DoubleListFlex from "../double_list_flex";
 import TopTemplateContainer from "../top_template_container";
+import SelfDescriptionTemplate from "../self_desc_template_container";
 
 class Request_template extends Component {
     constructor() {
@@ -81,9 +82,18 @@ class Request_template extends Component {
                     handleChanges={this.on_status_change}
                     displayObject={this.props.displayObject}
                 />
-                <span className='request-grid-holder__self'>{this.props.displayObject.customer_self_description}</span>
-                <NoteAdd updater={this.update_textfield} writer={this.add_note_and_log} value={this.state.textfield}/>
-                <DoubleListFlex logs={this.state.logs} notes={this.state.notes}/>
+                <SelfDescriptionTemplate
+                    self={this.props.displayObject.customer_self_description}
+                />
+                <NoteAdd
+                    updater={this.update_textfield}
+                    writer={this.add_note_and_log}
+                    value={this.state.textfield}
+                />
+                <DoubleListFlex
+                    logs={this.state.logs}
+                    notes={this.state.notes}
+                />
             </div>
         )
     }

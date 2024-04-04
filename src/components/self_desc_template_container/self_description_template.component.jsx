@@ -1,4 +1,5 @@
 import {Component} from "react";
+import './self_description_template.style.sass'
 
 class SelfDescriptionTemplate extends Component {
     render() {
