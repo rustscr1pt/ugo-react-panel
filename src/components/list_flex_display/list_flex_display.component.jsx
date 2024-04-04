@@ -5,7 +5,7 @@ class ListFlexDisplay extends Component {
     constructor() {
         super();
         this.state = {
-            active : "collapsible-container__content"
+            active : "collapsible-container__hidden"
         }
     }
 

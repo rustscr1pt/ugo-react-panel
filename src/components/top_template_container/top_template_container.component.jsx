@@ -13,7 +13,7 @@ class TopTemplateContainer extends Component {
                 <div className='top-template-flex-container__separated'>
                     <span className='top-template-flex-container__span'>{this.props.displayObject.customer_email}</span>
                 </div>
-                <div className='top-template-flex-container__separated'>
+                <div className='top-template-flex-container__separated-date'>
                     <span className='top-template-flex-container__span'>{this.props.displayObject.date_time_added}</span>
                 </div>
             </div>
