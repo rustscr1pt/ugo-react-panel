@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import { v4 as uuidv4 } from 'uuid';
 import './request_template.sass';
-import Status_selector from "../status_selector/status_selector";
 import NoteAdd from "../add_note_field";
 import DoubleListFlex from "../double_list_flex";
+import TopTemplateContainer from "../top_template_container";
 
 class Request_template extends Component {
     constructor() {
@@ -76,11 +76,11 @@ class Request_template extends Component {
     render() {
         return (
             <div className='request-grid-holder'>
-                <span className='request-grid-holder__id'>{this.props.displayObject.id}</span>
-                <Status_selector selectedStatus={this.state.selected_status} handleChanges={this.on_status_change}/>
-                <span className='request-grid-holder__name'>{this.props.displayObject.customer_name}</span>
-                <span className='request-grid-holder__email'>{this.props.displayObject.customer_email}</span>
-                <span className='request-grid-holder__added'>{this.props.displayObject.date_time_added}</span>
+                <TopTemplateContainer
+                    selectedStatus={this.state.selected_status}
+                    handleChanges={this.on_status_change}
+                    displayObject={this.props.displayObject}
+                />
                 <span className='request-grid-holder__self'>{this.props.displayObject.customer_self_description}</span>
                 <NoteAdd updater={this.update_textfield} writer={this.add_note_and_log} value={this.state.textfield}/>
                 <DoubleListFlex logs={this.state.logs} notes={this.state.notes}/>
