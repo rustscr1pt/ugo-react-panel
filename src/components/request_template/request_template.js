@@ -70,7 +70,30 @@ class Request_template extends Component {
         this.setState(() => {
             return {selected_status : event.target.value}
         }, () => {
-            console.log(this.state.selected_status)
+            fetch("http://localhost:8000/api/orders/change_status", {
+                method : "POST",
+                body : JSON.stringify({
+                    order_id : `${this.props.displayObject.id}`,
+                    new_status : `${this.state.selected_status}`
+                }),
+                headers : {
+                    "Content-Type" : "application/json"
+                }
+            })
+                .then((response) => response.json())
+                .then((json) => {
+                    if (json.is_succeed) {
+                        console.log(json.message);
+                        // Add a banner which notifies, that status has been changed.
+                    }
+                    else {
+                        console.log(json.message);
+                    }
+                })
+                .catch(
+                    function(err) {
+                        console.log(err)
+                    })
         })
     }
 
