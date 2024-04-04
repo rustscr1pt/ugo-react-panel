@@ -17,7 +17,7 @@ class Request_template extends Component {
         }
     }
 
-    componentDidMount() { // for check if everything works fine.
+    reload_logs_notes() { // Reload notes and logs lists
         fetch('http://localhost:8000/api/orders/byID', {
             method : "POST",
             body : JSON.stringify({
@@ -46,6 +46,10 @@ class Request_template extends Component {
             )
     }
 
+    componentDidMount() { // for check if everything works fine.
+        this.reload_logs_notes()
+    }
+
     update_textfield = (event) => {
         this.setState(() => {
             return {textfield : event.target.value}
@@ -53,17 +57,26 @@ class Request_template extends Component {
     }
 
     add_note_and_log = () => { // ??? Add using the network and API
-        this.setState({
-            logs : [...this.state.logs, {
-                id : uuidv4(),
-                text : this.state.textfield
-            }],
-            notes : [...this.state.notes, {
-                id : uuidv4(),
-                text : this.state.textfield
-            }],
-            textfield : ""
-        });
+        fetch('http://localhost:8000/api/orders/add_note', {
+            method : "POST",
+            body : JSON.stringify({
+                order_id : `${this.props.displayObject.id}`,
+                note_to_add : `${this.state.textfield}`
+            }),
+            headers : {
+                "Content-Type" : "application/json"
+            }
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                if (json.is_succeed) {
+                    this.reload_logs_notes();
+                }
+                else {
+                    console.log(json.message);
+                }
+            })
+
     }
 
     on_status_change = (event) => { // Work with a status change.
