@@ -5,6 +5,8 @@ import NoteAdd from "../add_note_field";
 import DoubleListFlex from "../double_list_flex";
 import TopTemplateContainer from "../top_template_container";
 import SelfDescriptionTemplate from "../self_desc_template_container";
+import IDContainer from "../id_container";
+import RemoveButton from "../remove_button";
 
 class Request_template extends Component {
     constructor() {
@@ -112,24 +114,30 @@ class Request_template extends Component {
 
     render() {
         return (
-            <div className='request-grid-holder'>
-                <TopTemplateContainer
-                    selectedStatus={this.state.selected_status}
-                    handleChanges={this.on_status_change}
-                    displayObject={this.props.displayObject}
-                />
-                <SelfDescriptionTemplate
-                    self={this.props.displayObject.customer_self_description}
-                />
-                <NoteAdd
-                    updater={this.update_textfield}
-                    writer={this.add_note_and_log}
-                    value={this.state.textfield}
-                />
-                <DoubleListFlex
-                    logs={this.state.logs}
-                    notes={this.state.notes}
-                />
+            <div className='request-flex-vertical-container'>
+                <div className='request-grid-holder__top-panel'>
+                    <IDContainer id={this.props.displayObject.id}/>
+                    <RemoveButton id={this.props.displayObject.id}/>
+                </div>
+                <div className='request-grid-holder'>
+                    <TopTemplateContainer
+                        selectedStatus={this.state.selected_status}
+                        handleChanges={this.on_status_change}
+                        displayObject={this.props.displayObject}
+                    />
+                    <SelfDescriptionTemplate
+                        self={this.props.displayObject.customer_self_description}
+                    />
+                    <NoteAdd
+                        updater={this.update_textfield}
+                        writer={this.add_note_and_log}
+                        value={this.state.textfield}
+                    />
+                    <DoubleListFlex
+                        logs={this.state.logs}
+                        notes={this.state.notes}
+                    />
+                </div>
             </div>
         )
     }
