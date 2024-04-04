@@ -8,7 +8,11 @@ class List_of_requests extends Component {
             <div className='list_of_requests'>
                 {
                     this.props.object_vector.map((element) => {
-                        return <Request_template key={element.id} displayObject={element}/>
+                        return <Request_template
+                            key={element.id}
+                            displayObject={element}
+                            reload_orders={this.props.reload_orders}
+                        />
                     })
                 }
             </div>

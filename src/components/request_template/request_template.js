@@ -117,7 +117,10 @@ class Request_template extends Component {
             <div className='request-flex-vertical-container'>
                 <div className='request-grid-holder__top-panel'>
                     <IDContainer id={this.props.displayObject.id}/>
-                    <RemoveButton id={this.props.displayObject.id}/>
+                    <RemoveButton
+                        id={this.props.displayObject.id}
+                        reload_orders={this.props.reload_orders}
+                    />
                 </div>
                 <div className='request-grid-holder'>
                     <TopTemplateContainer

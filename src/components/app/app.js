@@ -10,7 +10,8 @@ class App extends Component {
             orders_vector : []
         }
     }
-    componentDidMount() {
+
+    fetch_orders_list() {
         fetch("http://localhost:8000/api/orders/get", {
             method : "POST",
             body : JSON.stringify({
@@ -36,12 +37,18 @@ class App extends Component {
                 }
             )
     }
+    componentDidMount() {
+        this.fetch_orders_list()
+    }
 
     render() {
         return (
             <div className='app_flex_centered_vertical'>
                 <BlackHeader/>
-                <List_of_requests object_vector={this.state.orders_vector}/>
+                <List_of_requests
+                    object_vector={this.state.orders_vector}
+                    reload_orders={this.fetch_orders_list}
+                />
             </div>
         )
     }
