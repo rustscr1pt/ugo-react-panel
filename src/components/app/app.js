@@ -32,10 +32,6 @@ const App = () => {
     return (
         <div className='app_flex_centered_vertical'>
             <BlackHeader/>
-            <List_of_requests
-                object_vector={OrdersVector}
-                reload_orders={setOrdersVector}
-            />
             <BasicTable object_vector={OrdersVector} reload_orders={setOrdersVector}/>
         </div>
     )
