@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, useEffect, useState} from "react";
 import { v4 as uuidv4 } from 'uuid';
 import './request_template.sass';
 import NoteAdd from "../add_note_field";
@@ -8,18 +8,14 @@ import SelfDescriptionTemplate from "../self_desc_template_container";
 import IDContainer from "../id_container";
 import RemoveButton from "../remove_button";
 
-class Request_template extends Component {
-    constructor() {
-        super();
-        this.state = {
-            logs : [],
-            notes : [],
-            textfield : "",
-            selected_status : "NULL"
-        }
-    }
 
-    reload_logs_notes() { // Reload notes and logs lists
+const Request_template = () => {
+    const [logs, setLogs] = useState([]);
+    const [notes, setNotes] = useState([]);
+    const [textField, setTextField] = useState("");
+    const [status, setStatus] = useState("NULL");
+
+    function reload_logs_notes() { // Reload notes and logs lists
         fetch('http://localhost:8000/api/orders/byID', {
             method : "POST",
             body : JSON.stringify({
@@ -33,10 +29,8 @@ class Request_template extends Component {
             .then((json) => {
                 console.log(json)
                 if (json.is_succeed) {
-                    this.setState({
-                        logs : json.reply[0].logs,
-                        notes : json.reply[0].notes
-                    })
+                    setLogs(json.reply[0].logs);
+                    setNotes(json.reply[0].notes);
                 } else {
 
                 }
@@ -46,6 +40,26 @@ class Request_template extends Component {
                     console.log(err)
                 }
             )
+    }
+
+    useEffect(() => {
+        reload_logs_notes();
+    }, []);
+
+
+
+
+}
+
+class Request_template extends Component {
+    constructor() {
+        super();
+        this.state = {
+            logs : [],
+            notes : [],
+            textfield : "",
+            selected_status : "NULL"
+        }
     }
 
     componentDidMount() { // for check if everything works fine.

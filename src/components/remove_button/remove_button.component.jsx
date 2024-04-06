@@ -1,9 +1,18 @@
 import {Component} from "react";
 import './remove_button.style.sass'
 class RemoveButton extends Component {
+    constructor() {
+        super();
+    }
     render() {
         return (
-            <button className='remove-button-container' onClick={() => this.remove_order_by_id(this.props.id)}>
+            <button className='remove-button-container'
+                    onClick={
+                        () => {
+                            this.remove_order_by_id(this.props.id);
+                            this.props.reload_orders();
+                        }
+                    }>
                 X
             </button>
         )
@@ -22,7 +31,7 @@ class RemoveButton extends Component {
             .then((response) => response.json())
             .then((json) => {
                 if (json.is_succeed) {
-                    this.props.reload_orders()
+                    console.log(json.message);
                 }
                 else {
                     console.log(json.message);
