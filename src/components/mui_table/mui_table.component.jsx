@@ -7,8 +7,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import "./mui_table.style.sass"
-import TopTemplateContainer from "../top_template_container";
 import Status_selector from "../status_selector";
+import IDContainer from "../id_container";
+import UnfoldButton from "../extended/unfold_button";
 
 const BasicTable = (props) => {
     return (
@@ -22,6 +23,8 @@ const BasicTable = (props) => {
                         <TableCell>Почта</TableCell>
                         <TableCell>Описание</TableCell>
                         <TableCell>Время добавления</TableCell>
+                        <TableCell align={"center"}>Дополнительно</TableCell>
+                        <TableCell align={"center"}>Удалить</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -40,6 +43,12 @@ const BasicTable = (props) => {
                                 <TableCell>{object.customer_email}</TableCell>
                                 <TableCell>{object.customer_self_description}</TableCell>
                                 <TableCell>{object.date_time_added}</TableCell>
+                                <TableCell>
+                                    <UnfoldButton/>
+                                </TableCell>
+                                <TableCell>
+                                    <IDContainer id={object.id} reload_orders={props.reload_orders}/>
+                                </TableCell>
                             </TableRow>
                             ))}
                 </TableBody>

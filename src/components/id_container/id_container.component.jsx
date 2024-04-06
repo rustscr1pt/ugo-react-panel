@@ -1,21 +1,40 @@
 import './id_container.style.sass';
 
 const IDContainer = (props) => {
+
+    function remove_order_by_id(id, setMain) {
+        fetch('http://localhost:8000/api/orders/remove_order', {
+            method : "POST",
+            body : JSON.stringify({
+                id : `${id}`
+            }),
+            headers : {
+                "Content-Type" : "application/json"
+            }
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                if (json.is_succeed) {
+                    console.log(json.message);
+                    setMain([]);
+                }
+                else {
+                    console.log(json.message);
+                }
+            })
+            .catch(function(err) {
+                console.log(err)
+            })
+    }
+
     return (
         <div className='black-id-flex-container'>
-            <span className='black-id-flex-container__span'>{props.id}</span>
+            <button
+                className="collapsible-container__activator"
+                onClick={() => remove_order_by_id(props.id, props.reload_orders)}>Удалить
+            </button>
         </div>
     )
 }
-
-// class IDContainer extends Component {
-//     render() {
-//         return (
-//             <div className='black-id-flex-container'>
-//                 <span className='black-id-flex-container__span'>{this.props.id}</span>
-//             </div>
-//         )
-//     }
-// }
 
 export default IDContainer;
