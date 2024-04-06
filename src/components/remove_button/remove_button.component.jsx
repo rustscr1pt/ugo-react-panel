@@ -1,4 +1,3 @@
-import {Component} from "react";
 import './remove_button.style.sass'
 
 const RemoveButton = (props) => {
