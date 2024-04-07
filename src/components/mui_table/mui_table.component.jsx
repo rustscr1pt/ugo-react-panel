@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -16,6 +15,8 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {useState} from "react";
 import IDContainer from "../id_container";
 import Status_selector from "../status_selector";
+import {Button, TextField} from "@mui/material";
+import SendIcon from "@mui/icons-material/Send"
 
 function Row(props) {
     const [open, setOpen] = useState(false);
@@ -55,10 +56,16 @@ function Row(props) {
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
+                            <Box sx={{display : 'flex', flexDirection: "row", justifyContent : "space-between", width : "80%"}}>
+                                <TextField sx={{width : "80%"}} label="Введите запись для добавления" variant='outlined'/>
+                                <Button sx={{width : "18%"}} variant="contained" endIcon={<SendIcon />}>
+                                    Добавить
+                                </Button>
+                            </Box>
                             <Typography variant="h6" gutterBottom component="div">
                                 История
                             </Typography>
-                            <Table size="small" aria-label="purchases">
+                            <Table size="small" aria-label="history">
                                 <TableHead>
                                     <TableRow>
                                         <TableCell>ID</TableCell>
