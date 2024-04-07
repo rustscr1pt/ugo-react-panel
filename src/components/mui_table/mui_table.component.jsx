@@ -13,10 +13,10 @@ import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {useState} from "react";
-import IDContainer from "../id_container";
 import Status_selector from "../status_selector";
 import {Button, TextField} from "@mui/material";
-import SendIcon from "@mui/icons-material/Send"
+import SendIcon from "@mui/icons-material/Send";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function Row(props) {
     const [open, setOpen] = useState(false);
@@ -39,8 +39,10 @@ function Row(props) {
                 <TableCell>{object.customer_email}</TableCell>
                 <TableCell>{object.customer_self_description}</TableCell>
                 <TableCell>{object.date_time_added}</TableCell>
-                <TableCell>
-                    <IDContainer id={object.id} reload_orders={object.reload_orders}/>
+                <TableCell sx={{display : "flex", justifyContent : "center"}}>
+                    <IconButton aria-label="delete">
+                        <DeleteIcon />
+                    </IconButton>
                 </TableCell>
                 <TableCell>
                     <IconButton
