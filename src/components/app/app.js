@@ -1,7 +1,6 @@
 import React, {Component, useEffect, useState} from "react";
 import './app.sass'
 import BlackHeader from "../black_header";
-import List_of_requests from "../list_of_requests";
 import BasicTable from "../mui_collection/mui_table";
 
 
