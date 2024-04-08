@@ -7,19 +7,19 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Collapse from "@mui/material/Collapse";
 import Box from "@mui/material/Box";
-import {Button, TextField} from "@mui/material";
-import SendIcon from "@mui/icons-material/Send";
 import Typography from "@mui/material/Typography";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
 import RemoveButton from "../mui_remove_button";
 import StatusSelector from "../mui_status_selector";
+import AddNoteBox from "../mui_add_note_box";
 
 const Row = (props) => {
     const [open, setOpen] = useState(false);
-    const [selectValue, changeSelectValue] = useState(props.object.request_status);
     const {object, reload_orders} = props;
+    const [selectValue, changeSelectValue] = useState(object.request_status);
+    const [notes, setNotes] = useState(object.notes);
 
     return (
         <React.Fragment>
@@ -54,12 +54,7 @@ const Row = (props) => {
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={8}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
-                            <Box sx={{display : 'flex', flexDirection: "row", justifyContent : "space-between", width : "80%"}}>
-                                <TextField sx={{width : "80%"}} label="Введите запись для добавления" variant='outlined'/>
-                                <Button sx={{width : "18%"}} variant="contained" endIcon={<SendIcon />}>
-                                    Добавить
-                                </Button>
-                            </Box>
+                            <AddNoteBox id={object.id} setNotes={setNotes}/>
                             <Typography variant="h6" gutterBottom component="div">
                                 История
                             </Typography>
@@ -72,7 +67,7 @@ const Row = (props) => {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {object.notes.map((note) => (
+                                    {notes.map((note) => (
                                         <TableRow key={note.id}>
                                             <TableCell component="th" scope="row">
                                                 {note.id}

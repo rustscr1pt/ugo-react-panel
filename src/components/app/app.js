@@ -1,4 +1,4 @@
-import React, {Component, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import './app.sass'
 import BlackHeader from "../black_header";
 import BasicTable from "../mui_collection/mui_table";
