@@ -1,24 +1,22 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {useState} from "react";
-import Status_selector from "../status_selector";
+import * as React from "react";
+import TableRow from "@mui/material/TableRow";
+import TableCell from "@mui/material/TableCell";
+import Status_selector from "../../status_selector";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import Collapse from "@mui/material/Collapse";
+import Box from "@mui/material/Box";
 import {Button, TextField} from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
-import DeleteIcon from '@mui/icons-material/Delete';
+import Typography from "@mui/material/Typography";
+import Table from "@mui/material/Table";
+import TableHead from "@mui/material/TableHead";
+import TableBody from "@mui/material/TableBody";
 
-function Row(props) {
+const Row = (props) => {
     const [open, setOpen] = useState(false);
     const {object} = props;
 
@@ -95,31 +93,4 @@ function Row(props) {
     )
 }
 
-const BasicTable = (props) => {
-    return (
-        <TableContainer component={Paper}>
-            <Table aria-label="simple table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>ID</TableCell>
-                        <TableCell>Статус</TableCell>
-                        <TableCell>Имя</TableCell>
-                        <TableCell>Почта</TableCell>
-                        <TableCell>Описание</TableCell>
-                        <TableCell>Время добавления</TableCell>
-                        <TableCell align={"center"}>Действия</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {
-                        props.object_vector.map((object) => (
-                            <Row key={object.id} object={object}/>
-                        ))
-                    }
-                </TableBody>
-            </Table>
-        </TableContainer>
-    )
-}
-
-export default BasicTable;
+export default Row;
