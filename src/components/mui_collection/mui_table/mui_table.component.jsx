@@ -20,7 +20,8 @@ const BasicTable = (props) => {
                         <TableCell>Почта</TableCell>
                         <TableCell>Описание</TableCell>
                         <TableCell>Время добавления</TableCell>
-                        <TableCell align={"center"}>Действия</TableCell>
+                        <TableCell align={"center"}>Удалить</TableCell>
+                        <TableCell align={"center"}>Развернуть</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

@@ -37,12 +37,12 @@ const Row = (props) => {
                 <TableCell>{object.customer_email}</TableCell>
                 <TableCell>{object.customer_self_description}</TableCell>
                 <TableCell>{object.date_time_added}</TableCell>
-                <TableCell sx={{display : "flex", justifyContent : "center"}}>
-                    <IconButton aria-label="delete">
+                <TableCell align="center">
+                    <IconButton aria-label="delete" size="small">
                         <DeleteIcon />
                     </IconButton>
                 </TableCell>
-                <TableCell>
+                <TableCell align="center">
                     <IconButton
                         aria-label="expand row"
                         size="small"
