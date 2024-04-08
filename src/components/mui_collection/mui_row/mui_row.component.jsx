@@ -2,9 +2,7 @@ import {useState} from "react";
 import * as React from "react";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
-import Status_selector from "../../status_selector";
 import IconButton from "@mui/material/IconButton";
-import DeleteIcon from "@mui/icons-material/Delete";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Collapse from "@mui/material/Collapse";
@@ -15,10 +13,13 @@ import Typography from "@mui/material/Typography";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
+import RemoveButton from "../mui_remove_button";
+import StatusSelector from "../mui_status_selector";
 
 const Row = (props) => {
     const [open, setOpen] = useState(false);
-    const {object} = props;
+    const [selectValue, changeSelectValue] = useState(props.object.request_status);
+    const {object, reload_orders} = props;
 
     return (
         <React.Fragment>
@@ -27,21 +28,18 @@ const Row = (props) => {
                     {object.id}
                 </TableCell>
                 <TableCell align="right">
-                    <Status_selector
-                        reload_orders={object.reload_orders}
-                        object_id={object.id}
-                        object_value={object.request_status}
+                    <StatusSelector
+                        id={object.id}
+                        selectValue={selectValue}
+                        changeSelectValue={changeSelectValue}
+                        reload_orders={reload_orders}
                     />
                 </TableCell>
                 <TableCell>{object.customer_name}</TableCell>
                 <TableCell>{object.customer_email}</TableCell>
                 <TableCell>{object.customer_self_description}</TableCell>
                 <TableCell>{object.date_time_added}</TableCell>
-                <TableCell align="center">
-                    <IconButton aria-label="delete" size="small">
-                        <DeleteIcon />
-                    </IconButton>
-                </TableCell>
+                <RemoveButton id={object.id} reload_orders={reload_orders}/>
                 <TableCell align="center">
                     <IconButton
                         aria-label="expand row"

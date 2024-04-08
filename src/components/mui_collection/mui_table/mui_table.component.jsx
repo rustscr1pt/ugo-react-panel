@@ -27,7 +27,7 @@ const BasicTable = (props) => {
                 <TableBody>
                     {
                         props.object_vector.map((object) => (
-                            <Row key={object.id} object={object}/>
+                            <Row key={object.id} object={object} reload_orders={props.reload_orders}/>
                         ))
                     }
                 </TableBody>
