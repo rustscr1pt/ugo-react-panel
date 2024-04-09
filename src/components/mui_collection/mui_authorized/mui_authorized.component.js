@@ -29,10 +29,7 @@ const MuiAuthorized = () => {
             )
     }, [OrdersVector.length]);
     return (
-        <div className='app_flex_centered_vertical'>
-            <BlackHeader/>
-            <BasicTable object_vector={OrdersVector} reload_orders={setOrdersVector}/>
-        </div>
+        <BasicTable object_vector={OrdersVector} reload_orders={setOrdersVector}/>
     )
 }
 

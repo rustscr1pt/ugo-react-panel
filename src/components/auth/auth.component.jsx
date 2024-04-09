@@ -3,12 +3,30 @@ import {Button, TextField} from "@mui/material";
 import "./auth.style.sass";
 import LoginIcon from '@mui/icons-material/Login';
 
-const Auth = () => {
+const Auth = (props) => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
 
     function handle_login_attempt() {
-        fetch("")
+        fetch("http://localhost:8000/api/login/attempt", {
+            method : "POST",
+            body : JSON.stringify({
+                "login" : `${login}`,
+                "password" : `${password}`
+            }),
+            headers : {
+                "Content-Type" : "application/json"
+            }
+        })
+            .then((reply) => reply.json())
+            .then((json) => {
+                if (json.is_succeed) {
+                    props.setIsAuthorized(true)
+                }
+                else {
+                    console.log(json.message)
+                }
+            })
     }
 
     return (
@@ -29,7 +47,7 @@ const Auth = () => {
                 sx={{marginTop : "2%", width : "40%"}}
                 variant="contained"
                 endIcon={<LoginIcon/>}
-                onClick={}
+                onClick={handle_login_attempt}
             >
                 Enter
             </Button>
