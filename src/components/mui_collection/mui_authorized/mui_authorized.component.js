@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from "react";
-import './app.sass'
-import BlackHeader from "../black_header";
-import BasicTable from "../mui_collection/mui_table";
-import {Alert} from "@mui/material";
+import './mui_authorized.style.sass'
+import BlackHeader from "../../black_header"
+import BasicTable from "../mui_table";
 
 
-const App = () => {
+const MuiAuthorized = () => {
     const [OrdersVector, setOrdersVector] = useState([]);
     useEffect(() => {
         fetch("http://localhost:8000/api/orders/get", {
@@ -37,4 +36,4 @@ const App = () => {
     )
 }
 
-export default App;
+export default MuiAuthorized;
