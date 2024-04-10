@@ -6,25 +6,23 @@ import LoginIcon from '@mui/icons-material/Login';
 const Auth = (props) => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
-    const delay = ms => new Promise(res => setTimeout(res, ms))
     const [showAlert, setShowAlert] = useState([]);
 
     useEffect(() => {
-        async function wait() {
-            await delay(3000);
+        setTimeout(function() {
             setShowAlert([]);
-        }
+        }, 5000)
     }, [showAlert.length])
 
     function display_alert() {
-        if (showAlert.length != 0) {
+        if (showAlert.length !== 0) {
             return (
                 <Alert
-                    sx={{position : "fixed", top : "30%", width : "38%"}}
+                    sx={{gridColumn : "7 / 15", gridRow : "1 / 2"}}
                     variant="filled"
-                    severity={showAlert.severity}
+                    severity={showAlert[0].severity}
                 >
-                    {showAlert.text}
+                    {showAlert[0].text}
                 </Alert>
             )
         }
@@ -69,19 +67,19 @@ const Auth = (props) => {
         <div className='auth-container'>
             {display_alert()}
             <TextField
-                sx={{width : "40%"}}
+                sx={{gridColumn : "7 / 15", gridRow : "3 / 4"}}
                 label="Логин"
                 variant="outlined"
                 onChange={(event) => setLogin(event.target.value)}
             />
             <TextField
-                sx={{marginTop : "2%", width : "40%"}}
+                sx={{gridColumn : "7 / 15", gridRow : "5 / 6"}}
                 label="Пароль" type="password"
                 autoComplete="current-password"
                 onChange={(event) => setPassword(event.target.value)}
             />
             <Button
-                sx={{marginTop : "2%", width : "40%"}}
+                sx={{gridColumn : "7 / 15", gridRow : "7 / 8"}}
                 variant="contained"
                 endIcon={<LoginIcon/>}
                 onClick={handle_login_attempt}
