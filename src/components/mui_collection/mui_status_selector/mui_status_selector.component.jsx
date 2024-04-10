@@ -2,7 +2,7 @@ import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
 const StatusSelector = (props) => {
     function update_status(event) {
-        fetch('https://trustedapi.space/api/orders/change_status', {
+        fetch('http://localhost:8000/api/orders/change_status', {
             method : "POST",
             body : JSON.stringify({
                 order_id : `${props.id}`,

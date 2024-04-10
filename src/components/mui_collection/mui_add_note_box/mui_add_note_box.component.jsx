@@ -7,7 +7,7 @@ import {useState} from "react";
 const AddNoteBox = (props) => {
     const [textField, setTextField] = useState("");
     function add_note(id, setNotes) {
-        fetch("https://trustedapi.space/api/orders/add_note", {
+        fetch("http://localhost:8000/api/orders/add_note", {
             method : "POST",
             body : JSON.stringify({
                 order_id : `${id}`,

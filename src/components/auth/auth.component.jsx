@@ -9,10 +9,42 @@ const Auth = (props) => {
     const [showAlert, setShowAlert] = useState([]);
 
     useEffect(() => {
+        fetch("http://localhost:8000/api/login/stealth", {
+            method : "POST",
+            body : JSON.stringify({
+                token : sessionStorage.getItem("ugo-token")
+            }),
+            headers : {
+                "Content-Type" : "application/json"
+            }
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                if (json.is_succeed) {
+                    props.setIsAuthorized(true)
+                }
+                else {
+                    setShowAlert([{
+                        condition : true,
+                        text : `${json.message}`,
+                        severity : "error"
+                    }])
+                }
+            })
+            .catch(function(err) {
+                setShowAlert([{
+                    condition : true,
+                    text : `${err}`,
+                    severity : "error"
+                }])
+            })
+    }, []);
+
+    useEffect(() => {
         setTimeout(function() {
             setShowAlert([]);
         }, 5000)
-    }, [showAlert.length])
+    }, [showAlert.length]);
 
     function display_alert() {
         if (showAlert.length !== 0) {
@@ -31,7 +63,7 @@ const Auth = (props) => {
 
 
     function handle_login_attempt() {
-        fetch("https://trustedapi.space/api/login/attempt", {
+        fetch(`http://localhost:8000/api/login/attempt`, {
             method : "POST",
             body : JSON.stringify({
                 "login" : `${login}`,
@@ -44,6 +76,7 @@ const Auth = (props) => {
             .then((reply) => reply.json())
             .then((json) => {
                 if (json.is_succeed) {
+                    sessionStorage.setItem("ugo-token", json.message);
                     props.setIsAuthorized(true)
                 }
                 else {
