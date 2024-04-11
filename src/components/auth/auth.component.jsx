@@ -6,55 +6,22 @@ import LoginIcon from '@mui/icons-material/Login';
 const Auth = (props) => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
-    const [showAlert, setShowAlert] = useState([]);
-
-    useEffect(() => {
-        fetch("http://localhost:8000/api/login/stealth", {
-            method : "POST",
-            body : JSON.stringify({
-                token : sessionStorage.getItem("ugo-token")
-            }),
-            headers : {
-                "Content-Type" : "application/json"
-            }
-        })
-            .then((response) => response.json())
-            .then((json) => {
-                if (json.is_succeed) {
-                    props.setIsAuthorized(true)
-                }
-                else {
-                    setShowAlert([{
-                        condition : true,
-                        text : `${json.message}`,
-                        severity : "error"
-                    }])
-                }
-            })
-            .catch(function(err) {
-                setShowAlert([{
-                    condition : true,
-                    text : `${err}`,
-                    severity : "error"
-                }])
-            })
-    }, []);
 
     useEffect(() => {
         setTimeout(function() {
-            setShowAlert([]);
+            props.setShowAlert([]);
         }, 5000)
-    }, [showAlert.length]);
+    }, [props.showAlert.length]);
 
     function display_alert() {
-        if (showAlert.length !== 0) {
+        if (props.showAlert.length !== 0) {
             return (
                 <Alert
                     sx={{gridColumn : "7 / 15", gridRow : "1 / 2"}}
                     variant="filled"
-                    severity={showAlert[0].severity}
+                    severity={props.showAlert[0].severity}
                 >
-                    {showAlert[0].text}
+                    {props.showAlert[0].text}
                 </Alert>
             )
         }
@@ -80,7 +47,7 @@ const Auth = (props) => {
                     props.setIsAuthorized(true)
                 }
                 else {
-                    setShowAlert([{
+                    props.setShowAlert([{
                         condition : true,
                         text : `${json.message}`,
                         severity : "error"
@@ -88,7 +55,7 @@ const Auth = (props) => {
                 }
             })
             .catch(function(err) {
-                setShowAlert([{
+                props.setShowAlert([{
                     condition : true,
                     text : `${err}`,
                     severity : "error"
