@@ -5,7 +5,7 @@ import * as React from "react";
 
 const RemoveButton = (props) => {
     function remove_order_by_id(id, setMain) {
-        fetch('https://trustedapi.space/api/orders/remove_order', {
+        fetch('http://localhost:8000/api/orders/remove_order', {
             method : "POST",
             body : JSON.stringify({
                 id : `${id}`

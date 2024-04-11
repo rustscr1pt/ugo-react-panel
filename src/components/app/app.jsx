@@ -2,13 +2,14 @@ import {useEffect, useState} from "react";
 import Auth from "../auth";
 import BlackHeader from "../black_header";
 import MuiAuthorized from "../mui_collection/mui_authorized";
+import BodyContainer from "../mui_top_panel/body-container";
 
 const App = () => {
     const [isAuthorized, setIsAuthorized] = useState(false);
     const [showAlert, setShowAlert] = useState([]);
 
     useEffect(() => {
-        fetch("https://trustedapi.space/api/login/stealth", {
+        fetch("http://localhost:8000/api/login/stealth", {
             method : "POST",
             body : JSON.stringify({
                 token : sessionStorage.getItem("ugo-token")
