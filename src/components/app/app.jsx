@@ -8,14 +8,13 @@ const App = () => {
     const [showAlert, setShowAlert] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8000/api/login/stealth", {
+        fetch("https://trustedapi.space/api/login/stealth", {
             method : "POST",
             body : JSON.stringify({
                 token : sessionStorage.getItem("ugo-token")
             }),
             headers : {
                 "Content-Type" : "application/json",
-                "Access-Control-Allow-Origin" : "*"
             }
         })
             .then((response) => response.json())

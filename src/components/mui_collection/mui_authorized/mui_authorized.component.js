@@ -7,7 +7,7 @@ import BasicTable from "../mui_table";
 const MuiAuthorized = () => {
     const [OrdersVector, setOrdersVector] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:8000/api/orders/get", {
+        fetch("https://trustedapi.space/api/orders/get", {
             method : "POST",
             body : JSON.stringify({
                 token_id : "nil"

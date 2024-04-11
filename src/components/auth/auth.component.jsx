@@ -30,7 +30,7 @@ const Auth = (props) => {
 
 
     function handle_login_attempt() {
-        fetch(`http://localhost:8000/api/login/attempt`, {
+        fetch("https://trustedapi.space/api/login/attempt", {
             method : "POST",
             body : JSON.stringify({
                 "login" : `${login}`,
