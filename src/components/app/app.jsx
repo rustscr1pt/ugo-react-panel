@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 import Auth from "../auth";
 import BlackHeader from "../black_header";
 import MuiAuthorized from "../mui_collection/mui_authorized";
-import BodyContainer from "../mui_top_panel/body-container";
 
 const App = () => {
     const [isAuthorized, setIsAuthorized] = useState(false);
