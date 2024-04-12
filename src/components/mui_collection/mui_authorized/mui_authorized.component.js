@@ -8,6 +8,13 @@ import Box from "@mui/material/Box";
 
 const MuiAuthorized = () => {
     const [OrdersVector, setOrdersVector] = useState([]);
+    const [clonedOrders, setClonedOrders] = useState([]);
+
+    const [filteredQuery, setFilteredQuery] = useState("");
+    const [filterType, setFilterType] = useState("");
+
+    const [reloadActivator, setReloadActivator] = useState(false);
+
     useEffect(() => {
         fetch("http://localhost:8000/api/orders/get", {
             method : "POST",
@@ -23,16 +30,51 @@ const MuiAuthorized = () => {
             .then((json) => {
                 console.log(json);
                 setOrdersVector(json.reply)
+                setClonedOrders(json.reply);
             })
             .catch(
                 function(err){
                     console.log(err)
                 }
             )
-    }, [OrdersVector.length]);
+    }, [reloadActivator]);
+
+    useEffect(() => {
+        if (filteredQuery === "") {
+            setOrdersVector(clonedOrders);
+        }
+        else {
+            console.log(filterType, filteredQuery);
+            switch (filterType) {
+                case "ID":
+                    setOrdersVector(clonedOrders.filter((element) => element.id.toLowerCase().includes(filteredQuery.toLowerCase())));
+                    break
+                case "Статус":
+                    setOrdersVector(clonedOrders.filter((element) => element.request_status.toLowerCase().includes(filteredQuery.toLowerCase())))
+                    break
+                case "Имя":
+                    setOrdersVector(clonedOrders.filter((element) => element.customer_name.toLowerCase().includes(filteredQuery.toLowerCase())))
+                    break
+                case "Почта":
+                    setOrdersVector(clonedOrders.filter((element) => element.customer_email.toLowerCase().includes(filteredQuery.toLowerCase())))
+                    break
+                case "Описание":
+                    setOrdersVector(clonedOrders.filter((element) => element.customer_self_description.toLowerCase().includes(filteredQuery.toLowerCase())))
+                    break
+                default:
+                    break
+            }
+        }
+    }, [filteredQuery])
+
     return (
         <Box>
-            <BodyContainer setOrdersVector={setOrdersVector}/>
+            <BodyContainer
+                filterType={filterType}
+                setFilterType={setFilterType}
+                filteredQuery={filteredQuery}
+                setFilteredQuery={setFilteredQuery}
+                setOrdersVector={setOrdersVector}/>
             <BasicTable object_vector={OrdersVector} reload_orders={setOrdersVector}/>
         </Box>
     )

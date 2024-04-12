@@ -1,11 +1,13 @@
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
-const SortSelector = () => {
+const SortSelector = (props) => {
     return (
-        <FormControl sx={{width : "40%"}}>
+        <FormControl sx={{gridColumn : " 28 / 34"}}>
             <InputLabel id="demo-simple-select-label">Где искать</InputLabel>
             <Select
+                value={props.filterType}
                 label="Где искать"
+                onChange={(event) => props.setFilterType(event.target.value)}
             >
                 <MenuItem value="ID">ID</MenuItem>
                 <MenuItem value="Статус">Статус</MenuItem>

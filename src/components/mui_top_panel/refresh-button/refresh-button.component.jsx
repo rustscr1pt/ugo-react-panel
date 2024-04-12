@@ -27,9 +27,11 @@ const RefreshButton = (props) => {
     }
 
     return (
-        <Button variant="contained"
-                endIcon={<CachedIcon/>}
-                onClick={refresh_data}
+        <Button
+            sx={{gridColumn : "35 / 40"}}
+            variant="contained"
+            endIcon={<CachedIcon/>}
+            onClick={refresh_data}
         >
             Обновить
         </Button>
