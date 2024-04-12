@@ -57,7 +57,7 @@ const Row = (props) => {
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={8}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
-                        <Box sx={{ margin: 1 }}>
+                        <Box sx={{ margin: 1, width : "100%" }}>
                             <AddNoteBox
                                 id={object.id}
                                 setNotes={setNotes}

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import './mui_authorized.style.sass'
-import BlackHeader from "../../black_header"
 import BasicTable from "../mui_table";
 import BodyContainer from "../../mui_top_panel/body-container";
 import Box from "@mui/material/Box";
