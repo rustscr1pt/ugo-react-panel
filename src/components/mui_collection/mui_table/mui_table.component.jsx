@@ -30,7 +30,7 @@ const BasicTable = (props) => {
                             <Row
                                 key={object.id}
                                 object={object}
-                                reload_orders={props.reload_orders}
+                                reloadActivator={props.reloadActivator}
                                 setReloadActivator={props.setReloadActivator}
                             />
                         ))

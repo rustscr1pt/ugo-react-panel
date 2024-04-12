@@ -41,6 +41,7 @@ const Row = (props) => {
                 <TableCell>{object.date_time_added}</TableCell>
                 <RemoveButton
                     id={object.id}
+                    reloadActivator={props.reloadActivator}
                     setReloadActivator={props.setReloadActivator}
                 />
                 <TableCell align="center">

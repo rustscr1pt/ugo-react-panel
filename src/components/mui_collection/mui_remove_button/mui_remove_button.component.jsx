@@ -4,7 +4,7 @@ import TableCell from "@mui/material/TableCell";
 import * as React from "react";
 
 const RemoveButton = (props) => {
-    function remove_order_by_id(id, setMain) {
+    function remove_order_by_id(id, reload, setReload) {
         fetch('http://localhost:8000/api/orders/remove_order', {
             method : "POST",
             body : JSON.stringify({
@@ -18,7 +18,7 @@ const RemoveButton = (props) => {
             .then((json) => {
                 if (json.is_succeed) {
                     console.log(json.message);
-                    setMain(true);
+                    setReload(!reload);
                 }
                 else {
                     console.log(json.message);
@@ -34,7 +34,7 @@ const RemoveButton = (props) => {
             <IconButton
                 aria-label="delete"
                 size="small"
-                onClick={() => remove_order_by_id(props.id, props.setReloadActivator)}
+                onClick={() => remove_order_by_id(props.id, props.reloadActivator, props.setReloadActivator)}
             >
                 <DeleteIcon />
             </IconButton>

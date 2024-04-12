@@ -78,7 +78,7 @@ const MuiAuthorized = () => {
             />
             <BasicTable
                 object_vector={OrdersVector}
-                reload_orders={setOrdersVector}
+                reloadActivator={reloadActivator}
                 setReloadActivator={setReloadActivator}
             />
         </Box>
