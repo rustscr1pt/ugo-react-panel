@@ -39,7 +39,10 @@ const Row = (props) => {
                 <TableCell>{object.customer_email}</TableCell>
                 <TableCell>{object.customer_self_description}</TableCell>
                 <TableCell>{object.date_time_added}</TableCell>
-                <RemoveButton id={object.id} reload_orders={reload_orders}/>
+                <RemoveButton
+                    id={object.id}
+                    setReloadActivator={props.setReloadActivator}
+                />
                 <TableCell align="center">
                     <IconButton
                         aria-label="expand row"
@@ -54,7 +57,10 @@ const Row = (props) => {
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={8}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
-                            <AddNoteBox id={object.id} setNotes={setNotes}/>
+                            <AddNoteBox
+                                id={object.id}
+                                setNotes={setNotes}
+                            />
                             <Typography variant="h6" gutterBottom component="div">
                                 История
                             </Typography>

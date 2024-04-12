@@ -27,7 +27,12 @@ const BasicTable = (props) => {
                 <TableBody>
                     {
                         props.object_vector.map((object) => (
-                            <Row key={object.id} object={object} reload_orders={props.reload_orders}/>
+                            <Row
+                                key={object.id}
+                                object={object}
+                                reload_orders={props.reload_orders}
+                                setReloadActivator={props.setReloadActivator}
+                            />
                         ))
                     }
                 </TableBody>

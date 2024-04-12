@@ -68,14 +68,19 @@ const MuiAuthorized = () => {
     }, [filteredQuery])
 
     return (
-        <Box>
+        <Box sx={{width : "100%"}}>
             <BodyContainer
                 filterType={filterType}
                 setFilterType={setFilterType}
                 filteredQuery={filteredQuery}
                 setFilteredQuery={setFilteredQuery}
-                setOrdersVector={setOrdersVector}/>
-            <BasicTable object_vector={OrdersVector} reload_orders={setOrdersVector}/>
+                setOrdersVector={setOrdersVector}
+            />
+            <BasicTable
+                object_vector={OrdersVector}
+                reload_orders={setOrdersVector}
+                setReloadActivator={setReloadActivator}
+            />
         </Box>
     )
 }

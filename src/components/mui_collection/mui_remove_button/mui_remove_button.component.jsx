@@ -18,7 +18,7 @@ const RemoveButton = (props) => {
             .then((json) => {
                 if (json.is_succeed) {
                     console.log(json.message);
-                    setMain([]);
+                    setMain(true);
                 }
                 else {
                     console.log(json.message);
@@ -34,7 +34,7 @@ const RemoveButton = (props) => {
             <IconButton
                 aria-label="delete"
                 size="small"
-                onClick={() => remove_order_by_id(props.id, props.reload_orders)}
+                onClick={() => remove_order_by_id(props.id, props.setReloadActivator)}
             >
                 <DeleteIcon />
             </IconButton>
