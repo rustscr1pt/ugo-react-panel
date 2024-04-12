@@ -47,7 +47,7 @@ const MuiAuthorized = () => {
             console.log(filterType, filteredQuery);
             switch (filterType) {
                 case "ID":
-                    setOrdersVector(clonedOrders.filter((element) => element.id.toLowerCase().includes(filteredQuery.toLowerCase())));
+                    setOrdersVector(clonedOrders.filter((element) => element.id == filteredQuery));
                     break
                 case "Статус":
                     setOrdersVector(clonedOrders.filter((element) => element.request_status.toLowerCase().includes(filteredQuery.toLowerCase())))
