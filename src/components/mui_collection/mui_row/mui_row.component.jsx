@@ -14,6 +14,7 @@ import TableBody from "@mui/material/TableBody";
 import RemoveButton from "../mui_remove_button";
 import StatusSelector from "../mui_status_selector";
 import AddNoteBox from "../mui_add_note_box";
+import RemoveNoteButton from "../mui_remove_note_button";
 
 const Row = (props) => {
     const [open, setOpen] = useState(false);
@@ -81,6 +82,13 @@ const Row = (props) => {
                                             </TableCell>
                                             <TableCell>{note.text_info}</TableCell>
                                             <TableCell>{note.date_time}</TableCell>
+                                            <TableCell>
+                                                <RemoveNoteButton
+                                                    setNotes={setNotes}
+                                                    note_id={note.id}
+                                                    related_id={object.id}
+                                                />
+                                            </TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>
