@@ -13,6 +13,9 @@ const AddNoteBox = (props) => {
             setFieldError(false);
             setTextField(event.target.value);
         }
+        else {
+            setTextField(event.target.value);
+        }
     }
     function add_note(id, setNotes) {
         if (textField === "") {
