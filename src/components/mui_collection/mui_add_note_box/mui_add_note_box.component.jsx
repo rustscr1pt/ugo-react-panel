@@ -6,38 +6,52 @@ import {useState} from "react";
 
 const AddNoteBox = (props) => {
     const [textField, setTextField] = useState("");
+    const [fieldError, setFieldError] = useState(false);
+
+    function textfield_event(event) {
+        if (event.target.value !== "") {
+            setFieldError(false);
+            setTextField(event.target.value);
+        }
+    }
     function add_note(id, setNotes) {
-        fetch("http://localhost:8000/api/orders/add_note", {
-            method : "POST",
-            body : JSON.stringify({
-                order_id : `${id}`,
-                note_to_add : `${textField}`
-            }),
-            headers : {
-                "Content-Type" : "application/json"
-            }
-        })
-            .then((reply) => reply.json())
-            .then((json) => {
-                if (json.is_succeed) {
-                    console.log(json.message);
-                    setNotes(json.reply)
-                    setTextField("");
-                }
-                else {
-                    console.log(json.message)
+        if (textField === "") {
+            setFieldError(true);
+        }
+        else {
+            fetch("http://localhost:8000/api/orders/add_note", {
+                method : "POST",
+                body : JSON.stringify({
+                    order_id : `${id}`,
+                    note_to_add : `${textField}`
+                }),
+                headers : {
+                    "Content-Type" : "application/json"
                 }
             })
+                .then((reply) => reply.json())
+                .then((json) => {
+                    if (json.is_succeed) {
+                        console.log(json.message);
+                        setNotes(json.reply)
+                        setTextField("");
+                    }
+                    else {
+                        console.log(json.message)
+                    }
+                })
+        }
     }
 
     return (
         <Box sx={{display : 'flex', flexDirection: "row", justifyContent : "space-between", width : "80%"}}>
             <TextField
+                error={fieldError}
                 sx={{width : "80%"}}
                 label="Введите запись для добавления"
                 variant='outlined'
                 value={textField}
-                onChange={(event) => setTextField(event.target.value)}
+                onChange={(event) => textfield_event(event)}
             />
             <Button
                 sx={{width : "18%"}}
