@@ -28,7 +28,7 @@ const Row = (props) => {
                 <TableCell component="th" scope="row">
                     {object.id}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell sx={{width : "24%"}} align="right">
                     <StatusSelector
                         id={object.id}
                         selectValue={selectValue}
