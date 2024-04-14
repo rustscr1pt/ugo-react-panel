@@ -14,7 +14,7 @@ const BasicTable = (props) => {
             <Table aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>ID</TableCell>
+                        <TableCell sx={{color : "#FFFFFF"}}>ID</TableCell>
                         <TableCell>Статус</TableCell>
                         <TableCell>Имя</TableCell>
                         <TableCell>Почта</TableCell>

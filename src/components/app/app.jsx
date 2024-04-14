@@ -3,6 +3,11 @@ import Auth from "../auth";
 import BlackHeader from "../black_header";
 import MuiAuthorized from "../mui_collection/mui_authorized";
 import route_fillers from "../../constants/route_fillers";
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 
 const App = () => {
     const [isAuthorized, setIsAuthorized] = useState(false);
