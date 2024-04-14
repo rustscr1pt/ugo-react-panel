@@ -8,35 +8,38 @@ const App = () => {
     const [showAlert, setShowAlert] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8000/api/login/stealth", {
-            method : "POST",
-            body : JSON.stringify({
-                token : sessionStorage.getItem("ugo-token")
-            }),
-            headers : {
-                "Content-Type" : "application/json",
-            }
-        })
-            .then((response) => response.json())
-            .then((json) => {
-                if (json.is_succeed) {
-                    setIsAuthorized(true)
+        if (sessionStorage.getItem("ugo-token") !== null) {
+            console.log(`Active token : ${sessionStorage.getItem("ugo-token")}`);
+            fetch("http://localhost:8000/api/login/stealth", {
+                method : "POST",
+                body : JSON.stringify({
+                    token : sessionStorage.getItem("ugo-token")
+                }),
+                headers : {
+                    "Content-Type" : "application/json",
                 }
-                else {
+            })
+                .then((response) => response.json())
+                .then((json) => {
+                    if (json.is_succeed) {
+                        setIsAuthorized(true)
+                    }
+                    else {
+                        setShowAlert([{
+                            condition : true,
+                            text : `${json.message}`,
+                            severity : "error"
+                        }])
+                    }
+                })
+                .catch(function(err) {
                     setShowAlert([{
                         condition : true,
-                        text : `${json.message}`,
+                        text : `${err}`,
                         severity : "error"
                     }])
-                }
-            })
-            .catch(function(err) {
-                setShowAlert([{
-                    condition : true,
-                    text : `${err}`,
-                    severity : "error"
-                }])
-            })
+                })
+        }
     }, []);
 
 
