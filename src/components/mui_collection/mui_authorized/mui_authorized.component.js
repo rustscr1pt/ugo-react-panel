@@ -3,6 +3,7 @@ import './mui_authorized.style.sass'
 import BasicTable from "../mui_table";
 import BodyContainer from "../../mui_top_panel/body-container";
 import Box from "@mui/material/Box";
+import route_fillers from "../../../constants/route_fillers";
 
 
 const MuiAuthorized = () => {
@@ -15,7 +16,7 @@ const MuiAuthorized = () => {
     const [reloadActivator, setReloadActivator] = useState(false);
 
     useEffect(() => {
-        fetch("http://localhost:8000/api/orders/get", {
+        fetch(`${route_fillers.url}/api/orders/get`, {
             method : "POST",
             body : JSON.stringify({
                 token_id : "nil"

@@ -1,10 +1,11 @@
 import CachedIcon from '@mui/icons-material/Cached';
 import {Button} from "@mui/material";
+import route_fillers from "../../../constants/route_fillers";
 
 const RefreshButton = (props) => {
 
     function refresh_data() {
-        fetch("http://localhost:8000/api/orders/get", {
+        fetch(`${route_fillers.url}/api/orders/get`, {
             method : "POST",
             body : JSON.stringify({
                 token_id : "nil"

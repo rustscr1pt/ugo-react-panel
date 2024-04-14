@@ -1,8 +1,9 @@
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import route_fillers from "../../../constants/route_fillers";
 
 const StatusSelector = (props) => {
     function update_status(event) {
-        fetch('http://localhost:8000/api/orders/change_status', {
+        fetch(`${route_fillers.url}/api/orders/change_status`, {
             method : "POST",
             body : JSON.stringify({
                 order_id : `${props.id}`,

@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import Auth from "../auth";
 import BlackHeader from "../black_header";
 import MuiAuthorized from "../mui_collection/mui_authorized";
+import route_fillers from "../../constants/route_fillers";
 
 const App = () => {
     const [isAuthorized, setIsAuthorized] = useState(false);
@@ -10,7 +11,7 @@ const App = () => {
     useEffect(() => {
         if (sessionStorage.getItem("ugo-token") !== null) {
             console.log(`Active token : ${sessionStorage.getItem("ugo-token")}`);
-            fetch("http://localhost:8000/api/login/stealth", {
+            fetch(`${route_fillers.url}/api/login/stealth`, {
                 method : "POST",
                 body : JSON.stringify({
                     token : sessionStorage.getItem("ugo-token")

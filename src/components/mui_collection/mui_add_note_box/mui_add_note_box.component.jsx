@@ -3,6 +3,7 @@ import SendIcon from "@mui/icons-material/Send";
 import Box from "@mui/material/Box";
 import * as React from "react";
 import {useState} from "react";
+import route_fillers from "../../../constants/route_fillers";
 
 const AddNoteBox = (props) => {
     const [textField, setTextField] = useState("");
@@ -22,7 +23,7 @@ const AddNoteBox = (props) => {
             setFieldError(true);
         }
         else {
-            fetch("http://localhost:8000/api/orders/add_note", {
+            fetch(`${route_fillers.url}/api/orders/add_note`, {
                 method : "POST",
                 body : JSON.stringify({
                     order_id : `${id}`,

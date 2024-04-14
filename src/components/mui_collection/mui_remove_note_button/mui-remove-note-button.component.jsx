@@ -2,11 +2,12 @@ import TableCell from "@mui/material/TableCell";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import * as React from "react";
+import route_fillers from "../../../constants/route_fillers";
 
 const RemoveNoteButton = (props) => {
 
     function remove_note_return_list(note_id, related_id, setNotes) {
-        fetch("http://localhost:8000/api/orders/remove_note", {
+        fetch(`${route_fillers.url}/api/orders/remove_note`, {
             method : "POST",
             body : JSON.stringify({
                 note_id : `${note_id}`,
