@@ -32,7 +32,6 @@ const RemoveNoteButton = (props) => {
     }
 
     return (
-        <TableCell align="center">
             <IconButton
                 aria-label="delete"
                 size="small"
@@ -40,7 +39,6 @@ const RemoveNoteButton = (props) => {
             >
                 <DeleteIcon />
             </IconButton>
-        </TableCell>
     )
 }
 

@@ -72,6 +72,7 @@ const Row = (props) => {
                                         <TableCell>ID</TableCell>
                                         <TableCell>Запись</TableCell>
                                         <TableCell>Когда сделана</TableCell>
+                                        <TableCell></TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
