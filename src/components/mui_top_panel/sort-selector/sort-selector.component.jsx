@@ -2,7 +2,10 @@ import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
 const SortSelector = (props) => {
     return (
-        <FormControl sx={{gridColumn : " 28 / 34"}}>
+        <FormControl sx={{
+            gridColumn : " 28 / 34",
+            backgroundColor : "white"
+        }}>
             <InputLabel id="demo-simple-select-label">Где искать</InputLabel>
             <Select
                 value={props.filterType}
