@@ -58,12 +58,12 @@ const Row = (props) => {
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={8}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
-                        <Box sx={{ margin: 1, width : "100%" }}>
+                        <Box sx={{ margin: 1, width : "100%", marginTop : "1%" }}>
                             <AddNoteBox
                                 id={object.id}
                                 setNotes={setNotes}
                             />
-                            <Typography variant="h6" gutterBottom component="div">
+                            <Typography sx={{marginTop : "1%"}} variant="h6" gutterBottom component="div">
                                 История
                             </Typography>
                             <Table size="small" aria-label="history">
