@@ -4,6 +4,7 @@ import BasicTable from "../mui_table";
 import BodyContainer from "../../mui_top_panel/body-container";
 import Box from "@mui/material/Box";
 import route_fillers from "../../../constants/route_fillers";
+import PagePagination from "../mui_pagination";
 
 
 const MuiAuthorized = () => {
@@ -81,6 +82,7 @@ const MuiAuthorized = () => {
                 reloadActivator={reloadActivator}
                 setReloadActivator={setReloadActivator}
             />
+            <PagePagination/>
         </Box>
     )
 }
