@@ -17,10 +17,11 @@ const MuiAuthorized = () => {
     const [reloadActivator, setReloadActivator] = useState(false);
 
     useEffect(() => {
-        fetch(`${route_fillers.url}/api/orders/get`, {
+        fetch(`${route_fillers.url}/api/orders/get/page`, {
             method : "POST",
             body : JSON.stringify({
-                token_id : "nil"
+                rows_per_page : "10",
+                page_number : "0"
             }),
             headers : {
                 "Content-Type" : "application/json"
