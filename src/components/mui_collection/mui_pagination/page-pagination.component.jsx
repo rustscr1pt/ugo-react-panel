@@ -1,9 +1,13 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {TablePagination} from "@mui/material";
 
 const PagePagination = () => {
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
+
+    useEffect(() => {
+        fetch("")
+    }, [page])
 
     const handleChangePage = (
         event: React.MouseEvent<HTMLButtonElement> | null,
