@@ -1,13 +1,9 @@
 import {useEffect, useState} from "react";
 import {TablePagination} from "@mui/material";
 
-const PagePagination = () => {
+const PagePagination = (props) => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
-
-    useEffect(() => {
-        fetch("")
-    }, [page])
 
     const handleChangePage = (
         event: React.MouseEvent<HTMLButtonElement> | null,
@@ -26,7 +22,7 @@ const PagePagination = () => {
     return (
         <TablePagination
             component="div"
-            count={100}
+            count={props.rowsCount}
             page={page}
             onPageChange={handleChangePage}
             rowsPerPage={rowsPerPage}

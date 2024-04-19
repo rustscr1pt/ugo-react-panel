@@ -16,12 +16,14 @@ const MuiAuthorized = () => {
 
     const [reloadActivator, setReloadActivator] = useState(false);
 
+    const [rowsCount, setRowsCount] = useState(0);
+
     useEffect(() => {
         fetch(`${route_fillers.url}/api/orders/get/page`, {
             method : "POST",
             body : JSON.stringify({
                 rows_per_page : "10",
-                page_number : "0"
+                page_number : "1"
             }),
             headers : {
                 "Content-Type" : "application/json"
@@ -31,8 +33,23 @@ const MuiAuthorized = () => {
                 (response) => response.json())
             .then((json) => {
                 console.log(json);
-                setOrdersVector(json.reply)
+                setOrdersVector(json.reply);
                 setClonedOrders(json.reply);
+            })
+            .then(() => {
+                fetch(`${route_fillers.url}/api/orders/total`, {
+                    method : "GET",
+                    headers : {
+                        "Content-Type" : "application/json"
+                    }
+                })
+                    .then((reply) => reply.json())
+                    .then((json) => {
+                        console.log(json);
+                        if (json.is_succeed) {
+                            setRowsCount(parseInt(json.message))
+                        }
+                    })
             })
             .catch(
                 function(err){
@@ -83,7 +100,7 @@ const MuiAuthorized = () => {
                 reloadActivator={reloadActivator}
                 setReloadActivator={setReloadActivator}
             />
-            <PagePagination/>
+            <PagePagination rowsCount={rowsCount}/>
         </Box>
     )
 }
