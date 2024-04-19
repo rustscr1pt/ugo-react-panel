@@ -24,6 +24,8 @@ const PagePagination = (props) => {
             onPageChange={handleChangePage}
             rowsPerPage={props.rowsPerPage}
             onRowsPerPageChange={handleChangeRowsPerPage}
+            showFirstButton="true"
+            showLastButton="true"
         />
     )
 }
