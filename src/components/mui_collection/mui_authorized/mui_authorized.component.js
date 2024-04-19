@@ -17,13 +17,15 @@ const MuiAuthorized = () => {
     const [reloadActivator, setReloadActivator] = useState(false);
 
     const [rowsCount, setRowsCount] = useState(0);
+    const [page, setPage] = useState(1);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
 
     useEffect(() => {
         fetch(`${route_fillers.url}/api/orders/get/page`, {
             method : "POST",
             body : JSON.stringify({
-                rows_per_page : "10",
-                page_number : "1"
+                rows_per_page : `${rowsPerPage}`,
+                page_number : `${page}`
             }),
             headers : {
                 "Content-Type" : "application/json"
@@ -56,7 +58,7 @@ const MuiAuthorized = () => {
                     console.log(err)
                 }
             )
-    }, [reloadActivator]);
+    }, [reloadActivator, page, rowsPerPage]);
 
     useEffect(() => {
         if (filteredQuery === "") {
@@ -100,7 +102,13 @@ const MuiAuthorized = () => {
                 reloadActivator={reloadActivator}
                 setReloadActivator={setReloadActivator}
             />
-            <PagePagination rowsCount={rowsCount}/>
+            <PagePagination
+                rowsCount={rowsCount}
+                page={page}
+                setPage={setPage}
+                rowsPerPage={rowsPerPage}
+                setRowsPerPage={setRowsPerPage}
+            />
         </Box>
     )
 }
