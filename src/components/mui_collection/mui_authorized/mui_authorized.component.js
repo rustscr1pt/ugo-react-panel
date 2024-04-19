@@ -17,7 +17,7 @@ const MuiAuthorized = () => {
     const [reloadActivator, setReloadActivator] = useState(false);
 
     const [rowsCount, setRowsCount] = useState(0);
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
 
     useEffect(() => {
@@ -95,7 +95,8 @@ const MuiAuthorized = () => {
                 setFilterType={setFilterType}
                 filteredQuery={filteredQuery}
                 setFilteredQuery={setFilteredQuery}
-                setOrdersVector={setOrdersVector}
+                reloadActivator={reloadActivator}
+                setReloadActivator={setReloadActivator}
             />
             <BasicTable
                 object_vector={OrdersVector}

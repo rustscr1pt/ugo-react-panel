@@ -20,7 +20,10 @@ const BodyContainer = (props) => {
                 filterType={props.filterType}
                 setFilterType={props.setFilterType}
             />
-            <RefreshButton setOrdersVector={props.setOrdersVector}/>
+            <RefreshButton
+                reloadActivator={props.reloadActivator}
+                setReloadActivator={props.setReloadActivator}
+            />
         </div>
     )
 }
