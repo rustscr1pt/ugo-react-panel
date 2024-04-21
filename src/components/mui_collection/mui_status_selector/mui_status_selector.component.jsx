@@ -2,6 +2,8 @@ import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import route_fillers from "../../../constants/route_fillers";
 
 const StatusSelector = (props) => {
+
+    // On change event update the status value in mySQL
     function update_status(event) {
         fetch(`${route_fillers.url}/api/orders/change_status`, {
             method : "POST",
