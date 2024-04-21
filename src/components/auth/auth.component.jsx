@@ -8,12 +8,14 @@ const Auth = (props) => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
 
-    useEffect(() => { // Remove alert in 5 secs after it was displayed
+    // Remove alert in 5 secs after it was displayed
+    useEffect(() => {
         setTimeout(function() {
             props.setShowAlert([]);
         }, 5000)
     }, [props.showAlert.length]);
 
+    // Add an alert so it could be displayed
     function display_alert() {
         if (props.showAlert.length !== 0) {
             return (
@@ -30,6 +32,7 @@ const Auth = (props) => {
 
 
 
+    // check if password & login is correct and make a redirect or display an error
     function handle_login_attempt() {
         fetch(`${route_fillers.url}/api/login/attempt`, {
             method : "POST",

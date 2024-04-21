@@ -20,6 +20,7 @@ const MuiAuthorized = () => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
 
+    // Make a request and display orders using rowsPerPage & page
     useEffect(() => {
         fetch(`${route_fillers.url}/api/orders/get/page`, {
             method : "POST",

@@ -13,6 +13,7 @@ const App = () => {
     const [isAuthorized, setIsAuthorized] = useState(false);
     const [showAlert, setShowAlert] = useState([]);
 
+    // Check sessionStorage for token. If it's detected - make a check + redirect and skip login screen
     useEffect(() => {
         if (sessionStorage.getItem("ugo-token") !== null) {
             console.log(`Active token : ${sessionStorage.getItem("ugo-token")}`);
