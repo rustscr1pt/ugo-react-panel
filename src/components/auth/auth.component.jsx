@@ -8,7 +8,7 @@ const Auth = (props) => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
 
-    useEffect(() => {
+    useEffect(() => { // Remove alert in 5 secs after it was displayed
         setTimeout(function() {
             props.setShowAlert([]);
         }, 5000)
