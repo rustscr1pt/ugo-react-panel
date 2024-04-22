@@ -6,10 +6,6 @@ const SearchButton = (props) => {
         props.setReloadActivator(!props.reloadActivator);
     }
 
-    function fill_with_search() {
-        fetch()
-    }
-
     return (
         <Button
             sx={{gridColumn : "35 / 40"}}

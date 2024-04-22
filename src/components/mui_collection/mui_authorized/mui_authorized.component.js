@@ -21,11 +21,11 @@ const MuiAuthorized = () => {
     const [rowsPerPage, setRowsPerPage] = useState(10);
 
     // On change useEffect is activated and depending on its value makes different requests
-    const filter_condition = useRef(false);
+    const [filterCondition, setFilterCondition] = useState(false);
 
     // Make a request and display orders using rowsPerPage & page
     useEffect(() => {
-        if (filter_condition) {
+        if (filterCondition) {
             fetch(`${route_fillers.url}/api/orders/page/filtered`, {
                 method : "POST",
                 body : JSON.stringify({
@@ -64,21 +64,7 @@ const MuiAuthorized = () => {
                     console.log(json);
                     setOrdersVector(json.reply);
                     setClonedOrders(json.reply);
-                })
-                .then(() => {
-                    fetch(`${route_fillers.url}/api/orders/total`, {
-                        method : "GET",
-                        headers : {
-                            "Content-Type" : "application/json"
-                        }
-                    })
-                        .then((reply) => reply.json())
-                        .then((json) => {
-                            console.log(json);
-                            if (json.is_succeed) {
-                                setRowsCount(parseInt(json.message))
-                            }
-                        })
+                    setRowsCount(parseInt(json.message));
                 })
                 .catch(
                     function(err){
@@ -86,7 +72,7 @@ const MuiAuthorized = () => {
                     }
                 )
         }
-    }, [reloadActivator, page, rowsPerPage]);
+    }, [reloadActivator, page, rowsPerPage, filterCondition]);
 
     useEffect(() => {
         if (filteredQuery === "") {
