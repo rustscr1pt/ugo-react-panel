@@ -2,8 +2,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import {Button} from "@mui/material";
 
 const SearchButton = (props) => {
-    function toggle_refresh() {
-        props.setReloadActivator(!props.reloadActivator);
+
+    function request_search_by_query() {
+        props.setFilterCondition(!props.filterCondition);
+        console.log(props.filterCondition);
     }
 
     return (
@@ -11,7 +13,7 @@ const SearchButton = (props) => {
             sx={{gridColumn : "35 / 40"}}
             variant="contained"
             endIcon={<SearchIcon/>}
-            onClick={toggle_refresh}
+            onClick={request_search_by_query}
         >
             Поиск
         </Button>

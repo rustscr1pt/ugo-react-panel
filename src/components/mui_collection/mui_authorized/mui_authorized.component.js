@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import './mui_authorized.style.sass'
 import BasicTable from "../mui_table";
 import BodyContainer from "../../mui_top_panel/body-container";
@@ -9,7 +9,6 @@ import PagePagination from "../mui_pagination";
 
 const MuiAuthorized = () => {
     const [OrdersVector, setOrdersVector] = useState([]);
-    const [clonedOrders, setClonedOrders] = useState([]);
 
     const [filteredQuery, setFilteredQuery] = useState("");
     const [filterType, setFilterType] = useState("");
@@ -41,10 +40,7 @@ const MuiAuthorized = () => {
                 .then((response) => response.json())
                 .then((json) => {
                     setOrdersVector(json.reply);
-                    setClonedOrders(json.reply)
-                })
-                .then(() => {
-                    fetch(`${route_fillers.url}`)
+                    setRowsCount(parseInt(json.message));
                 })
         }
         else {
@@ -63,7 +59,6 @@ const MuiAuthorized = () => {
                 .then((json) => {
                     console.log(json);
                     setOrdersVector(json.reply);
-                    setClonedOrders(json.reply);
                     setRowsCount(parseInt(json.message));
                 })
                 .catch(
@@ -74,34 +69,6 @@ const MuiAuthorized = () => {
         }
     }, [reloadActivator, page, rowsPerPage, filterCondition]);
 
-    useEffect(() => {
-        if (filteredQuery === "") {
-            setOrdersVector(clonedOrders);
-        }
-        else {
-            console.log(filterType, filteredQuery);
-            switch (filterType) {
-                case "ID":
-                    setOrdersVector(clonedOrders.filter((element) => `${element.id}`.includes(filteredQuery.toLowerCase())));
-                    break
-                case "Статус":
-                    setOrdersVector(clonedOrders.filter((element) => element.request_status.toLowerCase().includes(filteredQuery.toLowerCase())))
-                    break
-                case "Имя":
-                    setOrdersVector(clonedOrders.filter((element) => element.customer_name.toLowerCase().includes(filteredQuery.toLowerCase())))
-                    break
-                case "Почта":
-                    setOrdersVector(clonedOrders.filter((element) => element.customer_email.toLowerCase().includes(filteredQuery.toLowerCase())))
-                    break
-                case "Описание":
-                    setOrdersVector(clonedOrders.filter((element) => element.customer_self_description.toLowerCase().includes(filteredQuery.toLowerCase())))
-                    break
-                default:
-                    break
-            }
-        }
-    }, [filteredQuery])
-
     return (
         <Box sx={{width : "100%"}}>
             <BodyContainer
@@ -109,8 +76,8 @@ const MuiAuthorized = () => {
                 setFilterType={setFilterType}
                 filteredQuery={filteredQuery}
                 setFilteredQuery={setFilteredQuery}
-                reloadActivator={reloadActivator}
-                setReloadActivator={setReloadActivator}
+                filterCondition={filterCondition}
+                setFilterCondition={setFilterCondition}
             />
             <BasicTable
                 object_vector={OrdersVector}

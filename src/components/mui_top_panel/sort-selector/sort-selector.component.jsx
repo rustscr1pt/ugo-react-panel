@@ -12,11 +12,11 @@ const SortSelector = (props) => {
                 label="Где искать"
                 onChange={(event) => props.setFilterType(event.target.value)}
             >
-                <MenuItem value="ID">ID</MenuItem>
-                <MenuItem value="Статус">Статус</MenuItem>
-                <MenuItem value="Имя">Имя</MenuItem>
-                <MenuItem value="Почта">Почта</MenuItem>
-                <MenuItem value="Описание">Описание</MenuItem>
+                <MenuItem value="id">ID</MenuItem>
+                <MenuItem value="request_status">Статус</MenuItem>
+                <MenuItem value="customer_name">Имя</MenuItem>
+                <MenuItem value="customer_email">Почта</MenuItem>
+                <MenuItem value="customer_self_description">Описание</MenuItem>
             </Select>
         </FormControl>
     )

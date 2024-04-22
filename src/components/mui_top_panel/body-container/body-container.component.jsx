@@ -21,8 +21,8 @@ const BodyContainer = (props) => {
                 setFilterType={props.setFilterType}
             />
             <SearchButton
-                reloadActivator={props.reloadActivator}
-                setReloadActivator={props.setReloadActivator}
+                filterCondition={props.filterCondition}
+                setFilterCondition={props.setFilterCondition}
             />
         </div>
     )
