@@ -10,7 +10,10 @@ const SearchButton = (props) => {
 
     return (
         <Button
-            sx={{gridColumn : "35 / 40"}}
+            sx={{
+                gridColumn : "35 / 40",
+                gridRow : "3 / 3"
+            }}
             variant="contained"
             endIcon={<SearchIcon/>}
             onClick={request_search_by_query}

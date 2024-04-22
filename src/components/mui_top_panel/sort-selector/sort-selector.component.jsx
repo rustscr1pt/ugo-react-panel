@@ -4,6 +4,7 @@ const SortSelector = (props) => {
     return (
         <FormControl sx={{
             gridColumn : " 28 / 34",
+            gridRow : "3 / 3",
             backgroundColor : "white"
         }}>
             <InputLabel id="demo-simple-select-label">Где искать</InputLabel>

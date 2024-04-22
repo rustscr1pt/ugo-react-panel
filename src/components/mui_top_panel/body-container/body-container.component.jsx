@@ -3,12 +3,14 @@ import SortSelector from "../sort-selector";
 import SearchButton from "../refresh-button";
 import {TextField} from "@mui/material";
 import * as React from "react";
+import ChipsContainer from "../ChipsContainer";
 const BodyContainer = (props) => {
     return (
         <div className="body-container-grid">
             <TextField
                 sx={{
                     gridColumn : "2 / 28",
+                    gridRow : "3 / 3",
                     backgroundColor : "white"
                 }}
                 label="Введите данные для поиска"
