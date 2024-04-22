@@ -1,21 +1,25 @@
-import CachedIcon from '@mui/icons-material/Cached';
+import SearchIcon from '@mui/icons-material/Search';
 import {Button} from "@mui/material";
 
-const RefreshButton = (props) => {
+const SearchButton = (props) => {
     function toggle_refresh() {
         props.setReloadActivator(!props.reloadActivator);
+    }
+
+    function fill_with_search() {
+        fetch()
     }
 
     return (
         <Button
             sx={{gridColumn : "35 / 40"}}
             variant="contained"
-            endIcon={<CachedIcon/>}
+            endIcon={<SearchIcon/>}
             onClick={toggle_refresh}
         >
-            Обновить
+            Поиск
         </Button>
     )
 }
 
-export default RefreshButton;
+export default SearchButton;

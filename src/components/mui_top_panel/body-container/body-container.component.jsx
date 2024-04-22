@@ -1,6 +1,6 @@
 import "./body-container.style.sass";
 import SortSelector from "../sort-selector";
-import RefreshButton from "../refresh-button";
+import SearchButton from "../refresh-button";
 import {TextField} from "@mui/material";
 import * as React from "react";
 const BodyContainer = (props) => {
@@ -20,7 +20,7 @@ const BodyContainer = (props) => {
                 filterType={props.filterType}
                 setFilterType={props.setFilterType}
             />
-            <RefreshButton
+            <SearchButton
                 reloadActivator={props.reloadActivator}
                 setReloadActivator={props.setReloadActivator}
             />

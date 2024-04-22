@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import './mui_authorized.style.sass'
 import BasicTable from "../mui_table";
 import BodyContainer from "../../mui_top_panel/body-container";
@@ -20,45 +20,72 @@ const MuiAuthorized = () => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
 
+    // On change useEffect is activated and depending on its value makes different requests
+    const filter_condition = useRef(false);
+
     // Make a request and display orders using rowsPerPage & page
     useEffect(() => {
-        fetch(`${route_fillers.url}/api/orders/get/page`, {
-            method : "POST",
-            body : JSON.stringify({
-                rows_per_page : `${rowsPerPage}`,
-                page_number : `${page}`
-            }),
-            headers : {
-                "Content-Type" : "application/json"
-            }
-        })
-            .then(
-                (response) => response.json())
-            .then((json) => {
-                console.log(json);
-                setOrdersVector(json.reply);
-                setClonedOrders(json.reply);
+        if (filter_condition) {
+            fetch(`${route_fillers.url}/api/orders/page/filtered`, {
+                method : "POST",
+                body : JSON.stringify({
+                    rows_per_page : `${rowsPerPage}`,
+                    page_number : `${page}`,
+                    filter_type : `${filterType}`,
+                    filter_query : `${filteredQuery}`
+                }),
+                headers : {
+                    "Content-Type" : "application/json"
+                }
             })
-            .then(() => {
-                fetch(`${route_fillers.url}/api/orders/total`, {
-                    method : "GET",
-                    headers : {
-                        "Content-Type" : "application/json"
-                    }
+                .then((response) => response.json())
+                .then((json) => {
+                    setOrdersVector(json.reply);
+                    setClonedOrders(json.reply)
                 })
-                    .then((reply) => reply.json())
-                    .then((json) => {
-                        console.log(json);
-                        if (json.is_succeed) {
-                            setRowsCount(parseInt(json.message))
+                .then(() => {
+                    fetch(`${route_fillers.url}`)
+                })
+        }
+        else {
+            fetch(`${route_fillers.url}/api/orders/get/page`, {
+                method : "POST",
+                body : JSON.stringify({
+                    rows_per_page : `${rowsPerPage}`,
+                    page_number : `${page}`
+                }),
+                headers : {
+                    "Content-Type" : "application/json"
+                }
+            })
+                .then(
+                    (response) => response.json())
+                .then((json) => {
+                    console.log(json);
+                    setOrdersVector(json.reply);
+                    setClonedOrders(json.reply);
+                })
+                .then(() => {
+                    fetch(`${route_fillers.url}/api/orders/total`, {
+                        method : "GET",
+                        headers : {
+                            "Content-Type" : "application/json"
                         }
                     })
-            })
-            .catch(
-                function(err){
-                    console.log(err)
-                }
-            )
+                        .then((reply) => reply.json())
+                        .then((json) => {
+                            console.log(json);
+                            if (json.is_succeed) {
+                                setRowsCount(parseInt(json.message))
+                            }
+                        })
+                })
+                .catch(
+                    function(err){
+                        console.log(err)
+                    }
+                )
+        }
     }, [reloadActivator, page, rowsPerPage]);
 
     useEffect(() => {

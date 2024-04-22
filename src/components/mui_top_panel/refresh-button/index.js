@@ -1,2 +1,2 @@
-import RefreshButton from "./refresh-button.component";
-export default RefreshButton;
+import SearchButton from "./refresh-button.component";
+export default SearchButton;
