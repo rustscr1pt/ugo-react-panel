@@ -12,7 +12,7 @@ const SearchButton = (props) => {
         <Button
             sx={{
                 gridColumn : "35 / 40",
-                gridRow : "3 / 3"
+                gridRow : "2 / 2"
             }}
             variant="contained"
             endIcon={<SearchIcon/>}

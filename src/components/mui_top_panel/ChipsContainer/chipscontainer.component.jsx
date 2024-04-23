@@ -1,21 +1,11 @@
-import {Chip} from "@mui/material";
+import './chipscontainer.style.sass';
+import SingleChip from "./SingleChip";
 
 const ChipsContainer = (props) => {
-    if (props.filterCondition) {
-        return (
-            <div className="chips-container-flex">
-                <Chip sx={{width : "40%"}} label="Все заказы" variant="outlined"/>
-                <Chip sx={{width : "40%"}} label="Фильтрация"/>
-            </div>
-        )
-    }
-    else {
-        return (
-            <div className="chips-container-flex">
-                <Chip sx={{width : "40%"}} label="Все заказы"/>
-                <Chip sx={{width : "40%"}} label="Фильтрация" variant="outlined"/>
-            </div>
-        )
-    }
+    return (
+        <div className="chips-container">
+            <SingleChip filterCondition={props.filterCondition}/>
+        </div>
+    )
 }
 export default ChipsContainer;
