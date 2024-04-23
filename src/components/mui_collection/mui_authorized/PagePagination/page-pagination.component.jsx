@@ -1,5 +1,6 @@
 import {TablePagination} from "@mui/material";
 
+// Bottom pagination component for browsing orders
 const PagePagination = (props) => {
     const handleChangePage = (
         event: React.MouseEvent<HTMLButtonElement> | null,
