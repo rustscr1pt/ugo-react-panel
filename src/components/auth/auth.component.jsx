@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {Alert, Button, TextField} from "@mui/material";
 import "./auth.style.sass";
 import LoginIcon from '@mui/icons-material/Login';
-import route_fillers from "../../constants/route_fillers";
+import route_fillers from "../../constants&addons/route_fillers";
 
 const Auth = (props) => {
     const [login, setLogin] = useState("");

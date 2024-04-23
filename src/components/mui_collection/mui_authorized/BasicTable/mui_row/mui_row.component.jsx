@@ -11,10 +11,10 @@ import Typography from "@mui/material/Typography";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
-import RemoveButton from "../mui_remove_button";
-import StatusSelector from "../mui_status_selector";
-import AddNoteBox from "../mui_add_note_box";
-import RemoveNoteButton from "../mui_remove_note_button";
+import RemoveButton from "./mui_remove_button";
+import StatusSelector from "./mui_status_selector";
+import AddNoteBox from "./mui_add_note_box";
+import RemoveNoteButton from "./mui_remove_note_button";
 
 const Row = (props) => {
     const [open, setOpen] = useState(false);

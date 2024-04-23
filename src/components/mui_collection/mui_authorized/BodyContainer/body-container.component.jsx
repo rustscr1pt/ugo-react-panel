@@ -1,9 +1,9 @@
 import "./body-container.style.sass";
-import SortSelector from "../sort-selector";
-import SearchButton from "../search-button";
+import SortSelector from "./sort-selector";
+import SearchButton from "./search-button";
 import {TextField} from "@mui/material";
 import * as React from "react";
-import ChipsContainer from "../ChipsContainer";
+import ChipsContainer from "./ChipsContainer";
 const BodyContainer = (props) => {
     return (
         <div className="body-container-grid">

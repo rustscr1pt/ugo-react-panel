@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Row from "../mui_row";
+import Row from "./mui_row";
 
 const BasicTable = (props) => {
     return (

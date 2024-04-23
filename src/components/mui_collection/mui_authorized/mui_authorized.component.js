@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import './mui_authorized.style.sass'
-import BasicTable from "../mui_table";
-import BodyContainer from "../../mui_top_panel/body-container";
+import BasicTable from "./BasicTable";
+import BodyContainer from "./BodyContainer";
 import Box from "@mui/material/Box";
-import route_fillers from "../../../constants/route_fillers";
-import PagePagination from "../mui_pagination";
+import route_fillers from "../../../constants&addons/route_fillers";
+import PagePagination from "./PagePagination";
 
 
 const MuiAuthorized = () => {
