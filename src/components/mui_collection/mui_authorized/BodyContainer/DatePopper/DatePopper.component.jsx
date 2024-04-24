@@ -21,7 +21,13 @@ const DatePopper = () => {
     return (
         <div className="date-popper-container">
             <PopperButton id={id} handleClick={handleClick}/>
-            <Popper style={{zIndex : 10}} id={id} open={open} anchorEl={anchorEl} transition>
+            <Popper
+                style={{zIndex : 10}}
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                placement="bottom-end"
+                transition>
                 {({ TransitionProps }) => (
                     <Fade {...TransitionProps} timeout={350}>
                         <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper' }}>
