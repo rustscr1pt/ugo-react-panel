@@ -4,6 +4,7 @@ import Popper from '@mui/material/Popper';
 import Fade from '@mui/material/Fade';
 import "./DatePopper.style.sass";
 import BasicDateCalendar from "./date-picker";
+import PopperButton from "./PopperButton";
 
 const DatePopper = () => {
     const [open, setOpen] = React.useState(false);
@@ -19,9 +20,7 @@ const DatePopper = () => {
 
     return (
         <div className="date-popper-container">
-            <button aria-describedby={id} type="button" onClick={handleClick}>
-                Toggle Popper
-            </button>
+            <PopperButton id={id} handleClick={handleClick}/>
             <Popper style={{zIndex : 10}} id={id} open={open} anchorEl={anchorEl} transition>
                 {({ TransitionProps }) => (
                     <Fade {...TransitionProps} timeout={350}>
