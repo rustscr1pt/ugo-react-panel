@@ -7,9 +7,19 @@ import dayjs from "dayjs";
 export default function BasicDateCalendar() {
     const [value, setValue] = React.useState(dayjs());
 
+    function format_the_date(value) {
+        if (`${value}`.length < 2) {
+            return `0${value}`
+        }
+        else {
+            return value
+        }
+    }
+
     function manage_data_change(newValue) {
-        setValue(newValue)
-        console.log(`Day : ${newValue.$D} Month : ${newValue.$M + 1} Year : ${newValue.$y}`)
+        setValue(newValue);
+        console.log(`${newValue.$y}-${format_the_date(newValue.$M + 1)}-${format_the_date(newValue.$D)}`);
+
     }
 
     return (
