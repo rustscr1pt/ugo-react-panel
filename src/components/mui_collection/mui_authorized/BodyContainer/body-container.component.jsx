@@ -4,9 +4,11 @@ import SearchButton from "./search-button";
 import {TextField} from "@mui/material";
 import * as React from "react";
 import ChipsContainer from "./ChipsContainer";
+import DatePopper from "./DatePopper";
 const BodyContainer = (props) => {
     return (
         <div className="body-container-grid">
+            <DatePopper/>
             <ChipsContainer filterCondition={props.filterCondition}/>
             <TextField
                 sx={{
