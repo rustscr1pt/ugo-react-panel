@@ -3,6 +3,7 @@ import {Alert, Button, TextField} from "@mui/material";
 import "./auth.style.sass";
 import LoginIcon from '@mui/icons-material/Login';
 import route_fillers from "../../constants&addons/route_fillers";
+import {motion} from "framer-motion";
 
 const Auth = (props) => {
     const [login, setLogin] = useState("");
@@ -68,7 +69,12 @@ const Auth = (props) => {
     }
 
     return (
-        <div className='auth-container'>
+        <motion.div
+            className='auth-container'
+            initial={{ opacity:0 }}
+            animate={{ opacity:1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+        >
             {display_alert()}
             <TextField
                 sx={{gridColumn : "7 / 15", gridRow : "3 / 4"}}
@@ -90,7 +96,7 @@ const Auth = (props) => {
             >
                 Enter
             </Button>
-        </div>
+        </motion.div>
     )
 }
 
