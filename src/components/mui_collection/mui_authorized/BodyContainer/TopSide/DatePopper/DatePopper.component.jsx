@@ -22,7 +22,7 @@ const DatePopper = (props) => {
         <div className="date-popper-container">
             <PopperButton id={id} handleClick={handleClick}/>
             <Popper
-                style={{zIndex : 10}}
+                style={{zIndex : 10, paddingTop : "0.5%"}}
                 id={id}
                 open={open}
                 anchorEl={anchorEl}
