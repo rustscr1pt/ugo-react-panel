@@ -4,7 +4,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import dayjs from "dayjs";
 
-export default function BasicDateCalendar() {
+export default function BasicDateCalendar(props) {
     const [value, setValue] = React.useState(dayjs());
 
     function format_the_date(value) {
@@ -16,10 +16,16 @@ export default function BasicDateCalendar() {
         }
     }
 
+    function get_the_result(newValue) {
+        return `${newValue.$y}-${format_the_date(newValue.$M + 1)}-${format_the_date(newValue.$D)}`
+    }
+
     function manage_data_change(newValue) {
         setValue(newValue);
-        console.log(`${newValue.$y}-${format_the_date(newValue.$M + 1)}-${format_the_date(newValue.$D)}`);
-
+        console.log(get_the_result(newValue));
+        props.setFilteredQuery(get_the_result(newValue));
+        props.setFilterType("date_time_added");
+        props.setFilterCondition(true);
     }
 
     return (

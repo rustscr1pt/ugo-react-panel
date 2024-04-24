@@ -1,5 +1,4 @@
 import * as React from "react";
-import SearchIcon from "@mui/icons-material/Search";
 import {Button} from "@mui/material";
 import SortIcon from '@mui/icons-material/Sort';
 

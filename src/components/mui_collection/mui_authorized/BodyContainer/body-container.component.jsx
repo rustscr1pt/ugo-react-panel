@@ -1,14 +1,18 @@
 import "./body-container.style.sass";
-import SortSelector from "./sort-selector";
-import SearchButton from "./search-button";
+import SortSelector from "./BottomSide/sort-selector";
+import SearchButton from "./BottomSide/search-button";
 import {TextField} from "@mui/material";
 import * as React from "react";
-import ChipsContainer from "./ChipsContainer";
-import DatePopper from "./DatePopper";
+import ChipsContainer from "./TopSide/ChipsContainer";
+import DatePopper from "./TopSide/DatePopper";
 const BodyContainer = (props) => {
     return (
         <div className="body-container-grid">
-            <DatePopper/>
+            <DatePopper
+                setFilterType={props.setFilterType}
+                setFilteredQuery={props.setFilteredQuery}
+                setFilterCondition={props.setFilterCondition}
+            />
             <ChipsContainer filterCondition={props.filterCondition}/>
             <TextField
                 sx={{

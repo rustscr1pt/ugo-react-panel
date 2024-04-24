@@ -6,7 +6,7 @@ import "./DatePopper.style.sass";
 import BasicDateCalendar from "./date-picker";
 import PopperButton from "./PopperButton";
 
-const DatePopper = () => {
+const DatePopper = (props) => {
     const [open, setOpen] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -27,11 +27,16 @@ const DatePopper = () => {
                 open={open}
                 anchorEl={anchorEl}
                 placement="bottom-end"
-                transition>
+                transition
+            >
                 {({ TransitionProps }) => (
                     <Fade {...TransitionProps} timeout={350}>
                         <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper' }}>
-                            <BasicDateCalendar/>
+                            <BasicDateCalendar
+                                setFilterType={props.setFilterType}
+                                setFilteredQuery={props.setFilteredQuery}
+                                setFilterCondition={props.setFilterCondition}
+                            />
                         </Box>
                     </Fade>
                 )}
