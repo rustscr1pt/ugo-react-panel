@@ -8,7 +8,7 @@ import PagePagination from "./PagePagination";
 import LogoutFAB from "./LogoutFAB";
 
 
-const MuiAuthorized = () => {
+const MuiAuthorized = (props) => {
     const [OrdersVector, setOrdersVector] = useState([]);
 
     const [filteredQuery, setFilteredQuery] = useState("");
@@ -96,7 +96,9 @@ const MuiAuthorized = () => {
                 rowsPerPage={rowsPerPage}
                 setRowsPerPage={setRowsPerPage}
             />
-            <LogoutFAB/>
+            <LogoutFAB
+                setIsAuthorized={props.setIsAuthorized}
+            />
         </Box>
     )
 }

@@ -54,7 +54,11 @@ const App = () => {
         return (
             <div className='app_flex_centered_vertical'>
                 <BlackHeader/>
-                <Auth showAlert={showAlert} setShowAlert={setShowAlert} setIsAuthorized={setIsAuthorized}/>
+                <Auth
+                    showAlert={showAlert}
+                    setShowAlert={setShowAlert}
+                    setIsAuthorized={setIsAuthorized}
+                />
             </div>
         )
     }
@@ -62,7 +66,9 @@ const App = () => {
         return (
             <div className='app_flex_centered_vertical'>
                 <BlackHeader/>
-                <MuiAuthorized/>
+                <MuiAuthorized
+                    setIsAuthorized={setIsAuthorized}
+                />
             </div>
         )
     }
