@@ -73,6 +73,7 @@ const MuiAuthorized = () => {
         <Box sx={{width : "100%"}}>
             <BodyContainer
                 filterType={filterType}
+                setPage={setPage}
                 setFilterType={setFilterType}
                 filteredQuery={filteredQuery}
                 setFilteredQuery={setFilteredQuery}

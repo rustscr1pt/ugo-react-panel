@@ -30,6 +30,7 @@ const BodyContainer = (props) => {
                 setFilterType={props.setFilterType}
             />
             <SearchButton
+                setPage={props.setPage}
                 filterCondition={props.filterCondition}
                 setFilterCondition={props.setFilterCondition}
             />

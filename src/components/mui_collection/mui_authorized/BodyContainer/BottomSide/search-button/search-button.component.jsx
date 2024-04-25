@@ -15,6 +15,7 @@ const SearchButton = (props) => {
     }
 
     function reset_the_search() {
+        props.setPage(0);
         props.setFilterCondition(!props.filterCondition);
         console.log(props.filterCondition);
     }
