@@ -33,7 +33,12 @@ const DatePopper = (props) => {
                 {({ TransitionProps }) => (
                     <Fade {...TransitionProps} timeout={350}>
                         <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper', display : "flex", flexDirection : "column", alignItems : "center" }}>
-                            <DateCloseButton/>
+                            <DateCloseButton
+                                setAnchorEl={setAnchorEl}
+                                setOpen={setOpen}
+                                setPage={props.setPage}
+                                setFilterCondition={props.setFilterCondition}
+                            />
                             <BasicDateCalendar
                                 setFilterType={props.setFilterType}
                                 setFilteredQuery={props.setFilteredQuery}

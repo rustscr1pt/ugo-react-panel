@@ -9,6 +9,7 @@ const BodyContainer = (props) => {
     return (
         <div className="body-container-grid">
             <DatePopper
+                setPage={props.setPage}
                 setFilterType={props.setFilterType}
                 setFilteredQuery={props.setFilteredQuery}
                 setFilterCondition={props.setFilterCondition}
