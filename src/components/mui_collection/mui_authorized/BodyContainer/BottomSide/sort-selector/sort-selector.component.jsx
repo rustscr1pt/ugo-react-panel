@@ -18,6 +18,7 @@ const SortSelector = (props) => {
                 <MenuItem value="customer_name">Имя</MenuItem>
                 <MenuItem value="customer_email">Почта</MenuItem>
                 <MenuItem value="customer_self_description">Описание</MenuItem>
+                <MenuItem value="date_time_added">Дата</MenuItem>
             </Select>
         </FormControl>
     )

@@ -42,6 +42,9 @@ const MuiAuthorized = () => {
                     setOrdersVector(json.reply);
                     setRowsCount(parseInt(json.message));
                 })
+                .catch(function(err) {
+                    console.log(err);
+                })
         }
         else {
             fetch(`${route_fillers.url}/api/orders/get/page`, {
