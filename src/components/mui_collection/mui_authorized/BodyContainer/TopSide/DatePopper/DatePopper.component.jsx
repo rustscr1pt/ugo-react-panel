@@ -5,6 +5,7 @@ import Fade from '@mui/material/Fade';
 import "./DatePopper.style.sass";
 import BasicDateCalendar from "./date-picker";
 import PopperButton from "./PopperButton";
+import DateCloseButton from "./DateCloseButton";
 
 const DatePopper = (props) => {
     const [open, setOpen] = React.useState(false);
@@ -31,7 +32,8 @@ const DatePopper = (props) => {
             >
                 {({ TransitionProps }) => (
                     <Fade {...TransitionProps} timeout={350}>
-                        <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper' }}>
+                        <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper', display : "flex", flexDirection : "column", alignItems : "center" }}>
+                            <DateCloseButton/>
                             <BasicDateCalendar
                                 setFilterType={props.setFilterType}
                                 setFilteredQuery={props.setFilteredQuery}
