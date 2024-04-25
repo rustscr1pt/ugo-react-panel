@@ -5,6 +5,7 @@ import BodyContainer from "./BodyContainer";
 import Box from "@mui/material/Box";
 import route_fillers from "../../../constants&addons/route_fillers";
 import PagePagination from "./PagePagination";
+import LogoutFAB from "./LogoutFAB";
 
 
 const MuiAuthorized = () => {
@@ -95,6 +96,7 @@ const MuiAuthorized = () => {
                 rowsPerPage={rowsPerPage}
                 setRowsPerPage={setRowsPerPage}
             />
+            <LogoutFAB/>
         </Box>
     )
 }
