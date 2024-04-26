@@ -2,7 +2,7 @@ import {Button} from "@mui/material";
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import * as React from "react";
 import './GoToAdminButton.style.sass';
-import PagePosition from "../../../../../../../constants&addons/constants.ts";
+import PagePosition from "../../../../../../../constants&addons/screen_enums.ts";
 
 const GoToAdminButton = (props) => {
 

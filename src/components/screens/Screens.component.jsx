@@ -1,6 +1,7 @@
 import {useState} from "react";
-import PagePosition from "../../constants&addons/constants.ts";
+import PagePosition from "../../constants&addons/screen_enums.ts";
 import DiscoverOrders from "./discover_orders";
+import ManageAdmins from "./manage_admins";
 
 const Screens = (props) => {
     const [pagePosition, setPagePosition] = useState(PagePosition.Discover);
@@ -13,7 +14,12 @@ const Screens = (props) => {
         )
     }
     else {
-
+        return (
+            <ManageAdmins
+                setIsAuthorized={props.setIsAuthorized}
+                setPagePosition={setPagePosition}
+            />
+        )
     }
 }
 
