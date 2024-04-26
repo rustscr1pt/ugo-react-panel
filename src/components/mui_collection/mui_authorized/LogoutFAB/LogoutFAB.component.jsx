@@ -3,7 +3,8 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import {Fab} from "@mui/material";
 const LogoutFAB = (props) => {
     function logout() {
-        props.setIsAuthorized = false;
+        props.setIsAuthorized(false);
+        sessionStorage.clear();
     }
 
     return (
