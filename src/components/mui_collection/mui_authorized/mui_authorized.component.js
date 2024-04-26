@@ -6,9 +6,13 @@ import Box from "@mui/material/Box";
 import route_fillers from "../../../constants&addons/route_fillers";
 import PagePagination from "./PagePagination";
 import LogoutFAB from "./LogoutFAB";
+import PagePosition from "../../../constants&addons/constants.ts";
 
 
 const MuiAuthorized = (props) => {
+
+    const [pagePosition, setPagePosition] = useState(PagePosition.Discover);
+
     const [OrdersVector, setOrdersVector] = useState([]);
 
     const [filteredQuery, setFilteredQuery] = useState("");
@@ -25,82 +29,91 @@ const MuiAuthorized = (props) => {
 
     // Make a request and display orders using rowsPerPage & page
     useEffect(() => {
-        if (filterCondition) {
-            fetch(`${route_fillers.url}/api/orders/page/filtered`, {
-                method : "POST",
-                body : JSON.stringify({
-                    rows_per_page : `${rowsPerPage}`,
-                    page_number : `${page}`,
-                    filter_type : `${filterType}`,
-                    filter_query : `${filteredQuery}`
-                }),
-                headers : {
-                    "Content-Type" : "application/json"
-                }
-            })
-                .then((response) => response.json())
-                .then((json) => {
-                    setOrdersVector(json.reply);
-                    setRowsCount(parseInt(json.message));
-                })
-                .catch(function(err) {
-                    console.log(err);
-                })
-        }
-        else {
-            fetch(`${route_fillers.url}/api/orders/get/page`, {
-                method : "POST",
-                body : JSON.stringify({
-                    rows_per_page : `${rowsPerPage}`,
-                    page_number : `${page}`
-                }),
-                headers : {
-                    "Content-Type" : "application/json"
-                }
-            })
-                .then(
-                    (response) => response.json())
-                .then((json) => {
-                    console.log(json);
-                    setOrdersVector(json.reply);
-                    setRowsCount(parseInt(json.message));
-                })
-                .catch(
-                    function(err){
-                        console.log(err)
+        if (pagePosition === PagePosition.Discover) {
+            if (filterCondition) {
+                fetch(`${route_fillers.url}/api/orders/page/filtered`, {
+                    method : "POST",
+                    body : JSON.stringify({
+                        rows_per_page : `${rowsPerPage}`,
+                        page_number : `${page}`,
+                        filter_type : `${filterType}`,
+                        filter_query : `${filteredQuery}`
+                    }),
+                    headers : {
+                        "Content-Type" : "application/json"
                     }
-                )
+                })
+                    .then((response) => response.json())
+                    .then((json) => {
+                        setOrdersVector(json.reply);
+                        setRowsCount(parseInt(json.message));
+                    })
+                    .catch(function(err) {
+                        console.log(err);
+                    })
+            }
+            else {
+                fetch(`${route_fillers.url}/api/orders/get/page`, {
+                    method : "POST",
+                    body : JSON.stringify({
+                        rows_per_page : `${rowsPerPage}`,
+                        page_number : `${page}`
+                    }),
+                    headers : {
+                        "Content-Type" : "application/json"
+                    }
+                })
+                    .then(
+                        (response) => response.json())
+                    .then((json) => {
+                        console.log(json);
+                        setOrdersVector(json.reply);
+                        setRowsCount(parseInt(json.message));
+                    })
+                    .catch(
+                        function(err){
+                            console.log(err)
+                        }
+                    )
+            }
         }
     }, [reloadActivator, page, rowsPerPage, filterCondition]);
 
-    return (
-        <Box sx={{width : "100%"}}>
-            <BodyContainer
-                filterType={filterType}
-                setPage={setPage}
-                setFilterType={setFilterType}
-                filteredQuery={filteredQuery}
-                setFilteredQuery={setFilteredQuery}
-                filterCondition={filterCondition}
-                setFilterCondition={setFilterCondition}
-            />
-            <BasicTable
-                object_vector={OrdersVector}
-                reloadActivator={reloadActivator}
-                setReloadActivator={setReloadActivator}
-            />
-            <PagePagination
-                rowsCount={rowsCount}
-                page={page}
-                setPage={setPage}
-                rowsPerPage={rowsPerPage}
-                setRowsPerPage={setRowsPerPage}
-            />
-            <LogoutFAB
-                setIsAuthorized={props.setIsAuthorized}
-            />
-        </Box>
-    )
+    if (pagePosition === PagePosition.Discover) {
+        return (
+            <Box sx={{width : "100%"}}>
+                <BodyContainer
+                    filterType={filterType}
+                    setPage={setPage}
+                    setFilterType={setFilterType}
+                    filteredQuery={filteredQuery}
+                    setFilteredQuery={setFilteredQuery}
+                    filterCondition={filterCondition}
+                    setFilterCondition={setFilterCondition}
+                />
+                <BasicTable
+                    object_vector={OrdersVector}
+                    reloadActivator={reloadActivator}
+                    setReloadActivator={setReloadActivator}
+                />
+                <PagePagination
+                    rowsCount={rowsCount}
+                    page={page}
+                    setPage={setPage}
+                    rowsPerPage={rowsPerPage}
+                    setRowsPerPage={setRowsPerPage}
+                />
+                <LogoutFAB
+                    setIsAuthorized={props.setIsAuthorized}
+                />
+            </Box>
+        )
+    }
+    else {
+        return (
+            <Box></Box>
+        )
+    }
 }
 
 export default MuiAuthorized;
