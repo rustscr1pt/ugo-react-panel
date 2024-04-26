@@ -26,15 +26,15 @@ const TableRowBuilder = (props) => {
             <TableCell component="th" scope="row">
                 {props.row.id}
             </TableCell>
-            <TableCell align="right">{props.row.user_login}</TableCell>
-            <TableCell align="right">{password_formatter()}</TableCell>
-            <TableCell align="right">{props.row.created}</TableCell>
-            <TableCell align="right">
+            <TableCell align="center">{props.row.user_login}</TableCell>
+            <TableCell align="center">{password_formatter()}</TableCell>
+            <TableCell align="center">{props.row.created}</TableCell>
+            <TableCell align="center">
                 <ShowPasswordButton
                     setPasswordVisibility={setPasswordVisibility}
                 />
             </TableCell>
-            <TableCell align="right">
+            <TableCell align="center">
                 <RemoveAdminButton/>
             </TableCell>
         </TableRow>

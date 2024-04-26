@@ -8,11 +8,11 @@ const TableHeadBuilder = () => {
         <TableHead>
             <TableRow>
                 <TableCell>ID</TableCell>
-                <TableCell align="right">Логин</TableCell>
-                <TableCell align="right">Пароль</TableCell>
-                <TableCell align="right">Когда добавлен</TableCell>
-                <TableCell align="right">Показать</TableCell>
-                <TableCell align="right">Удалить</TableCell>
+                <TableCell align="center">Логин</TableCell>
+                <TableCell align="center">Пароль</TableCell>
+                <TableCell align="center">Когда добавлен</TableCell>
+                <TableCell align="center">Показать</TableCell>
+                <TableCell align="center">Удалить</TableCell>
             </TableRow>
         </TableHead>
     )

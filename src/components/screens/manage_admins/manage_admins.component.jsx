@@ -1,8 +1,8 @@
-import Box from "@mui/material/Box";
 import {useEffect, useState} from "react";
 import LogoutFAB from "../discover_orders/LogoutFAB";
 import AdminsTable from "./admins_table";
 import route_fillers from "../../../constants&addons/route_fillers";
+import "./manage_admins.style.sass";
 
 const ManageAdmins = (props) => {
     const [reloadActivator, setReloadActivator] = useState(false);
@@ -35,10 +35,10 @@ const ManageAdmins = (props) => {
     }, [reloadActivator]);
 
     return (
-        <Box>
+        <div className="ManageAdminsDiv">
             <AdminsTable adminsVector={adminsVector}/>
             <LogoutFAB setIsAuthorized={props.setIsAuthorized}/>
-        </Box>
+        </div>
     )
 }
 
