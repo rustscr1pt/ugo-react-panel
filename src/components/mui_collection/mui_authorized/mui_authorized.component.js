@@ -90,6 +90,7 @@ const MuiAuthorized = (props) => {
                     setFilteredQuery={setFilteredQuery}
                     filterCondition={filterCondition}
                     setFilterCondition={setFilterCondition}
+                    setPagePosition={setPagePosition}
                 />
                 <BasicTable
                     object_vector={OrdersVector}
@@ -111,7 +112,9 @@ const MuiAuthorized = (props) => {
     }
     else {
         return (
-            <Box></Box>
+            <Box sx={{width : "100%"}}>
+
+            </Box>
         )
     }
 }

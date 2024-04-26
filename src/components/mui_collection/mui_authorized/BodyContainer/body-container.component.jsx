@@ -5,6 +5,7 @@ import {TextField} from "@mui/material";
 import * as React from "react";
 import ChipsContainer from "./TopSide/ChipsContainer";
 import DatePopper from "./TopSide/DatePopper";
+import GoToAdminButton from "./TopSide/DatePopper/GoToAdminButton";
 const BodyContainer = (props) => {
     return (
         <div className="body-container-grid">
@@ -13,6 +14,9 @@ const BodyContainer = (props) => {
                 setFilterType={props.setFilterType}
                 setFilteredQuery={props.setFilteredQuery}
                 setFilterCondition={props.setFilterCondition}
+            />
+            <GoToAdminButton
+                setPagePosition={props.setPagePosition}
             />
             <ChipsContainer filterCondition={props.filterCondition}/>
             <TextField
