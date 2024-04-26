@@ -1,12 +1,13 @@
 import {useEffect, useState} from "react";
 import Auth from "../auth";
 import BlackHeader from "../black_header";
-import MuiAuthorized from "../mui_collection/mui_authorized";
+import DiscoverOrders from "../screens/discover_orders";
 import route_fillers from "../../constants&addons/route_fillers";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import Screens from "../screens";
 
 
 const App = () => {
@@ -66,9 +67,7 @@ const App = () => {
         return (
             <div className='app_flex_centered_vertical'>
                 <BlackHeader/>
-                <MuiAuthorized
-                    setIsAuthorized={setIsAuthorized}
-                />
+                <Screens setIsAuthorized={setIsAuthorized}/>
             </div>
         )
     }
