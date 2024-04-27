@@ -5,13 +5,16 @@ import route_fillers from "../../../constants&addons/route_fillers";
 import "./manage_admins.style.sass";
 import AddAdminFAB from "./add_admin_fab";
 import AddAdminWrapped from "./add_admin_wrapped";
+import TopPanelContainer from "./top_panel_container";
 
 const ManageAdmins = (props) => {
     // An activator to reload the data.
     const [reloadActivator, setReloadActivator] = useState(false);
 
+    // Vector for storing accounts and displaying it in table.
     const [adminsVector, setAdminsVector] = useState([]);
 
+    // If true == menu for adding accounts is shown
     const [displayAddAccount, setDisplayAddAccount] = useState(true);
 
     useEffect(() => {
@@ -41,6 +44,7 @@ const ManageAdmins = (props) => {
 
     return (
         <div className="ManageAdminsDiv">
+            <TopPanelContainer setPagePosition={props.setPagePosition}/>
             <AddAdminWrapped
                 displayAddAccount={displayAddAccount}
                 setReloadActivator={setReloadActivator}
