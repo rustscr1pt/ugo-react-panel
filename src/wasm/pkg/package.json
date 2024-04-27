@@ -1,0 +1,14 @@
+{
+  "name": "ugo-react-wasm",
+  "version": "0.1.0",
+  "files": [
+    "ugo_react_wasm_bg.wasm",
+    "ugo_react_wasm.js",
+    "ugo_react_wasm.d.ts"
+  ],
+  "module": "ugo_react_wasm.js",
+  "types": "ugo_react_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
