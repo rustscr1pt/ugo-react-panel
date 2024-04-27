@@ -36,7 +36,10 @@ const ManageAdmins = (props) => {
 
     return (
         <div className="ManageAdminsDiv">
-            <AdminsTable adminsVector={adminsVector}/>
+            <AdminsTable
+                adminsVector={adminsVector}
+                setReloadActivator={setReloadActivator}
+            />
             <LogoutFAB setIsAuthorized={props.setIsAuthorized}/>
         </div>
     )

@@ -35,7 +35,10 @@ const TableRowBuilder = (props) => {
                 />
             </TableCell>
             <TableCell align="center">
-                <RemoveAdminButton/>
+                <RemoveAdminButton
+                    id={props.row.id}
+                    setReloadActivator={props.setReloadActivator}
+                />
             </TableCell>
         </TableRow>
     )

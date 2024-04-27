@@ -9,7 +9,10 @@ const AdminsTable = (props) => {
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                 <TableHeadBuilder/>
-                <TableBodyBuilder adminsVector={props.adminsVector}/>
+                <TableBodyBuilder
+                    adminsVector={props.adminsVector}
+                    setReloadActivator={props.setReloadActivator}
+                />
             </Table>
         </TableContainer>
     );
