@@ -1,9 +1,35 @@
 import "./AddAccountDiv.style.sass"
 import CreateIcon from '@mui/icons-material/Create';
 import GeneratePassAddButton from "../unified_components/generate_pass_add_button";
-const AddAccountDiv = () => {
+import route_fillers from "../../../../../constants&addons/route_fillers";
+const AddAccountDiv = (props) => {
     function add_account_to_base() {
-
+        fetch(`${route_fillers.url}/api/admins/add`, {
+            method : "POST",
+            body : JSON.stringify({
+                login : `${props.newUser}`,
+                password : `${props.newPassword}`,
+                token : `${sessionStorage.getItem("ugo-token")}`
+            }),
+            headers : {
+                "Content-Type" : "application/json"
+            }
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                if (!json.is_succeed && json.message === "expired token") {
+                    console.log("Your token has expired");
+                }
+                else if (!json.is_succeed) {
+                    console.log(json.message);
+                }
+                else {
+                    props.setReloadActivator((previous) => !previous)
+                }
+            })
+            .catch(function(err) {
+                console.log(err);
+            })
     }
 
     return (

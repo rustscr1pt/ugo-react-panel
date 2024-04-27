@@ -41,7 +41,10 @@ const ManageAdmins = (props) => {
 
     return (
         <div className="ManageAdminsDiv">
-            <AddAdminWrapped displayAddAccount={displayAddAccount}/>
+            <AddAdminWrapped
+                displayAddAccount={displayAddAccount}
+                setReloadActivator={setReloadActivator}
+            />
             <AdminsTable
                 adminsVector={adminsVector}
                 setReloadActivator={setReloadActivator}

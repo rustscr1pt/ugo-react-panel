@@ -23,7 +23,11 @@ const AddAdminWrapped = (props) => {
                 <GeneratePasswordDiv
                     setNewPassword={setNewPassword}
                 />
-                <AddAccountDiv/>
+                <AddAccountDiv
+                    newUser={newUser}
+                    newPassword={newPassword}
+                    setReloadActivator={props.setReloadActivator}
+                />
             </div>
         )
     }
