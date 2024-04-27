@@ -17,6 +17,11 @@ const TextfieldAdminPassword = (props) => {
                         {props.icon}
                     </InputAdornment>
                 }
+                value={props.read}
+                onChange={(event) => {
+                    props.write(event.target.value);
+                    console.log(event.target.value);
+                }}
             />
         </FormControl>
     )
