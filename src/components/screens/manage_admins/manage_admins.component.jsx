@@ -4,7 +4,7 @@ import AdminsTable from "./admins_table";
 import route_fillers from "../../../constants&addons/route_fillers";
 import "./manage_admins.style.sass";
 import AddAdminFAB from "./add_admin_fab";
-import AddAdminFloating from "./add_admin_floating";
+import AddAdminWrapped from "./add_admin_wrapped";
 
 const ManageAdmins = (props) => {
     // An activator to reload the data.
@@ -41,11 +41,11 @@ const ManageAdmins = (props) => {
 
     return (
         <div className="ManageAdminsDiv">
+            <AddAdminWrapped displayAddAccount={displayAddAccount}/>
             <AdminsTable
                 adminsVector={adminsVector}
                 setReloadActivator={setReloadActivator}
             />
-            <AddAdminFloating displayAddAccount={displayAddAccount}/>
             <LogoutFAB setIsAuthorized={props.setIsAuthorized}/>
             <AddAdminFAB setDisplayAddAccount={setDisplayAddAccount}/>
         </div>
