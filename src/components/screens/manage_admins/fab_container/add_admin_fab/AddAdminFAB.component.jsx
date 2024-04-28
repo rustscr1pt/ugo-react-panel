@@ -1,6 +1,5 @@
 import EditIcon from '@mui/icons-material/Edit';
 import {Fab} from "@mui/material";
-import "./AddAdminFAB.style.sass";
 const AddAdminFAB = (props) => {
     function change_property() {
         props.setDisplayAddAccount((prev) => !prev);

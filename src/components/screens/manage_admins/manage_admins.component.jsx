@@ -1,11 +1,10 @@
 import {useEffect, useState} from "react";
-import LogoutFAB from "../discover_orders/LogoutFAB";
 import AdminsTable from "./admins_table";
 import route_fillers from "../../../constants&addons/route_fillers";
 import "./manage_admins.style.sass";
-import AddAdminFAB from "./add_admin_fab";
 import AddAdminWrapped from "./add_admin_wrapped";
 import TopPanelContainer from "./top_panel_container";
+import FabContainer from "./fab_container";
 
 const ManageAdmins = (props) => {
     // An activator to reload the data.
@@ -52,9 +51,11 @@ const ManageAdmins = (props) => {
             <AdminsTable
                 adminsVector={adminsVector}
                 setReloadActivator={setReloadActivator}
+            />>
+            <FabContainer
+                setIsAuthorized={props.setIsAuthorized}
+                setDisplayAddAccount={setDisplayAddAccount}
             />
-            <LogoutFAB setIsAuthorized={props.setIsAuthorized}/>
-            <AddAdminFAB setDisplayAddAccount={setDisplayAddAccount}/>
         </div>
     )
 }
