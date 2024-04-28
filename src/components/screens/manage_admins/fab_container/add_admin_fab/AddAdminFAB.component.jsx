@@ -7,11 +7,9 @@ const AddAdminFAB = (props) => {
     }
 
     return (
-        <div className="AddAdminFAB">
             <Fab color="primary" aria-label="edit" onClick={change_property}>
                 <EditIcon />
             </Fab>
-        </div>
     )
 }
 
