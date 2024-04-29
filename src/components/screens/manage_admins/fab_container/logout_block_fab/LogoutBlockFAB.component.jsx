@@ -8,9 +8,11 @@ const LogoutBlockFAB = (props) => {
     }
 
     return (
-            <Fab sx={{width : "10px", height : "10px"}} color="info" aria-label="add" onClick={logout}>
-                <ExitToAppIcon/>
-            </Fab>
+            <div>
+                <Fab color="info" aria-label="add" onClick={logout}>
+                    <ExitToAppIcon/>
+                </Fab>
+            </div>
     )
 }
 export default LogoutBlockFAB;

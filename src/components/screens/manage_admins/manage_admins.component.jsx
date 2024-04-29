@@ -51,7 +51,7 @@ const ManageAdmins = (props) => {
             <AdminsTable
                 adminsVector={adminsVector}
                 setReloadActivator={setReloadActivator}
-            />>
+            />
             <FabContainer
                 setIsAuthorized={props.setIsAuthorized}
                 setDisplayAddAccount={setDisplayAddAccount}
