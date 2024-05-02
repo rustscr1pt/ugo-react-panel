@@ -3,6 +3,12 @@ import CreateIcon from '@mui/icons-material/Create';
 import GeneratePassAddButton from "../unified_components/generate_pass_add_button";
 import route_fillers from "../../../../../constants&addons/route_fillers";
 const AddAccountDiv = (props) => {
+
+    function clear_textfield_after() {
+        props.setNewUser("");
+        props.setNewPassword("");
+    }
+
     function add_account_to_base() {
         fetch(`${route_fillers.url}/api/admins/add`, {
             method : "POST",
@@ -24,6 +30,7 @@ const AddAccountDiv = (props) => {
                     console.log(json.message);
                 }
                 else {
+                    clear_textfield_after();
                     props.setReloadActivator((previous) => !previous)
                 }
             })

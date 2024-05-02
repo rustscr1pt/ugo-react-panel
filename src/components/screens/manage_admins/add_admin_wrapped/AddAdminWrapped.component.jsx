@@ -31,7 +31,9 @@ const AddAdminWrapped = (props) => {
                 />
                 <AddAccountDiv
                     newUser={newUser}
+                    setNewUser={setNewUser}
                     newPassword={newPassword}
+                    setNewPassword={setNewPassword}
                     setReloadActivator={props.setReloadActivator}
                 />
             </motion.div>
