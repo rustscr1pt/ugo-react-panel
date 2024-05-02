@@ -14,7 +14,7 @@ const ManageAdmins = (props) => {
     const [adminsVector, setAdminsVector] = useState([]);
 
     // If true == menu for adding accounts is shown
-    const [displayAddAccount, setDisplayAddAccount] = useState(true);
+    const [displayAddAccount, setDisplayAddAccount] = useState(false);
 
     useEffect(() => {
         fetch(`${route_fillers.url}/api/admins/fetch`, {
