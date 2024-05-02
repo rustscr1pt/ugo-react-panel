@@ -7,6 +7,7 @@ const TableBodyBuilder = (props) => {
         <TableBody>
             {props.adminsVector.map((row) => (
                 <TableRowBuilder
+                    key={row.id}
                     row={row}
                     setReloadActivator={props.setReloadActivator}
                 />
