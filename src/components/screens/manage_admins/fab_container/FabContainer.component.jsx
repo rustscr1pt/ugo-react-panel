@@ -4,8 +4,8 @@ import LogoutBlockFAB from "./logout_block_fab";
 const FabContainer = (props) => {
     return (
         <div className="FabContainer">
-            <LogoutBlockFAB setIsAuthorized={props.setIsAuthorized}/>
             <AddAdminFAB setDisplayAddAccount={props.setDisplayAddAccount}/>
+            <LogoutBlockFAB setIsAuthorized={props.setIsAuthorized}/>
         </div>
     )
 }

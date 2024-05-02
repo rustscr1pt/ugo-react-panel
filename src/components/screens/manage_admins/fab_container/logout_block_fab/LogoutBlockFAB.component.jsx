@@ -1,5 +1,6 @@
 import {Fab} from "@mui/material";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import "./LogoutBlockFAB.style.sass"
 
 const LogoutBlockFAB = (props) => {
     function logout() {
@@ -8,7 +9,7 @@ const LogoutBlockFAB = (props) => {
     }
 
     return (
-            <div>
+            <div className="LogoutBlockFAB">
                 <Fab color="info" aria-label="add" onClick={logout}>
                     <ExitToAppIcon/>
                 </Fab>
