@@ -38,6 +38,7 @@ const DatePopper = (props) => {
                                 setOpen={setOpen}
                                 setPage={props.setPage}
                                 setFilterCondition={props.setFilterCondition}
+                                setFilteredQuery={props.setFilteredQuery}
                             />
                             <BasicDateCalendar
                                 setFilterType={props.setFilterType}
