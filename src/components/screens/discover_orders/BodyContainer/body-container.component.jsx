@@ -1,11 +1,11 @@
 import "./body-container.style.sass";
 import SortSelector from "./BottomSide/sort-selector";
 import SearchButton from "./BottomSide/search-button";
-import {TextField} from "@mui/material";
 import * as React from "react";
 import ChipsContainer from "./TopSide/ChipsContainer";
 import DatePopper from "./TopSide/DatePopper";
 import GoToAdminButton from "./TopSide/DatePopper/GoToAdminButton";
+import TextFieldQuery from "./BottomSide/text-field-query";
 const BodyContainer = (props) => {
     return (
         <div className="body-container-grid">
@@ -19,16 +19,9 @@ const BodyContainer = (props) => {
                 setPagePosition={props.setPagePosition}
             />
             <ChipsContainer filterCondition={props.filterCondition}/>
-            <TextField
-                sx={{
-                    gridColumn : "2 / 28",
-                    gridRow : "2 / 2",
-                    backgroundColor : "white"
-                }}
-                label="Введите данные для поиска"
-                variant='outlined'
-                value={props.filteredQuery}
-                onChange={(event) => props.setFilteredQuery(event.target.value)}
+            <TextFieldQuery
+                filteredQuery={props.filteredQuery}
+                setFilteredQuery={props.setFilteredQuery}
             />
             <SortSelector
                 filterType={props.filterType}
