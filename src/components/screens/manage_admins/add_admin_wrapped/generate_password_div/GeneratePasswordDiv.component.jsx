@@ -5,7 +5,7 @@ import {generate} from "../../../../../wasm/pkg/ugo_react_wasm";
 
 const GeneratePasswordDiv = (props) => {
     function generate_password() {
-        props.setNewPassword(generate(12, false, false))
+        props.setNewPassword(generate(15, false, false))
     }
 
     return (
