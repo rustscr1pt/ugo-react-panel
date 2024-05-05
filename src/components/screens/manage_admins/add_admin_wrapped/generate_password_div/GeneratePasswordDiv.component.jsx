@@ -1,4 +1,4 @@
-import GeneratePassAddButton from "../unified_components/generate_pass_add_button";
+import TemplateSimpleButton from "../unified_components/generate_pass_add_button";
 import PatternIcon from '@mui/icons-material/Pattern';
 import "./GeneratePasswordDiv.style.sass";
 import {generate} from "../../../../../wasm/pkg/ugo_react_wasm";
@@ -10,7 +10,7 @@ const GeneratePasswordDiv = (props) => {
 
     return (
         <div className="GeneratePasswordDiv">
-            <GeneratePassAddButton
+            <TemplateSimpleButton
                 icon={<PatternIcon/>}
                 action={generate_password}
                 text="сгенерировать"

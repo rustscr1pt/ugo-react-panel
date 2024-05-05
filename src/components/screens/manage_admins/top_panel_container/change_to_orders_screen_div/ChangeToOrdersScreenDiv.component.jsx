@@ -1,5 +1,5 @@
 import "./ChangeToOrdersScreenDiv.style.sass"
-import GeneratePassAddButton from "../../add_admin_wrapped/unified_components/generate_pass_add_button";
+import TemplateSimpleButton from "../../add_admin_wrapped/unified_components/generate_pass_add_button";
 import BorderAllIcon from '@mui/icons-material/BorderAll';
 import PagePosition from "../../../../../constants&addons/screen_enums.ts";
 const ChangeToOrdersScreenDiv = (props) => {
@@ -9,7 +9,7 @@ const ChangeToOrdersScreenDiv = (props) => {
 
     return (
         <div className="ChangeToOrdersScreenDiv">
-            <GeneratePassAddButton
+            <TemplateSimpleButton
                 icon={<BorderAllIcon/>}
                 action={change_screen}
                 text="Заказы"

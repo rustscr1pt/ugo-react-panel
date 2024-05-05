@@ -1,6 +1,6 @@
 import "./AddAccountDiv.style.sass"
 import CreateIcon from '@mui/icons-material/Create';
-import GeneratePassAddButton from "../unified_components/generate_pass_add_button";
+import TemplateSimpleButton from "../unified_components/generate_pass_add_button";
 import route_fillers from "../../../../../constants&addons/route_fillers";
 const AddAccountDiv = (props) => {
 
@@ -41,7 +41,7 @@ const AddAccountDiv = (props) => {
 
     return (
         <div className="AddAccountDiv">
-            <GeneratePassAddButton
+            <TemplateSimpleButton
                 icon={<CreateIcon/>}
                 action={add_account_to_base}
                 text="добавить"

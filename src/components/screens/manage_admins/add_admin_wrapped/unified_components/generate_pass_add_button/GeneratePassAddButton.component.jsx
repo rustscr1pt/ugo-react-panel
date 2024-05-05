@@ -1,6 +1,6 @@
 import {Button} from "@mui/material";
 
-const GeneratePassAddButton = (props) => {
+const TemplateSimpleButton = (props) => {
     return (
         <Button
             sx={{
@@ -15,4 +15,4 @@ const GeneratePassAddButton = (props) => {
     )
 }
 
-export default GeneratePassAddButton;
+export default TemplateSimpleButton;

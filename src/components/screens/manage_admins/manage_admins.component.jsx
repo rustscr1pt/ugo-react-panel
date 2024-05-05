@@ -4,7 +4,7 @@ import route_fillers from "../../../constants&addons/route_fillers";
 import "./manage_admins.style.sass";
 import AddAdminWrapped from "./add_admin_wrapped";
 import TopPanelContainer from "./top_panel_container";
-import FabContainer from "./fab_container";
+import LogoutFAB from "../discover_orders/LogoutFAB";
 
 const ManageAdmins = (props) => {
     // An activator to reload the data.
@@ -43,7 +43,11 @@ const ManageAdmins = (props) => {
 
     return (
         <div className="ManageAdminsDiv">
-            <TopPanelContainer setPagePosition={props.setPagePosition}/>
+            <TopPanelContainer
+                setPagePosition={props.setPagePosition}
+                setDisplayAddAccount={setDisplayAddAccount}
+                displayAddAccount={displayAddAccount}
+            />
             <AddAdminWrapped
                 displayAddAccount={displayAddAccount}
                 setReloadActivator={setReloadActivator}
@@ -52,10 +56,7 @@ const ManageAdmins = (props) => {
                 adminsVector={adminsVector}
                 setReloadActivator={setReloadActivator}
             />
-            <FabContainer
-                setIsAuthorized={props.setIsAuthorized}
-                setDisplayAddAccount={setDisplayAddAccount}
-            />
+            <LogoutFAB setIsAuthorized={props.setIsAuthorized}/>
         </div>
     )
 }
