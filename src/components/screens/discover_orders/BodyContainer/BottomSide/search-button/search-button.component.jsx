@@ -1,6 +1,7 @@
 import SearchIcon from '@mui/icons-material/Search';
 import {Button} from "@mui/material";
 import RotateLeftIcon from "@mui/icons-material/RotateLeft";
+import clear_textfield_unified from "../../../../../../constants&addons/tool_functions/clear_textfield_unified";
 
 const SearchButton = (props) => {
 
@@ -17,6 +18,7 @@ const SearchButton = (props) => {
     function reset_the_search() {
         props.setPage(0);
         props.setFilterCondition(!props.filterCondition);
+        clear_textfield_unified(props.setFilteredQuery);
         console.log(props.filterCondition);
     }
 

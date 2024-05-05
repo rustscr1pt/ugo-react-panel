@@ -31,6 +31,7 @@ const BodyContainer = (props) => {
                 setPage={props.setPage}
                 filterCondition={props.filterCondition}
                 setFilterCondition={props.setFilterCondition}
+                setFilteredQuery={props.setFilteredQuery}
             />
         </div>
     )
