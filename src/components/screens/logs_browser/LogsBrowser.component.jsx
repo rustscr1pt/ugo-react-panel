@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import route_fillers from "../../../constants&addons/route_fillers";
 import LogsTable from "./LogsTable";
 import PagePagination from "../discover_orders/PagePagination";
+import LogsTopPanel from "./LogsTopPanel";
 const LogsBrowser = (props) => {
     const [logsVector, setLogsVector] = useState([]);
     const [reloadActivator, setReloadActivator] = useState(false);
@@ -11,6 +12,15 @@ const LogsBrowser = (props) => {
     const [rowsCount, setRowsCount] = useState(0);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(25);
+
+    function fill_vec_error_case(message) {
+        console.log(message);
+        setLogsVector([{
+            id : "0",
+            contents : `${message}`,
+            date_time : "Null"
+        }])
+    }
 
     useEffect(() => {
         fetch(`${route_fillers.url}/api/logs/browse`, {
@@ -25,20 +35,28 @@ const LogsBrowser = (props) => {
         })
             .then((response) => response.json())
             .then((json) => {
-                setLogsVector(json.reply);
-                setRowsCount(parseInt(json.message));
+                if (json.is_succeed) {
+                    setLogsVector(json.reply);
+                    setRowsCount(parseInt(json.message));
+                }
+                else {
+                    fill_vec_error_case(json.message)
+                }
             })
             .catch(function(err) {
-                console.log(err);
+                fill_vec_error_case(err)
             })
     }, [reloadActivator, page, rowsPerPage]);
 
     return (
         <div className="LogsBrowserDiv">
+            <LogsTopPanel
+                setPagePosition={props.setPagePosition}
+                setReloadActivator={setReloadActivator}
+            />
             <LogsTable
                 logsVector={logsVector}
                 reloadActivator={reloadActivator}
-                setReloadActivator={setReloadActivator}
             />
             <div className="PagePaginationDiv">
                 <PagePagination
