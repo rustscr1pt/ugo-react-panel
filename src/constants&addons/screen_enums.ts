@@ -1,6 +1,7 @@
 enum PagePosition {
     Discover,
-    AdminManagement
+    AdminManagement,
+    LogsBrowser
 }
 
 export default PagePosition;
