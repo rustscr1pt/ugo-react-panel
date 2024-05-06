@@ -40,13 +40,15 @@ const LogsBrowser = (props) => {
                 reloadActivator={reloadActivator}
                 setReloadActivator={setReloadActivator}
             />
-            <PagePagination
-                rowsCount={rowsCount}
-                page={page}
-                setPage={setPage}
-                rowsPerPage={rowsPerPage}
-                setRowsPerPage={setRowsPerPage}
-            />
+            <div className="PagePaginationDiv">
+                <PagePagination
+                    rowsCount={rowsCount}
+                    page={page}
+                    setPage={setPage}
+                    rowsPerPage={rowsPerPage}
+                    setRowsPerPage={setRowsPerPage}
+                />
+            </div>
             <LogoutFAB
                 setIsAuthorized={props.setIsAuthorized}
             />
