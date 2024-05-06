@@ -5,7 +5,7 @@ import ManageAdmins from "./manage_admins";
 import LogsBrowser from "./logs_browser";
 
 const Screens = (props) => {
-    const [pagePosition, setPagePosition] = useState(PagePosition.Discover);
+    const [pagePosition, setPagePosition] = useState(PagePosition.LogsBrowser);
     if (pagePosition === PagePosition.Discover) {
         return (
             <DiscoverOrders
