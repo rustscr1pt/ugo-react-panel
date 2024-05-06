@@ -3,13 +3,14 @@ import LogoutFAB from "../discover_orders/LogoutFAB";
 import {useEffect, useState} from "react";
 import route_fillers from "../../../constants&addons/route_fillers";
 import LogsTable from "./LogsTable";
+import PagePagination from "../discover_orders/PagePagination";
 const LogsBrowser = (props) => {
     const [logsVector, setLogsVector] = useState([]);
     const [reloadActivator, setReloadActivator] = useState(false);
 
     const [rowsCount, setRowsCount] = useState(0);
     const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [rowsPerPage, setRowsPerPage] = useState(25);
 
     useEffect(() => {
         fetch(`${route_fillers.url}/api/logs/browse`, {
@@ -38,6 +39,13 @@ const LogsBrowser = (props) => {
                 logsVector={logsVector}
                 reloadActivator={reloadActivator}
                 setReloadActivator={setReloadActivator}
+            />
+            <PagePagination
+                rowsCount={rowsCount}
+                page={page}
+                setPage={setPage}
+                rowsPerPage={rowsPerPage}
+                setRowsPerPage={setRowsPerPage}
             />
             <LogoutFAB
                 setIsAuthorized={props.setIsAuthorized}
