@@ -6,7 +6,15 @@ import ChipsContainer from "./TopSide/ChipsContainer";
 import DatePopper from "./TopSide/DatePopper";
 import GoToAdminButton from "./TopSide/DatePopper/GoToAdminButton";
 import TextFieldQuery from "./BottomSide/text-field-query";
+import ButtonGridPlacement from "../../../unified_components/ButtonGridPlacement";
+import LogoDevIcon from "@mui/icons-material/LogoDev";
+import PagePosition from "../../../../constants&addons/screen_enums.ts";
 const BodyContainer = (props) => {
+
+    function go_to_logs() : void {
+        props.setPagePosition(PagePosition.LogsBrowser)
+    }
+
     return (
         <div className="body-container-grid">
             <DatePopper
@@ -17,6 +25,13 @@ const BodyContainer = (props) => {
             />
             <GoToAdminButton
                 setPagePosition={props.setPagePosition}
+            />
+            <ButtonGridPlacement
+                rowArea = {"1 / 1"}
+                columnArea={"16 / 22"}
+                icon={<LogoDevIcon/>}
+                action={go_to_logs}
+                text={"Логи"}
             />
             <ChipsContainer filterCondition={props.filterCondition}/>
             <TextFieldQuery

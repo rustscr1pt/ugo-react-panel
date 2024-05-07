@@ -11,7 +11,7 @@ const LogsBrowser = (props) => {
 
     const [rowsCount, setRowsCount] = useState(0);
     const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(25);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
 
     function fill_vec_error_case(message) {
         console.log(message);

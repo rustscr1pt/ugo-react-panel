@@ -1,5 +1,5 @@
 import "./LogsTopPanel.style.sass";
-import ButtonGridPlacement from "./ButtonGridPlacement";
+import ButtonGridPlacement from "../../../unified_components/ButtonGridPlacement";
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import PagePosition from "../../../../constants&addons/screen_enums.ts";
 import BorderAllIcon from "@mui/icons-material/BorderAll";
