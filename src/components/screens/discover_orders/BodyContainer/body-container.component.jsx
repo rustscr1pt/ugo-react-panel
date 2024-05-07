@@ -4,15 +4,19 @@ import SearchButton from "./BottomSide/search-button";
 import * as React from "react";
 import ChipsContainer from "./TopSide/ChipsContainer";
 import DatePopper from "./TopSide/DatePopper";
-import GoToAdminButton from "./TopSide/DatePopper/GoToAdminButton";
 import TextFieldQuery from "./BottomSide/text-field-query";
 import ButtonGridPlacement from "../../../unified_components/ButtonGridPlacement";
 import LogoDevIcon from "@mui/icons-material/LogoDev";
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import PagePosition from "../../../../constants&addons/screen_enums.ts";
 const BodyContainer = (props) => {
 
     function go_to_logs() : void {
         props.setPagePosition(PagePosition.LogsBrowser)
+    }
+
+    function go_to_admins() : void {
+        props.setPagePosition(PagePosition.AdminManagement)
     }
 
     return (
@@ -23,8 +27,12 @@ const BodyContainer = (props) => {
                 setFilteredQuery={props.setFilteredQuery}
                 setFilterCondition={props.setFilterCondition}
             />
-            <GoToAdminButton
-                setPagePosition={props.setPagePosition}
+            <ButtonGridPlacement
+                rowArea = {"1 / 1"}
+                columnArea={"9 / 15"}
+                icon={<SupervisorAccountIcon/>}
+                action={go_to_admins}
+                text={"Пользователи"}
             />
             <ButtonGridPlacement
                 rowArea = {"1 / 1"}
