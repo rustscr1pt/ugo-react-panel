@@ -1,6 +1,6 @@
 import "./AddAccountDiv.style.sass"
 import CreateIcon from '@mui/icons-material/Create';
-import TemplateSimpleButton from "../unified_components/generate_pass_add_button";
+import TemplateSimpleButton from "../../../../unified_components/ButtonGridPlacement/TemplateSimpleButton";
 import route_fillers from "../../../../../constants&addons/route_fillers";
 const AddAccountDiv = (props) => {
 

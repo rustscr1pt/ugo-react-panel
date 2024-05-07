@@ -1,6 +1,6 @@
 import "./FoldUnwrapAdminDiv.style.sass";
 import React from "react";
-import TemplateSimpleButton from "../../add_admin_wrapped/unified_components/generate_pass_add_button";
+import TemplateSimpleButton from "../../../../unified_components/ButtonGridPlacement/TemplateSimpleButton";
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 const FoldUnwrapAdminDiv = (props) => {

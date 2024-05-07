@@ -1,7 +1,7 @@
-import TemplateSimpleButton from "../unified_components/generate_pass_add_button";
+import TemplateSimpleButton from "../../../../unified_components/ButtonGridPlacement/TemplateSimpleButton";
 import PatternIcon from '@mui/icons-material/Pattern';
 import "./GeneratePasswordDiv.style.sass";
-import {generate} from "../../../../../wasm/pkg/ugo_react_wasm";
+import {generate} from "../../../../../wasm/pkg";
 
 const GeneratePasswordDiv = (props) => {
     function generate_password() {
