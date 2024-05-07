@@ -1,2 +1,2 @@
-import BasicTable from "./mui_table.component";
-export default BasicTable;
+import BasicOrderTable from "./BasicOrderTable.component";
+export default BasicOrderTable;

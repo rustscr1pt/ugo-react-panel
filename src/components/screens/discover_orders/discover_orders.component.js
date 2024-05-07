@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import './discover_orders.style.sass'
-import BasicTable from "./BasicTable";
+import BasicOrderTable from "./BasicTable";
 import BodyContainer from "./BodyContainer";
 import Box from "@mui/material/Box";
 import route_fillers from "../../../constants&addons/route_fillers";
@@ -86,7 +86,7 @@ const DiscoverOrders = (props) => {
                 setFilterCondition={setFilterCondition}
                 setPagePosition={props.setPagePosition}
             />
-            <BasicTable
+            <BasicOrderTable
                 object_vector={OrdersVector}
                 reloadActivator={reloadActivator}
                 setReloadActivator={setReloadActivator}
