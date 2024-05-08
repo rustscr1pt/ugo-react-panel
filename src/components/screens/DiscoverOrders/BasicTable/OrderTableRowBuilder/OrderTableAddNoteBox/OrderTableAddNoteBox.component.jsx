@@ -48,7 +48,7 @@ const OrderTableAddNoteBox = (props) => {
     }
 
     return (
-        <Box sx={{display : 'flex', flexDirection: "row", justifyContent : "space-between", width : "80%"}}>
+        <Box sx={{display : 'flex', flexDirection: "row", justifyContent : "space-between", width : "80%", marginLeft : "3.5%"}}>
             <TextField
                 error={fieldError}
                 sx={{width : "80%"}}
