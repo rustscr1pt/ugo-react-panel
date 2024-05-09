@@ -9,8 +9,8 @@ export const Alert = createSlice({
         setAlertActivity : (state, condition, text) => {
             state.value = [
                 {
-                    condition : condition,
-                    text : `${text}`,
+                    condition : condition.payload,
+                    text : `${text.payload}`,
                     severity : "error"
                 }
             ]
