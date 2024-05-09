@@ -1,25 +1,26 @@
 import "./LogsBrowser.style.sass"
 import LogoutFAB from "../DiscoverOrders/LogoutFAB";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import route_fillers from "../../../constants&addons/route_fillers";
 import LogsTable from "./LogsTable";
 import PagePagination from "../DiscoverOrders/PagePagination";
 import LogsTopPanel from "./LogsTopPanel";
-const LogsBrowser = (props) => {
-    const [logsVector, setLogsVector] = useState([]);
-    const [reloadActivator, setReloadActivator] = useState(false);
+import {useDispatch, useSelector} from "react-redux";
+import {setAsErrorLogsVector, setLogsVector} from "../../redux/separatedBases/ScreenBases/LogsBrowser/LogsVector/LogsVector";
+import {setLogsRowCount} from "../../redux/separatedBases/ScreenBases/LogsBrowser/LogsPagination/LogsRowCount";
+import {setLogsCurrentPage} from "../../redux/separatedBases/ScreenBases/LogsBrowser/LogsPagination/LogsCurrentPage";
+import {setLogsRowsPerPage} from "../../redux/separatedBases/ScreenBases/LogsBrowser/LogsPagination/LogsRowsPerPage";
+const LogsBrowser = () => {
+    const dispatch = useDispatch();
 
-    const [rowsCount, setRowsCount] = useState(0);
-    const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(10);
+    const rowsPerPage = useSelector((state) => state.logsRowPerPage.value);
+    const currentPage = useSelector((state) => state.logsCurrentPage.value);
+    const rowsCount = useSelector((state) => state.logsRowCount.value);
+    const reloadActivator = useSelector((state) => state.logsReloadActivator.value);
 
     function fill_vec_error_case(message) {
         console.log(message);
-        setLogsVector([{
-            id : "0",
-            contents : `${message}`,
-            date_time : "Null"
-        }])
+        dispatch(setAsErrorLogsVector(message));
     }
 
     useEffect(() => {
@@ -27,7 +28,7 @@ const LogsBrowser = (props) => {
             method : "POST",
             body : JSON.stringify({
                 rows_per_page : `${rowsPerPage}`,
-                page_number : `${page}`
+                page_number : `${currentPage}`
             }),
             headers : {
                 "Content-Type" : "application/json"
@@ -36,8 +37,8 @@ const LogsBrowser = (props) => {
             .then((response) => response.json())
             .then((json) => {
                 if (json.is_succeed) {
-                    setLogsVector(json.reply);
-                    setRowsCount(parseInt(json.message));
+                    dispatch(setLogsVector(json.reply));
+                    dispatch(setLogsRowCount(parseInt(json.message)));
                 }
                 else {
                     fill_vec_error_case(json.message)
@@ -46,30 +47,22 @@ const LogsBrowser = (props) => {
             .catch(function(err) {
                 fill_vec_error_case(err)
             })
-    }, [reloadActivator, page, rowsPerPage]);
+    }, [reloadActivator, currentPage, rowsPerPage]);
 
     return (
         <div className="LogsBrowserDiv">
-            <LogsTopPanel
-                setPagePosition={props.setPagePosition}
-                setReloadActivator={setReloadActivator}
-            />
-            <LogsTable
-                logsVector={logsVector}
-                reloadActivator={reloadActivator}
-            />
+            <LogsTopPanel/>
+            <LogsTable/>
             <div className="PagePaginationDiv">
                 <PagePagination
                     rowsCount={rowsCount}
-                    page={page}
-                    setPage={setPage}
+                    page={currentPage}
+                    setPage={dispatch(setLogsCurrentPage)}
                     rowsPerPage={rowsPerPage}
-                    setRowsPerPage={setRowsPerPage}
+                    setRowsPerPage={dispatch(setLogsRowsPerPage)}
                 />
             </div>
-            <LogoutFAB
-                setIsAuthorized={props.setIsAuthorized}
-            />
+            <LogoutFAB/>
         </div>
     )
 }

@@ -10,8 +10,6 @@ const LogsTableBodyBuilder = (props) => {
                     <LogsTableRowBuilder
                         key={object.id}
                         object={object}
-                        reloadActivator={props.reloadActivator}
-                        setReloadActivator={props.setReloadActivator}
                     />
                 ))
             }

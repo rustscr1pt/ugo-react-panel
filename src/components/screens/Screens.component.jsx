@@ -1,4 +1,3 @@
-import {useState} from "react";
 import PagePosition from "../../constants&addons/screen_enums.ts";
 import DiscoverOrders from "./DiscoverOrders";
 import ManageAdmins from "./ManageAdmins";
@@ -18,10 +17,7 @@ const Screens = (props) => {
     }
     else if (screenPosition === PagePosition.LogsBrowser) {
         return (
-            <LogsBrowser
-                setIsAuthorized={props.setIsAuthorized}
-                setPagePosition={setPagePosition}
-            />
+            <LogsBrowser/>
         )
     }
     else {
