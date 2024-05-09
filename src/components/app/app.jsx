@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import Auth from "../auth";
-import BlackHeader from "../black_header";
-import DiscoverOrders from "../screens/DiscoverOrders";
+import BlackHeader from "../black_header"
 import route_fillers from "../../constants&addons/route_fillers";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
