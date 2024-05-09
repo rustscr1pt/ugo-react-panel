@@ -3,10 +3,12 @@ import PagePosition from "../../constants&addons/screen_enums.ts";
 import DiscoverOrders from "./DiscoverOrders";
 import ManageAdmins from "./ManageAdmins";
 import LogsBrowser from "./LogsBrowser";
+import {useSelector} from "react-redux";
 
 const Screens = (props) => {
-    const [pagePosition, setPagePosition] = useState(PagePosition.Discover);
-    if (pagePosition === PagePosition.Discover) {
+    const screenPosition = useSelector((state) => state.screenPosition.value);
+
+    if (screenPosition === PagePosition.Discover) {
         return (
             <DiscoverOrders
                 setIsAuthorized={props.setIsAuthorized}
@@ -14,7 +16,7 @@ const Screens = (props) => {
             />
         )
     }
-    else if (pagePosition === PagePosition.LogsBrowser) {
+    else if (screenPosition === PagePosition.LogsBrowser) {
         return (
             <LogsBrowser
                 setIsAuthorized={props.setIsAuthorized}
@@ -24,10 +26,7 @@ const Screens = (props) => {
     }
     else {
         return (
-            <ManageAdmins
-                setIsAuthorized={props.setIsAuthorized}
-                setPagePosition={setPagePosition}
-            />
+            <ManageAdmins/>
         )
     }
 }

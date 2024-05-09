@@ -3,16 +3,11 @@ import FoldUnwrapAdminDiv from "./FoldUnwrapAdminDiv";
 import ButtonGridPlacement from "../../../unified_components/ButtonGridPlacement";
 import LogoDevIcon from '@mui/icons-material/LogoDev';
 import BorderAllIcon from '@mui/icons-material/BorderAll';
-import PagePosition from "../../../../constants&addons/screen_enums.ts";
-const AdminTopPanelContainer = (props) => {
+import {useDispatch} from "react-redux";
+import {goToDiscover, goToLogs} from "../../../redux/separatedBases/ScreenPosition/ScreenPosition";
+const AdminTopPanelContainer = () => {
 
-    function go_to_logs() : void {
-        props.setPagePosition(PagePosition.LogsBrowser);
-    }
-
-    function go_to_orders() : void {
-        props.setPagePosition(PagePosition.Discover);
-    }
+    const dispatch = useDispatch();
 
     return (
         <div className="TopPanelContainer">
@@ -20,20 +15,17 @@ const AdminTopPanelContainer = (props) => {
                 rowArea = {"1 / 1"}
                 columnArea={"2 / 8"}
                 icon={<BorderAllIcon/>}
-                action={go_to_orders}
+                action={dispatch(goToDiscover())}
                 text={"Заказы"}
             />
             <ButtonGridPlacement
                 rowArea = {"1 / 1"}
                 columnArea={"9 / 15"}
                 icon={<LogoDevIcon/>}
-                action={go_to_logs}
+                action={dispatch(goToLogs())}
                 text={"Логи"}
             />
-            <FoldUnwrapAdminDiv
-                setDisplayAddAccount={props.setDisplayAddAccount}
-                displayAddAccount={props.displayAddAccount}
-            />
+            <FoldUnwrapAdminDiv/>
         </div>
     )
 }

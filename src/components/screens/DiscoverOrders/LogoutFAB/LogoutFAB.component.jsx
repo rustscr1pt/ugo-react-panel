@@ -1,9 +1,13 @@
 import "./LogoutFAB.style.sass";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import {Fab} from "@mui/material";
-const LogoutFAB = (props) => {
+import {useDispatch} from "react-redux";
+import {setAuthValue} from "../../../redux/separatedBases/AuthAndAlert/Auth";
+const LogoutFAB = () => {
+    const dispatch = useDispatch();
+
     function logout() {
-        props.setIsAuthorized(false);
+        dispatch(setAuthValue(false));
         sessionStorage.clear();
     }
 

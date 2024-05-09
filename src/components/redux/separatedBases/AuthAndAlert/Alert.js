@@ -14,9 +14,12 @@ export const Alert = createSlice({
                     severity : "error"
                 }
             ]
+        },
+        emptyAlertActivity : (state) => {
+            state.value = []
         }
     }
 })
 
-export const {setAlertActivity} = Alert.actions;
+export const {setAlertActivity, emptyAlertActivity} = Alert.actions;
 export default Alert.reducer;

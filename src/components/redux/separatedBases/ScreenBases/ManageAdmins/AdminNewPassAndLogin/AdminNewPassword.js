@@ -8,8 +8,11 @@ export const AdminNewPassword = createSlice({
     reducers : {
         setAdminNewPassword : (state, value) => {
             state.value = value.payload;
+        },
+        resetAdminNewPassword : (state) => {
+            state.value = ""
         }
     }
 });
-export const {setAdminNewPassword} = AdminNewPassword.actions;
+export const {setAdminNewPassword, resetAdminNewPassword} = AdminNewPassword.actions;
 export default AdminNewPassword.reducer;

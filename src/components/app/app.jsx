@@ -7,11 +7,15 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Screens from "../screens";
+import {useDispatch, useSelector} from "react-redux";
+import {setAuthValue} from "../redux/separatedBases/AuthAndAlert/Auth";
+import {setAlertActivity} from "../redux/separatedBases/AuthAndAlert/Alert";
 
 
 const App = () => {
-    const [isAuthorized, setIsAuthorized] = useState(false);
-    const [showAlert, setShowAlert] = useState([]);
+    const auth = useSelector((state) => state.auth.value);
+
+    const dispatch = useDispatch();
 
     // Check sessionStorage for token. If it's detected - make a check + redirect and skip login screen
     useEffect(() => {
@@ -29,36 +33,24 @@ const App = () => {
                 .then((response) => response.json())
                 .then((json) => {
                     if (json.is_succeed) {
-                        setIsAuthorized(true)
+                        dispatch(setAuthValue(true))
                     }
                     else {
-                        setShowAlert([{
-                            condition : true,
-                            text : `${json.message}`,
-                            severity : "error"
-                        }])
+                        dispatch(setAlertActivity(true, json.message))
                     }
                 })
                 .catch(function(err) {
-                    setShowAlert([{
-                        condition : true,
-                        text : `${err}`,
-                        severity : "error"
-                    }])
+                    dispatch(setAlertActivity(true, err))
                 })
         }
     }, []);
 
 
-    if (!isAuthorized) {
+    if (!auth) {
         return (
             <div className='app_flex_centered_vertical'>
                 <BlackHeader/>
-                <Auth
-                    showAlert={showAlert}
-                    setShowAlert={setShowAlert}
-                    setIsAuthorized={setIsAuthorized}
-                />
+                <Auth/>
             </div>
         )
     }
@@ -66,7 +58,7 @@ const App = () => {
         return (
             <div className='app_flex_centered_vertical'>
                 <BlackHeader/>
-                <Screens setIsAuthorized={setIsAuthorized}/>
+                <Screens/>
             </div>
         )
     }

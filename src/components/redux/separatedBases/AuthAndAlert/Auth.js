@@ -8,9 +8,12 @@ export const Auth = createSlice( {
     reducers : {
         toggleAuthValue : (state) => {
             state.value = !state.value;
+        },
+        setAuthValue : (state, value) => {
+            state.value = value.payload
         }
     }
 });
 
-export const {toggleAuthValue} = Auth.actions;
+export const {toggleAuthValue, setAuthValue} = Auth.actions;
 export default Auth.reducer;

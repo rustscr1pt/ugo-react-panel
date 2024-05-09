@@ -8,8 +8,11 @@ export const AdminNewLogin = createSlice({
     reducers : {
         setAdminNewLogin : (state, value) => {
             state.value = value.payload;
+        },
+        resetAdminNewLogin : (state) => {
+            state.value = ""
         }
     }
 });
-export const {setAdminNewLogin} = AdminNewLogin.actions;
+export const {setAdminNewLogin, resetAdminNewLogin} = AdminNewLogin.actions;
 export default AdminNewLogin.reducer;

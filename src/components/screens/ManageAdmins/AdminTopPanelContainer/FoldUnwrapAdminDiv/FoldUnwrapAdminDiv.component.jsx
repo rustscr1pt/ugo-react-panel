@@ -3,12 +3,19 @@ import React from "react";
 import TemplateSimpleButton from "../../../../unified_components/ButtonGridPlacement/TemplateSimpleButton";
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
-const FoldUnwrapAdminDiv = (props) => {
+import {useDispatch, useSelector} from "react-redux";
+import {
+    toggleDisplayAddAccount
+} from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/DisplayAddAccount/DisplayAddAccount";
+const FoldUnwrapAdminDiv = () => {
+    const dispatch = useDispatch();
+    const isShown = useSelector((state) => state.displayAddAccount.value);
+
     function change_property() {
-        props.setDisplayAddAccount((prev) => !prev);
+        dispatch(toggleDisplayAddAccount());
     }
 
-    switch (props.displayAddAccount) {
+    switch (isShown) {
         case true:
             return (
                 <div className="FoldUnwrapAdminDiv">
