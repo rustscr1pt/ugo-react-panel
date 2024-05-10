@@ -1,3 +1,4 @@
+// For changing screens
 enum PagePosition {
     Discover,
     AdminManagement,
