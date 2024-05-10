@@ -23,14 +23,14 @@ const DiscoverOrders = () => {
     const filteredQuery = useSelector((state) => state.ordersFilteredQuery.value);
     const filterType = useSelector((state) => state.ordersFilterType.value);
 
-    const reloadActivator = useSelector((state) => state.ordersReloadActivator.value);
-
     const page = useSelector((state) => state.ordersCurrentPage.value);
     const rowsPerPage = useSelector((state) => state.ordersRowsPerPage.value);
     const rowsCount = useSelector((state) => state.ordersRowCount.value);
 
     // On change useEffect is activated and depending on its value makes different requests
     const filterCondition = useSelector((state) => state.ordersFilterCondition.value);
+
+    const reloadActivator = useSelector((state) => state.ordersReloadActivator.value);
 
     // Make a request and display orders using rowsPerPage & page
     useEffect(() => {

@@ -3,7 +3,6 @@ import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import LogsTableHeadBuilder from "./LogsTableHeadBuilder";
 import LogsTableBodyBuilder from "./LogsTableBodyBuilder";
-import {useSelector} from "react-redux";
 
 const LogsTable = () => {
 

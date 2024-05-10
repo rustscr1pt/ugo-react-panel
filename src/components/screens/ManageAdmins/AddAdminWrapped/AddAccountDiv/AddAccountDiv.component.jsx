@@ -3,18 +3,10 @@ import CreateIcon from '@mui/icons-material/Create';
 import TemplateSimpleButton from "../../../../unified_components/ButtonGridPlacement/TemplateSimpleButton";
 import route_fillers from "../../../../../constants&addons/route_fillers";
 import {useDispatch, useSelector} from "react-redux";
-import {
-    resetAdminNewLogin,
-    setAdminNewLogin
-} from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminNewPassAndLogin/AdminNewLogin";
-import {
-    resetAdminNewPassword,
-    setAdminNewPassword
-} from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminNewPassAndLogin/AdminNewPassword";
+import {resetAdminNewLogin} from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminNewPassAndLogin/AdminNewLogin";
+import {resetAdminNewPassword} from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminNewPassAndLogin/AdminNewPassword";
 import {setAuthValue} from "../../../../redux/separatedBases/AuthAndAlert/Auth";
-import {
-    setAdminsReloadActivator, toggleAdminsReloadActivator
-} from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminsReloadActivator/AdminsReloadActivator";
+import {toggleAdminsReloadActivator} from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminsReloadActivator/AdminsReloadActivator";
 const AddAccountDiv = () => {
     const dispatch = useDispatch();
 
