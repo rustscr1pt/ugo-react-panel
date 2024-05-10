@@ -60,11 +60,19 @@ const Auth = (props) => {
                     dispatch(setAuthValue(true));
                 }
                 else {
-                    dispatch(setAlertActivity(true, json.message))
+                    console.log(json.message);
+                    dispatch(setAlertActivity({
+                        condition : true,
+                        text : `${json.message}`
+                    }))
                 }
             })
             .catch(function(err) {
-                dispatch(setAlertActivity(true, err))
+                console.log(err);
+                dispatch(setAlertActivity({
+                    condition : true,
+                    text : `${err}`
+                }))
             })
     }
 

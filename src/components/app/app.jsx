@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import Auth from "../auth";
 import BlackHeader from "../black_header"
 import route_fillers from "../../constants&addons/route_fillers";
@@ -36,11 +36,19 @@ const App = () => {
                         dispatch(setAuthValue(true))
                     }
                     else {
-                        dispatch(setAlertActivity(true, json.message))
+                        console.log(json.message);
+                        dispatch(setAlertActivity({
+                            condition : true,
+                            text : `${json.message}`
+                        }))
                     }
                 })
                 .catch(function(err) {
-                    dispatch(setAlertActivity(true, err))
+                    console.log(err);
+                    dispatch(setAlertActivity({
+                        condition : true,
+                        text : `${err}`
+                    }))
                 })
         }
     }, []);

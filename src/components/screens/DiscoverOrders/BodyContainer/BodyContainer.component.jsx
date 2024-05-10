@@ -8,11 +8,8 @@ import TextFieldQuery from "./BottomSide/TextFieldQuery";
 import ButtonGridPlacement from "../../../unified_components/ButtonGridPlacement";
 import LogoDevIcon from "@mui/icons-material/LogoDev";
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
-import {useDispatch} from "react-redux";
-import {goToAdmins, goToLogs} from "../../../redux/separatedBases/ScreenPosition/ScreenPosition";
+import TemplateSimpleButtonActionEnums from "../../../../constants&addons/TemplateSimpleButtonActionEnums.ts";
 const BodyContainer = () => {
-
-    const dispatch = useDispatch();
 
     return (
         <div className="body-container-grid">
@@ -21,14 +18,14 @@ const BodyContainer = () => {
                 rowArea = {"1 / 1"}
                 columnArea={"9 / 15"}
                 icon={<SupervisorAccountIcon/>}
-                action={dispatch(goToAdmins)}
+                action={TemplateSimpleButtonActionEnums.goToAdmins}
                 text={"Пользователи"}
             />
             <ButtonGridPlacement
                 rowArea = {"1 / 1"}
                 columnArea={"16 / 22"}
                 icon={<LogoDevIcon/>}
-                action={dispatch(goToLogs)}
+                action={TemplateSimpleButtonActionEnums.goToLogs}
                 text={"Логи"}
             />
             <ChipsContainer/>
