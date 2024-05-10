@@ -8,17 +8,11 @@ export const ScreenPosition = createSlice({
         value : PagePosition.Discover
     },
     reducers : {
-        goToDiscover : (state) => {
-            state.value = PagePosition.Discover;
-        },
-        goToAdmins : (state) => {
-            state.value = PagePosition.AdminManagement;
-        },
-        goToLogs : (state) => {
-            state.value = PagePosition.LogsBrowser;
+        setNewScreenPosition(state, value) {
+            state.value = value.payload
         }
     }
 });
 
-export const {goToDiscover, goToAdmins, goToLogs} = ScreenPosition.actions;
+export const {setNewScreenPosition} = ScreenPosition.actions;
 export default ScreenPosition.reducer;

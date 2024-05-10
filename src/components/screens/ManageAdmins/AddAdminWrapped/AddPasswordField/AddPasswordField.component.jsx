@@ -2,12 +2,13 @@ import LockIcon from '@mui/icons-material/Lock';
 import * as React from "react";
 import "./AddPasswordField.style.sass"
 import TextFieldAdminManagement from "../../../../unified_components/TextFieldAdminManagement";
-import {useDispatch, useSelector} from "react-redux";
-import {setPasswordField} from "../../../../redux/separatedBases/LoginAndPassword/Password";
+import {useSelector} from "react-redux";
+import {
+    setAdminNewPassword
+} from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminNewPassAndLogin/AdminNewPassword";
 
 const AddPasswordField = () => {
     const password = useSelector((state) => state.adminNewPassword.value);
-    const dispatch = useDispatch();
 
     return (
         <div className="AddPasswordField">
@@ -15,7 +16,7 @@ const AddPasswordField = () => {
                 label="Введите пароль пользователя"
                 icon={<LockIcon/>}
                 read={password}
-                write={dispatch(setPasswordField)}
+                write={setAdminNewPassword}
             />
         </div>
     )

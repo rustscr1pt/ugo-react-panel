@@ -10,6 +10,7 @@ export const LogsReloadActivator = createSlice({
             state.value = value.payload
         },
         toggleLogsReloadActivator : (state) => {
+            console.log("refreshed");
             state.value = !state.value
         }
     }

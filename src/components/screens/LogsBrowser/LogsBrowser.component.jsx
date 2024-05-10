@@ -15,8 +15,9 @@ const LogsBrowser = () => {
 
     const rowsPerPage = useSelector((state) => state.logsRowPerPage.value);
     const currentPage = useSelector((state) => state.logsCurrentPage.value);
-    const rowsCount = useSelector((state) => state.logsRowCount.value);
     const reloadActivator = useSelector((state) => state.logsReloadActivator.value);
+
+    const rowsCount = useSelector((state) => state.logsRowCount.value);
 
     function fill_vec_error_case(message) {
         console.log(message);
@@ -57,9 +58,9 @@ const LogsBrowser = () => {
                 <PagePagination
                     rowsCount={rowsCount}
                     page={currentPage}
-                    setPage={dispatch(setLogsCurrentPage)}
                     rowsPerPage={rowsPerPage}
-                    setRowsPerPage={dispatch(setLogsRowsPerPage)}
+                    changePage={setLogsCurrentPage}
+                    setRowsPerPage={setLogsRowsPerPage}
                 />
             </div>
             <LogoutFAB/>

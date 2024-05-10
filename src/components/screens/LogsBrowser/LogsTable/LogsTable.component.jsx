@@ -6,15 +6,12 @@ import LogsTableBodyBuilder from "./LogsTableBodyBuilder";
 import {useSelector} from "react-redux";
 
 const LogsTable = () => {
-    const logsVector = useSelector((state) => state.logsVector.value);
 
     return (
         <TableContainer component={Paper}>
             <Table>
                 <LogsTableHeadBuilder/>
-                <LogsTableBodyBuilder
-                    logsVector={logsVector}
-                />
+                <LogsTableBodyBuilder/>
             </Table>
         </TableContainer>
     )

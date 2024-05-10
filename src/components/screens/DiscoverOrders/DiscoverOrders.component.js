@@ -9,6 +9,12 @@ import LogoutFAB from "./LogoutFAB";
 import {useDispatch, useSelector} from "react-redux";
 import {setOrdersVector} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersVector/OrdersVector";
 import {setOrdersRowCount} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersRowCount";
+import {
+    setOrdersCurrentPage
+} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersCurrentPage";
+import {
+    setOrdersRowsPerPage
+} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersRowsPerPage";
 
 
 const DiscoverOrders = () => {
@@ -21,6 +27,7 @@ const DiscoverOrders = () => {
 
     const page = useSelector((state) => state.ordersCurrentPage.value);
     const rowsPerPage = useSelector((state) => state.ordersRowsPerPage.value);
+    const rowsCount = useSelector((state) => state.ordersRowCount.value);
 
     // On change useEffect is activated and depending on its value makes different requests
     const filterCondition = useSelector((state) => state.ordersFilterCondition.value);
@@ -79,7 +86,13 @@ const DiscoverOrders = () => {
         <Box sx={{width : "100%"}}>
             <BodyContainer/>
             <BasicOrderTable/>
-            <PagePagination/>
+            <PagePagination
+                rowsCount={rowsCount}
+                page={page}
+                rowsPerPage={rowsPerPage}
+                changePage={setOrdersCurrentPage}
+                setRowsPerPage={setOrdersRowsPerPage}
+            />
             <LogoutFAB/>
         </Box>
     )

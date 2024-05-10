@@ -8,9 +8,9 @@ import TextFieldQuery from "./BottomSide/TextFieldQuery";
 import ButtonGridPlacement from "../../../unified_components/ButtonGridPlacement";
 import LogoDevIcon from "@mui/icons-material/LogoDev";
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
-import TemplateSimpleButtonActionEnums from "../../../../constants&addons/TemplateSimpleButtonActionEnums.ts";
+import PagePosition from "../../../../constants&addons/screen_enums.ts";
+import {setNewScreenPosition} from "../../../redux/separatedBases/ScreenPosition/ScreenPosition";
 const BodyContainer = () => {
-
     return (
         <div className="body-container-grid">
             <DatePopper/>
@@ -18,14 +18,14 @@ const BodyContainer = () => {
                 rowArea = {"1 / 1"}
                 columnArea={"9 / 15"}
                 icon={<SupervisorAccountIcon/>}
-                action={TemplateSimpleButtonActionEnums.goToAdmins}
+                action={setNewScreenPosition(PagePosition.AdminManagement)}
                 text={"Пользователи"}
             />
             <ButtonGridPlacement
                 rowArea = {"1 / 1"}
                 columnArea={"16 / 22"}
                 icon={<LogoDevIcon/>}
-                action={TemplateSimpleButtonActionEnums.goToLogs}
+                action={setNewScreenPosition(PagePosition.LogsBrowser)}
                 text={"Логи"}
             />
             <ChipsContainer/>

@@ -1,42 +1,32 @@
 import {TablePagination} from "@mui/material";
-import {useDispatch, useSelector} from "react-redux";
-import {
-    setOrdersCurrentPage
-} from "../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersCurrentPage";
-import {
-    setOrdersRowsPerPage
-} from "../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersRowsPerPage";
+import {useDispatch} from "react-redux";
+
 
 // Bottom pagination component for browsing orders
-const PagePagination = () => {
+const PagePagination = (props) => {
     const dispatch = useDispatch();
-
-    const rowsCount = useSelector((state) => state.ordersRowCount.value);
-    const page = useSelector((state) => state.ordersCurrentPage.value);
-    const rowsPerPage = useSelector((state) => state.ordersRowsPerPage.value);
-
 
     const handleChangePage = (
         event: React.MouseEvent<HTMLButtonElement> | null,
         newPage: number,
     ) => {
-        dispatch(setOrdersCurrentPage(newPage));
+        dispatch(props.changePage(newPage));
     };
 
     const handleChangeRowsPerPage = (
         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     ) => {
-        dispatch(setOrdersRowsPerPage(parseInt(event.target.value, 10)));
-        dispatch(setOrdersCurrentPage(0));
+        dispatch(props.setRowsPerPage(parseInt(event.target.value, 10)));
+        dispatch(props.changePage(0));
     };
 
     return (
         <TablePagination
             component="div"
-            count={rowsCount}
-            page={page}
+            count={props.rowsCount}
+            page={props.page}
             onPageChange={handleChangePage}
-            rowsPerPage={rowsPerPage}
+            rowsPerPage={props.rowsPerPage}
             onRowsPerPageChange={handleChangeRowsPerPage}
             showFirstButton={true}
             showLastButton={true}

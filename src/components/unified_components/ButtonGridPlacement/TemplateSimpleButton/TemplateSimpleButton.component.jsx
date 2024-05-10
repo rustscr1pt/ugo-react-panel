@@ -1,24 +1,9 @@
 import {Button} from "@mui/material";
 import {useDispatch} from "react-redux";
-import TemplateSimpleButtonActionEnums from "../../../../constants&addons/TemplateSimpleButtonActionEnums.ts";
-import {goToAdmins, goToDiscover, goToLogs} from "../../../redux/separatedBases/ScreenPosition/ScreenPosition";
 
 const TemplateSimpleButton = (props) => {
-    const dispatch = useDispatch();
 
-    function response_to_click() {
-        // eslint-disable-next-line default-case
-        switch (props.action) {
-            case TemplateSimpleButtonActionEnums.goToLogs:
-                dispatch(goToLogs());
-                break
-            case TemplateSimpleButtonActionEnums.goToAdmins:
-                dispatch(goToAdmins());
-                break
-            case TemplateSimpleButtonActionEnums.goToOrders:
-                dispatch(goToDiscover());
-        }
-    }
+    const dispatch = useDispatch();
 
     return (
         <Button
@@ -27,7 +12,7 @@ const TemplateSimpleButton = (props) => {
             }}
             variant="contained"
             endIcon={props.icon}
-            onClick={response_to_click}
+            onClick={() => dispatch(props.action)}
         >
             {props.text}
         </Button>
