@@ -1,18 +1,21 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import Auth from "../auth";
-import BlackHeader from "../black_header";
-import DiscoverOrders from "../screens/DiscoverOrders";
+import BlackHeader from "../black_header"
 import route_fillers from "../../constants&addons/route_fillers";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Screens from "../screens";
+import {useDispatch, useSelector} from "react-redux";
+import {setAuthValue} from "../redux/separatedBases/AuthAndAlert/Auth";
+import {setAlertActivity} from "../redux/separatedBases/AuthAndAlert/Alert";
 
 
 const App = () => {
-    const [isAuthorized, setIsAuthorized] = useState(false);
-    const [showAlert, setShowAlert] = useState([]);
+    const auth = useSelector((state) => state.auth.value);
+
+    const dispatch = useDispatch();
 
     // Check sessionStorage for token. If it's detected - make a check + redirect and skip login screen
     useEffect(() => {
@@ -30,36 +33,32 @@ const App = () => {
                 .then((response) => response.json())
                 .then((json) => {
                     if (json.is_succeed) {
-                        setIsAuthorized(true)
+                        dispatch(setAuthValue(true))
                     }
                     else {
-                        setShowAlert([{
+                        console.log(json.message);
+                        dispatch(setAlertActivity({
                             condition : true,
-                            text : `${json.message}`,
-                            severity : "error"
-                        }])
+                            text : `${json.message}`
+                        }))
                     }
                 })
                 .catch(function(err) {
-                    setShowAlert([{
+                    console.log(err);
+                    dispatch(setAlertActivity({
                         condition : true,
-                        text : `${err}`,
-                        severity : "error"
-                    }])
+                        text : `${err}`
+                    }))
                 })
         }
     }, []);
 
 
-    if (!isAuthorized) {
+    if (!auth) {
         return (
             <div className='app_flex_centered_vertical'>
                 <BlackHeader/>
-                <Auth
-                    showAlert={showAlert}
-                    setShowAlert={setShowAlert}
-                    setIsAuthorized={setIsAuthorized}
-                />
+                <Auth/>
             </div>
         )
     }
@@ -67,7 +66,7 @@ const App = () => {
         return (
             <div className='app_flex_centered_vertical'>
                 <BlackHeader/>
-                <Screens setIsAuthorized={setIsAuthorized}/>
+                <Screens/>
             </div>
         )
     }

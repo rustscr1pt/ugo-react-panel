@@ -1,10 +1,10 @@
 import './ChipsContainer.style.sass';
 import SingleChip from "./SingleChip";
 
-const ChipsContainer = (props) => {
+const ChipsContainer = () => {
     return (
         <div className="chips-container">
-            <SingleChip filterCondition={props.filterCondition}/>
+            <SingleChip/>
         </div>
     )
 }

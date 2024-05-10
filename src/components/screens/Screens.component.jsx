@@ -1,33 +1,25 @@
-import {useState} from "react";
 import PagePosition from "../../constants&addons/screen_enums.ts";
 import DiscoverOrders from "./DiscoverOrders";
 import ManageAdmins from "./ManageAdmins";
 import LogsBrowser from "./LogsBrowser";
+import {useSelector} from "react-redux";
 
-const Screens = (props) => {
-    const [pagePosition, setPagePosition] = useState(PagePosition.Discover);
-    if (pagePosition === PagePosition.Discover) {
+const Screens = () => {
+    const screenPosition = useSelector((state) => state.screenPosition.value);
+
+    if (screenPosition === PagePosition.Discover) {
         return (
-            <DiscoverOrders
-                setIsAuthorized={props.setIsAuthorized}
-                setPagePosition={setPagePosition}
-            />
+            <DiscoverOrders/>
         )
     }
-    else if (pagePosition === PagePosition.LogsBrowser) {
+    else if (screenPosition === PagePosition.LogsBrowser) {
         return (
-            <LogsBrowser
-                setIsAuthorized={props.setIsAuthorized}
-                setPagePosition={setPagePosition}
-            />
+            <LogsBrowser/>
         )
     }
     else {
         return (
-            <ManageAdmins
-                setIsAuthorized={props.setIsAuthorized}
-                setPagePosition={setPagePosition}
-            />
+            <ManageAdmins/>
         )
     }
 }

@@ -1,20 +1,16 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import AdminsTable from "./AdminsTable";
 import route_fillers from "../../../constants&addons/route_fillers";
 import "./ManageAdmins.style.sass";
 import AddAdminWrapped from "./AddAdminWrapped";
 import AdminTopPanelContainer from "./AdminTopPanelContainer";
 import LogoutFAB from "../DiscoverOrders/LogoutFAB";
+import {useDispatch, useSelector} from "react-redux";
+import {setAdminsVector} from "../../redux/separatedBases/ScreenBases/ManageAdmins/AdminsVector/AdminsVector";
 
 const ManageAdmins = (props) => {
-    // An activator to reload the data.
-    const [reloadActivator, setReloadActivator] = useState(false);
-
-    // Vector for storing accounts and displaying it in table.
-    const [adminsVector, setAdminsVector] = useState([]);
-
-    // If true == menu for adding accounts is shown
-    const [displayAddAccount, setDisplayAddAccount] = useState(false);
+    const adminsReloadActivator = useSelector((state) => state.adminsReloadActivator.value)
+    const dispatch = useDispatch();
 
     useEffect(() => {
         fetch(`${route_fillers.url}/api/admins/fetch`, {
@@ -30,7 +26,7 @@ const ManageAdmins = (props) => {
             .then((json) => {
                 if (json.is_succeed) {
                     console.log(json);
-                    setAdminsVector(json.reply);
+                    dispatch(setAdminsVector(json.reply));
                 }
                 else {
                     console.log(json);
@@ -39,24 +35,14 @@ const ManageAdmins = (props) => {
             .catch(function(err) {
                 console.log(err);
             })
-    }, [reloadActivator]);
+    }, [adminsReloadActivator]);
 
     return (
         <div className="ManageAdminsDiv">
-            <AdminTopPanelContainer
-                setPagePosition={props.setPagePosition}
-                setDisplayAddAccount={setDisplayAddAccount}
-                displayAddAccount={displayAddAccount}
-            />
-            <AddAdminWrapped
-                displayAddAccount={displayAddAccount}
-                setReloadActivator={setReloadActivator}
-            />
-            <AdminsTable
-                adminsVector={adminsVector}
-                setReloadActivator={setReloadActivator}
-            />
-            <LogoutFAB setIsAuthorized={props.setIsAuthorized}/>
+            <AdminTopPanelContainer/>
+            <AddAdminWrapped/>
+            <AdminsTable/>
+            <LogoutFAB/>
         </div>
     )
 }

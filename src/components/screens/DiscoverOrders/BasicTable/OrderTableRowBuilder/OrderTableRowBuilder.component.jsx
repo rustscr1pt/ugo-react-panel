@@ -18,7 +18,7 @@ import OrderTableRemoveNoteButton from "./OrderTableRemoveNoteButton";
 
 const OrderTableRowBuilder = (props) => {
     const [open, setOpen] = useState(false);
-    const {object, reload_orders} = props;
+    const object = props.object;
     const [selectValue, changeSelectValue] = useState(object.request_status);
     const [notes, setNotes] = useState(object.notes);
 
@@ -33,7 +33,6 @@ const OrderTableRowBuilder = (props) => {
                         id={object.id}
                         selectValue={selectValue}
                         changeSelectValue={changeSelectValue}
-                        reload_orders={reload_orders}
                     />
                 </TableCell>
                 <TableCell>{object.customer_name}</TableCell>
@@ -42,8 +41,6 @@ const OrderTableRowBuilder = (props) => {
                 <TableCell>{object.date_time_added}</TableCell>
                 <OrderTableRemoveOrderButton
                     id={object.id}
-                    reloadActivator={props.reloadActivator}
-                    setReloadActivator={props.setReloadActivator}
                 />
                 <TableCell align="center">
                     <IconButton

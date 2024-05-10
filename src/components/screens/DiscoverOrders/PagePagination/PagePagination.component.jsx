@@ -1,19 +1,23 @@
 import {TablePagination} from "@mui/material";
+import {useDispatch} from "react-redux";
+
 
 // Bottom pagination component for browsing orders
 const PagePagination = (props) => {
+    const dispatch = useDispatch();
+
     const handleChangePage = (
         event: React.MouseEvent<HTMLButtonElement> | null,
         newPage: number,
     ) => {
-        props.setPage(newPage);
+        dispatch(props.changePage(newPage));
     };
 
     const handleChangeRowsPerPage = (
         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     ) => {
-        props.setRowsPerPage(parseInt(event.target.value, 10));
-        props.setPage(0);
+        dispatch(props.setRowsPerPage(parseInt(event.target.value, 10)));
+        dispatch(props.changePage(0));
     };
 
     return (

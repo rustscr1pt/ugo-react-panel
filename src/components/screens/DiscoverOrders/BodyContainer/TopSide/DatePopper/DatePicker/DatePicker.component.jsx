@@ -3,9 +3,20 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import dayjs from "dayjs";
+import {useDispatch} from "react-redux";
+import {
+    setOrdersFilteredQuery
+} from "../../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilteredQuery";
+import {
+    setOrdersFilterType
+} from "../../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilterType";
+import {
+    setOrdersFilterCondition
+} from "../../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilterCondition";
 
-export default function BasicDateCalendar(props) {
+export default function BasicDateCalendar() {
     const [value, setValue] = React.useState(dayjs());
+    const dispatch = useDispatch();
 
     function format_the_date(value) {
         if (`${value}`.length < 2) {
@@ -23,9 +34,9 @@ export default function BasicDateCalendar(props) {
     function manage_data_change(newValue) {
         setValue(newValue);
         console.log(get_the_result(newValue));
-        props.setFilteredQuery(get_the_result(newValue));
-        props.setFilterType("date_time_added");
-        props.setFilterCondition(true);
+        dispatch(setOrdersFilteredQuery(get_the_result(newValue)));
+        dispatch(setOrdersFilterType("date_time_added"));
+        dispatch(setOrdersFilterCondition(true));
     }
 
     return (

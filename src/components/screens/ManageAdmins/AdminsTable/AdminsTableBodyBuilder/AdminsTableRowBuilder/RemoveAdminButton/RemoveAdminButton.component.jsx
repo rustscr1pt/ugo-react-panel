@@ -1,8 +1,14 @@
 import BackspaceIcon from '@mui/icons-material/Backspace';
 import IconButton from "@mui/material/IconButton";
 import route_fillers from "../../../../../../../constants&addons/route_fillers";
+import {useDispatch} from "react-redux";
+import {
+    toggleAdminsReloadActivator
+} from "../../../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminsReloadActivator/AdminsReloadActivator";
 
 const RemoveAdminButton = (props) => {
+    const dispatch = useDispatch();
+
     function remove_admin_account() {
         fetch(`${route_fillers.url}/api/admins/remove`, {
             method : "POST",
@@ -16,7 +22,7 @@ const RemoveAdminButton = (props) => {
             .then((reply) => reply.json())
             .then((json) => {
                 if (json.is_succeed) {
-                    props.setReloadActivator((previous) => !previous);
+                    dispatch(toggleAdminsReloadActivator());
                 }
                 else {
                     console.log(json.message);

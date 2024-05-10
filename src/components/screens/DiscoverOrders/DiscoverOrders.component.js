@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import './DiscoverOrders.style.sass'
 import BasicOrderTable from "./BasicTable";
 import BodyContainer from "./BodyContainer";
@@ -6,23 +6,31 @@ import Box from "@mui/material/Box";
 import route_fillers from "../../../constants&addons/route_fillers";
 import PagePagination from "./PagePagination";
 import LogoutFAB from "./LogoutFAB";
+import {useDispatch, useSelector} from "react-redux";
+import {setOrdersVector} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersVector/OrdersVector";
+import {setOrdersRowCount} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersRowCount";
+import {
+    setOrdersCurrentPage
+} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersCurrentPage";
+import {
+    setOrdersRowsPerPage
+} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersRowsPerPage";
 
 
-const DiscoverOrders = (props) => {
+const DiscoverOrders = () => {
+    const dispatch = useDispatch();
 
-    const [OrdersVector, setOrdersVector] = useState([]);
+    const filteredQuery = useSelector((state) => state.ordersFilteredQuery.value);
+    const filterType = useSelector((state) => state.ordersFilterType.value);
 
-    const [filteredQuery, setFilteredQuery] = useState("");
-    const [filterType, setFilterType] = useState("");
+    const reloadActivator = useSelector((state) => state.ordersReloadActivator.value);
 
-    const [reloadActivator, setReloadActivator] = useState(false);
-
-    const [rowsCount, setRowsCount] = useState(0);
-    const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(10);
+    const page = useSelector((state) => state.ordersCurrentPage.value);
+    const rowsPerPage = useSelector((state) => state.ordersRowsPerPage.value);
+    const rowsCount = useSelector((state) => state.ordersRowCount.value);
 
     // On change useEffect is activated and depending on its value makes different requests
-    const [filterCondition, setFilterCondition] = useState(false);
+    const filterCondition = useSelector((state) => state.ordersFilterCondition.value);
 
     // Make a request and display orders using rowsPerPage & page
     useEffect(() => {
@@ -41,8 +49,8 @@ const DiscoverOrders = (props) => {
             })
                 .then((response) => response.json())
                 .then((json) => {
-                    setOrdersVector(json.reply);
-                    setRowsCount(parseInt(json.message));
+                    dispatch(setOrdersVector(json.reply));
+                    dispatch(setOrdersRowCount(parseInt(json.message)));
                 })
                 .catch(function(err) {
                     console.log(err);
@@ -63,8 +71,8 @@ const DiscoverOrders = (props) => {
                     (response) => response.json())
                 .then((json) => {
                     console.log(json);
-                    setOrdersVector(json.reply);
-                    setRowsCount(parseInt(json.message));
+                    dispatch(setOrdersVector(json.reply))
+                    dispatch(setOrdersRowCount(parseInt(json.message)));
                 })
                 .catch(
                     function(err){
@@ -76,31 +84,16 @@ const DiscoverOrders = (props) => {
 
     return (
         <Box sx={{width : "100%"}}>
-            <BodyContainer
-                filterType={filterType}
-                setPage={setPage}
-                setFilterType={setFilterType}
-                filteredQuery={filteredQuery}
-                setFilteredQuery={setFilteredQuery}
-                filterCondition={filterCondition}
-                setFilterCondition={setFilterCondition}
-                setPagePosition={props.setPagePosition}
-            />
-            <BasicOrderTable
-                object_vector={OrdersVector}
-                reloadActivator={reloadActivator}
-                setReloadActivator={setReloadActivator}
-            />
+            <BodyContainer/>
+            <BasicOrderTable/>
             <PagePagination
                 rowsCount={rowsCount}
                 page={page}
-                setPage={setPage}
                 rowsPerPage={rowsPerPage}
-                setRowsPerPage={setRowsPerPage}
+                changePage={setOrdersCurrentPage}
+                setRowsPerPage={setOrdersRowsPerPage}
             />
-            <LogoutFAB
-                setIsAuthorized={props.setIsAuthorized}
-            />
+            <LogoutFAB/>
         </Box>
     )
 }

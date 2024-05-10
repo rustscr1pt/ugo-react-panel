@@ -1,6 +1,10 @@
 import {Button} from "@mui/material";
+import {useDispatch} from "react-redux";
 
 const TemplateSimpleButton = (props) => {
+
+    const dispatch = useDispatch();
+
     return (
         <Button
             sx={{
@@ -8,7 +12,7 @@ const TemplateSimpleButton = (props) => {
             }}
             variant="contained"
             endIcon={props.icon}
-            onClick={props.action}
+            onClick={() => dispatch(props.action)}
         >
             {props.text}
         </Button>

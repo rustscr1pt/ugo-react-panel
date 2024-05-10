@@ -5,20 +5,20 @@ import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import OrderTableRowBuilder from "./OrderTableRowBuilder";
 import OrderTableHeadBuilder from "./OrderTableHeadBuilder";
+import {useSelector} from "react-redux";
 
-const BasicOrderTable = (props) => {
+const BasicOrderTable = () => {
+    const object_vector = useSelector((state) => state.ordersVector.value);
     return (
         <TableContainer component={Paper}>
             <Table aria-label="simple table">
                 <OrderTableHeadBuilder/>
                 <TableBody>
                     {
-                        props.object_vector.map((object) => (
+                        object_vector.map((object) => (
                             <OrderTableRowBuilder
                                 key={object.id}
                                 object={object}
-                                reloadActivator={props.reloadActivator}
-                                setReloadActivator={props.setReloadActivator}
                             />
                         ))
                     }

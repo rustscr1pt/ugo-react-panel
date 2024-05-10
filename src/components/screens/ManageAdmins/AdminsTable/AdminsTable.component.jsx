@@ -4,15 +4,12 @@ import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import AdminsTableHeadBuilder from "./AdminsTableHeadBuilder";
 import AdminsTableBodyBuilder from "./AdminsTableBodyBuilder";
-const AdminsTable = (props) => {
+const AdminsTable = () => {
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                 <AdminsTableHeadBuilder/>
-                <AdminsTableBodyBuilder
-                    adminsVector={props.adminsVector}
-                    setReloadActivator={props.setReloadActivator}
-                />
+                <AdminsTableBodyBuilder/>
             </Table>
         </TableContainer>
     );

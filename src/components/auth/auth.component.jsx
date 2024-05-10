@@ -1,31 +1,39 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {Alert, Button, TextField} from "@mui/material";
 import "./auth.style.sass";
 import LoginIcon from '@mui/icons-material/Login';
 import route_fillers from "../../constants&addons/route_fillers";
 import {motion} from "framer-motion";
+import {useDispatch, useSelector} from "react-redux";
+import {emptyAlertActivity, setAlertActivity} from "../redux/separatedBases/AuthAndAlert/Alert";
+import {setAuthValue} from "../redux/separatedBases/AuthAndAlert/Auth";
+import {setLoginField} from "../redux/separatedBases/LoginAndPassword/Login";
+import {setPasswordField} from "../redux/separatedBases/LoginAndPassword/Password";
 
 const Auth = (props) => {
-    const [login, setLogin] = useState("");
-    const [password, setPassword] = useState("");
+    const login = useSelector((state) => state.login.value);
+    const password = useSelector((state) => state.password.value);
+    const alert = useSelector((state) => state.alert.value);
+
+    const dispatch = useDispatch();
 
     // Remove alert in 5 secs after it was displayed
     useEffect(() => {
         setTimeout(function() {
-            props.setShowAlert([]);
+            dispatch(emptyAlertActivity());
         }, 5000)
-    }, [props.showAlert.length]);
+    }, [alert.length]);
 
     // Add an alert so it could be displayed
     function display_alert() {
-        if (props.showAlert.length !== 0) {
+        if (alert.length !== 0) {
             return (
                 <Alert
                     sx={{gridColumn : "7 / 15", gridRow : "1 / 2"}}
                     variant="filled"
-                    severity={props.showAlert[0].severity}
+                    severity={alert[0].severity}
                 >
-                    {props.showAlert[0].text}
+                    {alert[0].text}
                 </Alert>
             )
         }
@@ -49,22 +57,22 @@ const Auth = (props) => {
             .then((json) => {
                 if (json.is_succeed) {
                     sessionStorage.setItem("ugo-token", json.message);
-                    props.setIsAuthorized(true)
+                    dispatch(setAuthValue(true));
                 }
                 else {
-                    props.setShowAlert([{
+                    console.log(json.message);
+                    dispatch(setAlertActivity({
                         condition : true,
-                        text : `${json.message}`,
-                        severity : "error"
-                    }])
+                        text : `${json.message}`
+                    }))
                 }
             })
             .catch(function(err) {
-                props.setShowAlert([{
+                console.log(err);
+                dispatch(setAlertActivity({
                     condition : true,
-                    text : `${err}`,
-                    severity : "error"
-                }])
+                    text : `${err}`
+                }))
             })
     }
 
@@ -80,13 +88,13 @@ const Auth = (props) => {
                 sx={{gridColumn : "7 / 15", gridRow : "3 / 4"}}
                 label="Логин"
                 variant="outlined"
-                onChange={(event) => setLogin(event.target.value)}
+                onChange={(event) => dispatch(setLoginField(event.target.value))}
             />
             <TextField
                 sx={{gridColumn : "7 / 15", gridRow : "5 / 6"}}
                 label="Пароль" type="password"
                 autoComplete="current-password"
-                onChange={(event) => setPassword(event.target.value)}
+                onChange={(event) => dispatch(setPasswordField(event.target.value))}
             />
             <Button
                 sx={{gridColumn : "7 / 15", gridRow : "7 / 8"}}

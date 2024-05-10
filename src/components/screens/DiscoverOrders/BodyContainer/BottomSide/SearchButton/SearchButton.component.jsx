@@ -1,9 +1,21 @@
 import SearchIcon from '@mui/icons-material/Search';
 import {Button} from "@mui/material";
 import RotateLeftIcon from "@mui/icons-material/RotateLeft";
-import clear_textfield_unified from "../../../../../../constants&addons/tool_functions/clear_textfield_unified";
+import {useDispatch, useSelector} from "react-redux";
+import {
+    toggleOrdersFilterCondition
+} from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilterCondition";
+import {
+    setOrdersCurrentPage
+} from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersCurrentPage";
+import {
+    clearOrdersFilteredQuery
+} from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilteredQuery";
 
-const SearchButton = (props) => {
+const SearchButton = () => {
+    const dispatch = useDispatch();
+
+    const filterCondition = useSelector((state) => state.ordersFilterCondition.value);
 
     const placement = {
         gridColumn : "35 / 40",
@@ -11,18 +23,18 @@ const SearchButton = (props) => {
     };
 
     function request_search_by_query() {
-        props.setFilterCondition(!props.filterCondition);
-        console.log(props.filterCondition);
+        dispatch(toggleOrdersFilterCondition());
+        console.log(filterCondition);
     }
 
     function reset_the_search() {
-        props.setPage(0);
-        props.setFilterCondition(!props.filterCondition);
-        clear_textfield_unified(props.setFilteredQuery);
-        console.log(props.filterCondition);
+        dispatch(setOrdersCurrentPage(0));
+        dispatch(toggleOrdersFilterCondition());
+        dispatch(clearOrdersFilteredQuery());
+        console.log(filterCondition);
     }
 
-    if (props.filterCondition) {
+    if (filterCondition) {
         return (
             <Button
                 sx={placement}

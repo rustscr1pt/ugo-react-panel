@@ -3,9 +3,14 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import TableCell from "@mui/material/TableCell";
 import * as React from "react";
 import route_fillers from "../../../../../../constants&addons/route_fillers";
+import {useDispatch} from "react-redux";
+import {
+    toggleOrdersReloadActivator
+} from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersReloadActivator/OrdersReloadActivator";
 
 const OrderTableRemoveOrderButton = (props) => {
-    function remove_order_by_id(id, reload, setReload) {
+    const dispatch = useDispatch();
+    function remove_order_by_id(id) {
         fetch(`${route_fillers.url}/api/orders/remove_order`, {
             method : "POST",
             body : JSON.stringify({
@@ -19,7 +24,7 @@ const OrderTableRemoveOrderButton = (props) => {
             .then((json) => {
                 if (json.is_succeed) {
                     console.log(json.message);
-                    setReload(!reload);
+                    dispatch(toggleOrdersReloadActivator());
                 }
                 else {
                     console.log(json.message);

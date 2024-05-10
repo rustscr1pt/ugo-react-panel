@@ -1,6 +1,13 @@
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import {useDispatch, useSelector} from "react-redux";
+import {
+    setOrdersFilterType
+} from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilterType";
 
-const SortSelector = (props) => {
+const SortSelector = () => {
+    const dispatch = useDispatch();
+    const filterType = useSelector((state) => state.ordersFilterType.value);
+
     return (
         <FormControl sx={{
             gridColumn : " 28 / 34",
@@ -9,9 +16,9 @@ const SortSelector = (props) => {
         }}>
             <InputLabel id="demo-simple-select-label">Где искать</InputLabel>
             <Select
-                value={props.filterType}
+                value={filterType}
                 label="Где искать"
-                onChange={(event) => props.setFilterType(event.target.value)}
+                onChange={(event) => dispatch(setOrdersFilterType(event.target.value))}
             >
                 <MenuItem value="id">ID</MenuItem>
                 <MenuItem value="request_status">Статус</MenuItem>

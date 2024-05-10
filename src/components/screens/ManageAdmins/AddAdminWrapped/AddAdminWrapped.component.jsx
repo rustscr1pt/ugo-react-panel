@@ -3,14 +3,13 @@ import AddLoginField from "./AddLoginField";
 import AddPasswordField from "./AddPasswordField";
 import GeneratePasswordDiv from "./GeneratePasswordDiv";
 import AddAccountDiv from "./AddAccountDiv";
-import {useState} from "react";
 import {motion} from "framer-motion";
+import {useSelector} from "react-redux";
 
-const AddAdminWrapped = (props) => {
-    const [newUser, setNewUser] = useState("");
-    const [newPassword, setNewPassword] = useState("");
+const AddAdminWrapped = () => {
+    const isShown = useSelector((state) => state.displayAddAccount.value);
 
-    if (props.displayAddAccount) {
+    if (isShown) {
         return (
             <motion.div
                 className="AddAdminWrapped"
@@ -18,24 +17,10 @@ const AddAdminWrapped = (props) => {
                 animate={{ opacity:1 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
             >
-                <AddLoginField
-                    newUser={newUser}
-                    setNewUser={setNewUser}
-                />
-                <AddPasswordField
-                    newPassword={newPassword}
-                    setNewPassword={setNewPassword}
-                />
-                <GeneratePasswordDiv
-                    setNewPassword={setNewPassword}
-                />
-                <AddAccountDiv
-                    newUser={newUser}
-                    setNewUser={setNewUser}
-                    newPassword={newPassword}
-                    setNewPassword={setNewPassword}
-                    setReloadActivator={props.setReloadActivator}
-                />
+                <AddLoginField/>
+                <AddPasswordField/>
+                <GeneratePasswordDiv/>
+                <AddAccountDiv/>
             </motion.div>
         )
     }
