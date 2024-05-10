@@ -1,13 +1,18 @@
 import "./DateCloseButton.style.sass";
 import {Button} from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
-import clear_textfield_unified from "../../../../../../../constants&addons/tool_functions/clear_textfield_unified";
+import {useDispatch} from "react-redux";
+import {setOrdersCurrentPage} from "../../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersCurrentPage";
+import {clearOrdersFilteredQuery} from "../../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilteredQuery";
+import {setOrdersFilterCondition} from "../../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilterCondition";
 const DateCloseButton = (props) => {
+    const dispatch = useDispatch();
+
     function close_and_reset() {
         props.setOpen((ps) => !ps);
-        props.setPage(0);
-        clear_textfield_unified(props.setFilteredQuery);
-        props.setFilterCondition(false)
+        dispatch(setOrdersCurrentPage(0));
+        dispatch(clearOrdersFilteredQuery());
+        dispatch(setOrdersFilterCondition(false));
     }
 
     return (
@@ -17,7 +22,9 @@ const DateCloseButton = (props) => {
                 variant="contained"
                 color="error"
                 onClick={close_and_reset}
-            ><CloseIcon/></Button>
+            >
+                <CloseIcon/>
+            </Button>
         </div>
     )
 }

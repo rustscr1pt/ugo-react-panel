@@ -8,8 +8,11 @@ export const OrdersFilteredQuery = createSlice({
     reducers : {
         setOrdersFilteredQuery : (state, value) => {
             state.value = value.payload;
+        },
+        clearOrdersFilteredQuery : (state) => {
+            state.value = ""
         }
     }
 });
-export const {setOrdersFilteredQuery} = OrdersFilteredQuery.actions;
+export const {setOrdersFilteredQuery, clearOrdersFilteredQuery} = OrdersFilteredQuery.actions;
 export default OrdersFilteredQuery.reducer;

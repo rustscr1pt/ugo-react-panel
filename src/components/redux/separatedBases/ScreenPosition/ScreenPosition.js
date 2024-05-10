@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
-import PagePosition from "../../../constants&addons/screen_enums.ts";
+import PagePosition from "../../../../constants&addons/screen_enums.ts";
+
 
 export const ScreenPosition = createSlice({
     name : "ScreenPosition",

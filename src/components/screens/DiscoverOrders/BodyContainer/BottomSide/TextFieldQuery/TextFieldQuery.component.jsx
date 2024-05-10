@@ -1,18 +1,26 @@
 import "./TextFieldQuery.style.sass";
 import {TextField} from "@mui/material";
 import * as React from "react";
-const TextFieldQuery = (props) => {
+import {useDispatch, useSelector} from "react-redux";
+import {
+    setOrdersFilteredQuery
+} from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilteredQuery";
+const TextFieldQuery = () => {
+    const filteredQuery = useSelector((state) => state.ordersFilteredQuery.value);
+    const dispatch = useDispatch();
+
     return (
         <div className="TextFieldQuery">
             <TextField
                 className="TextFieldQuery__field"
                 label="Введите данные для поиска"
                 variant='outlined'
-                value={props.filteredQuery}
-                onChange={(event) => props.setFilteredQuery(event.target.value)}
+                value={filteredQuery}
+                onChange={(event) => dispatch(setOrdersFilteredQuery(event.target.value))}
             />
         </div>
     )
 }
 
 export default TextFieldQuery;
+

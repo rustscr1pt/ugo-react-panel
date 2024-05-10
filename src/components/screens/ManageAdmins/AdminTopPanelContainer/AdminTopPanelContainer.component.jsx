@@ -15,14 +15,16 @@ const AdminTopPanelContainer = () => {
                 rowArea = {"1 / 1"}
                 columnArea={"2 / 8"}
                 icon={<BorderAllIcon/>}
-                action={dispatch(goToDiscover())}
+                action={dispatch(goToDiscover)}
+                onClick={dispatch(goToDiscover())}
                 text={"Заказы"}
             />
             <ButtonGridPlacement
                 rowArea = {"1 / 1"}
                 columnArea={"9 / 15"}
                 icon={<LogoDevIcon/>}
-                action={dispatch(goToLogs())}
+                action={dispatch(goToLogs)}
+                onClick={dispatch(goToLogs)}
                 text={"Логи"}
             />
             <FoldUnwrapAdminDiv/>

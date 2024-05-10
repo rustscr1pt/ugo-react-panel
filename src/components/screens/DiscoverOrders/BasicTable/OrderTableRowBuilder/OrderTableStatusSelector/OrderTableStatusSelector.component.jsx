@@ -1,7 +1,12 @@
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import route_fillers from "../../../../../../constants&addons/route_fillers";
+import {useDispatch} from "react-redux";
+import {
+    toggleOrdersReloadActivator
+} from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersReloadActivator/OrdersReloadActivator";
 
 const OrderTableStatusSelector = (props) => {
+    const dispatch = useDispatch();
 
     // On change event update the status value in mySQL
     function update_status(event) {
@@ -20,7 +25,7 @@ const OrderTableStatusSelector = (props) => {
                 if (json.is_succeed) {
                     console.log(json.message);
                     props.changeSelectValue(event.target.value);
-                    props.reload_orders([]);
+                    dispatch(toggleOrdersReloadActivator());
                 }
                 else {
                     console.log(json.message);
