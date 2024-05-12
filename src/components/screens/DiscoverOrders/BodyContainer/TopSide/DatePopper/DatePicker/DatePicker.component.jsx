@@ -13,6 +13,9 @@ import {
 import {
     setOrdersFilterCondition
 } from "../../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilterCondition";
+import {
+    toggleOrdersReloadActivator
+} from "../../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersReloadActivator/OrdersReloadActivator";
 
 export default function BasicDateCalendar() {
     const [value, setValue] = React.useState(dayjs());
@@ -37,6 +40,7 @@ export default function BasicDateCalendar() {
         dispatch(setOrdersFilteredQuery(get_the_result(newValue)));
         dispatch(setOrdersFilterType("date_time_added"));
         dispatch(setOrdersFilterCondition(true));
+        dispatch(toggleOrdersReloadActivator());
     }
 
     return (
