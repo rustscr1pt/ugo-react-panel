@@ -48,17 +48,17 @@ const OrderTableAddNoteBox = (props) => {
     }
 
     return (
-        <Box sx={{display : 'flex', flexDirection: "row", justifyContent : "space-between", width : "80%"}}>
+        <Box sx={{display : 'flex', flexDirection: "row", justifyContent : "space-around", width : "100%"}}>
             <TextField
                 error={fieldError}
-                sx={{width : "80%"}}
+                sx={{width : "82%"}}
                 label="Введите запись для добавления"
                 variant='outlined'
                 value={textField}
                 onChange={(event) => textfield_event(event)}
             />
             <Button
-                sx={{width : "18%"}}
+                sx={{width : "13%"}}
                 variant="contained"
                 endIcon={<SendIcon />}
                 onClick={() => add_note(props.id, props.setNotes)}
