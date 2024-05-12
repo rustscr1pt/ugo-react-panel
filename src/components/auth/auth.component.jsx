@@ -102,7 +102,7 @@ const Auth = (props) => {
                 endIcon={<LoginIcon/>}
                 onClick={handle_login_attempt}
             >
-                Enter
+                Войти
             </Button>
         </motion.div>
     )
