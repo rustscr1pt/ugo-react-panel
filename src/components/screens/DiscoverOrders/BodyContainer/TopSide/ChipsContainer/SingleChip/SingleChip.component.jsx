@@ -6,7 +6,7 @@ const pref_width = "49%";
 const blue_back = "#1976d2";
 const white_font = "#FFFFFF";
 
-const SingleChip = () => {
+export const SingleChip = () => {
     const filterCondition = useSelector((state) => state.ordersFilterCondition.value);
 
     if (filterCondition) {
@@ -27,4 +27,3 @@ const SingleChip = () => {
     }
 }
 
-export default SingleChip;

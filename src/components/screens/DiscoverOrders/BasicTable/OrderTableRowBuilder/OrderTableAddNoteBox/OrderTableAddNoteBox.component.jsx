@@ -5,7 +5,7 @@ import * as React from "react";
 import {useState} from "react";
 import route_fillers from "../../../../../../constants&addons/route_fillers";
 
-const OrderTableAddNoteBox = (props) => {
+export const OrderTableAddNoteBox = (props) => {
     const [textField, setTextField] = useState("");
     const [fieldError, setFieldError] = useState(false);
 
@@ -68,5 +68,3 @@ const OrderTableAddNoteBox = (props) => {
         </Box>
     )
 }
-
-export default OrderTableAddNoteBox;

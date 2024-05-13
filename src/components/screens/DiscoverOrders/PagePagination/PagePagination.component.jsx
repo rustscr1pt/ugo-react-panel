@@ -3,7 +3,7 @@ import {useDispatch} from "react-redux";
 
 
 // Bottom pagination component for browsing orders
-const PagePagination = (props) => {
+export const PagePagination = (props) => {
     const dispatch = useDispatch();
 
     const handleChangePage = (
@@ -33,4 +33,3 @@ const PagePagination = (props) => {
         />
     )
 }
-export default PagePagination;

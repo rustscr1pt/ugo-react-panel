@@ -4,9 +4,9 @@ import route_fillers from "../../../constants&addons/route_fillers";
 import "./ManageAdmins.style.sass";
 import AddAdminWrapped from "./AddAdminWrapped";
 import AdminTopPanelContainer from "./AdminTopPanelContainer";
-import LogoutFAB from "../DiscoverOrders/LogoutFAB";
 import {useDispatch, useSelector} from "react-redux";
 import {setAdminsVector} from "../../redux/separatedBases/ScreenBases/ManageAdmins/AdminsVector/AdminsVector";
+import {LogoutFAB} from "../DiscoverOrders/LogoutFAB/LogoutFAB.component";
 
 const ManageAdmins = (props) => {
     const adminsReloadActivator = useSelector((state) => state.adminsReloadActivator.value)

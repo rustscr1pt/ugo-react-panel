@@ -8,7 +8,7 @@ import {
     toggleOrdersReloadActivator
 } from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersReloadActivator/OrdersReloadActivator";
 
-const OrderTableRemoveOrderButton = (props) => {
+export const OrderTableRemoveOrderButton = (props) => {
     const dispatch = useDispatch();
     function remove_order_by_id(id) {
         fetch(`${route_fillers.url}/api/orders/remove_order`, {
@@ -47,5 +47,3 @@ const OrderTableRemoveOrderButton = (props) => {
         </TableCell>
     )
 }
-
-export default OrderTableRemoveOrderButton;

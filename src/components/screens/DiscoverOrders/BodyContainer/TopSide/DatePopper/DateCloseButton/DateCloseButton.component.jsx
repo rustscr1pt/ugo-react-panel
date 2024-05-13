@@ -5,7 +5,7 @@ import {useDispatch} from "react-redux";
 import {setOrdersCurrentPage} from "../../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersCurrentPage";
 import {clearOrdersFilteredQuery} from "../../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilteredQuery";
 import {setOrdersFilterCondition} from "../../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilterCondition";
-const DateCloseButton = (props) => {
+export const DateCloseButton = (props) => {
     const dispatch = useDispatch();
 
     function close_and_reset() {
@@ -28,5 +28,3 @@ const DateCloseButton = (props) => {
         </div>
     )
 }
-
-export default DateCloseButton;

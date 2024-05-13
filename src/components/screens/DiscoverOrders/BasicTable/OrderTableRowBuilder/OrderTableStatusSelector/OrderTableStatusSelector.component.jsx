@@ -5,7 +5,7 @@ import {
     toggleOrdersReloadActivator
 } from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersReloadActivator/OrdersReloadActivator";
 
-const OrderTableStatusSelector = (props) => {
+export const OrderTableStatusSelector = (props) => {
     const dispatch = useDispatch();
 
     // On change event update the status value in mySQL
@@ -53,5 +53,3 @@ const OrderTableStatusSelector = (props) => {
         </FormControl>
     )
 }
-
-export default OrderTableStatusSelector;

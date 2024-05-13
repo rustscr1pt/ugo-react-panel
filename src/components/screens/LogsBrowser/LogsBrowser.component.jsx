@@ -1,15 +1,15 @@
 import "./LogsBrowser.style.sass"
-import LogoutFAB from "../DiscoverOrders/LogoutFAB";
 import {useEffect} from "react";
 import route_fillers from "../../../constants&addons/route_fillers";
 import LogsTable from "./LogsTable";
-import PagePagination from "../DiscoverOrders/PagePagination";
 import LogsTopPanel from "./LogsTopPanel";
 import {useDispatch, useSelector} from "react-redux";
 import {setAsErrorLogsVector, setLogsVector} from "../../redux/separatedBases/ScreenBases/LogsBrowser/LogsVector/LogsVector";
 import {setLogsRowCount} from "../../redux/separatedBases/ScreenBases/LogsBrowser/LogsPagination/LogsRowCount";
 import {setLogsCurrentPage} from "../../redux/separatedBases/ScreenBases/LogsBrowser/LogsPagination/LogsCurrentPage";
 import {setLogsRowsPerPage} from "../../redux/separatedBases/ScreenBases/LogsBrowser/LogsPagination/LogsRowsPerPage";
+import {PagePagination} from "../DiscoverOrders/PagePagination/PagePagination.component";
+import {LogoutFAB} from "../DiscoverOrders/LogoutFAB/LogoutFAB.component";
 const LogsBrowser = () => {
     const dispatch = useDispatch();
 

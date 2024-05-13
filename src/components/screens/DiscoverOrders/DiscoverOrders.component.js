@@ -1,23 +1,19 @@
 import React, {useEffect} from "react";
 import './DiscoverOrders.style.sass'
-import BasicOrderTable from "./BasicTable";
-import BodyContainer from "./BodyContainer";
 import Box from "@mui/material/Box";
 import route_fillers from "../../../constants&addons/route_fillers";
-import PagePagination from "./PagePagination";
-import LogoutFAB from "./LogoutFAB";
 import {useDispatch, useSelector} from "react-redux";
 import {setOrdersVector} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersVector/OrdersVector";
 import {setOrdersRowCount} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersRowCount";
-import {
-    setOrdersCurrentPage
-} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersCurrentPage";
-import {
-    setOrdersRowsPerPage
-} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersRowsPerPage";
+import {setOrdersCurrentPage} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersCurrentPage";
+import {setOrdersRowsPerPage} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersRowsPerPage";
+import {BasicOrderTable} from "./BasicTable/BasicOrderTable.component";
+import {BodyContainer} from "./BodyContainer/BodyContainer.component";
+import {PagePagination} from "./PagePagination/PagePagination.component";
+import {LogoutFAB} from "./LogoutFAB/LogoutFAB.component";
 
 
-const DiscoverOrders = () => {
+export const DiscoverOrders = () => {
     const dispatch = useDispatch();
 
     const filteredQuery = useSelector((state) => state.ordersFilteredQuery.value);
@@ -97,5 +93,3 @@ const DiscoverOrders = () => {
         </Box>
     )
 }
-
-export default DiscoverOrders;

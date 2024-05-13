@@ -1,16 +1,17 @@
 import "./BodyContainer.style.sass";
-import SortSelector from "./BottomSide/SortSelector";
-import SearchButton from "./BottomSide/SearchButton";
 import * as React from "react";
-import ChipsContainer from "./TopSide/ChipsContainer";
-import DatePopper from "./TopSide/DatePopper";
-import TextFieldQuery from "./BottomSide/TextFieldQuery";
-import ButtonGridPlacement from "../../../unified_components/ButtonGridPlacement";
 import LogoDevIcon from "@mui/icons-material/LogoDev";
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import PagePosition from "../../../../constants&addons/screen_enums.ts";
 import {setNewScreenPosition} from "../../../redux/separatedBases/ScreenPosition/ScreenPosition";
-const BodyContainer = () => {
+import {DatePopper} from "./TopSide/DatePopper/DatePopper.component";
+import ButtonGridPlacement from "../../../unified_components/ButtonGridPlacement";
+import {ChipsContainer} from "./TopSide/ChipsContainer/ChipsContainer.component";
+import {TextFieldQuery} from "./BottomSide/TextFieldQuery/TextFieldQuery.component";
+import {SortSelector} from "./BottomSide/SortSelector/SortSelector.component";
+import {SearchButton} from "./BottomSide/SearchButton/SearchButton.component";
+
+export const BodyContainer = () => {
     return (
         <div className="body-container-grid">
             <DatePopper/>
@@ -35,5 +36,3 @@ const BodyContainer = () => {
         </div>
     )
 }
-
-export default BodyContainer;

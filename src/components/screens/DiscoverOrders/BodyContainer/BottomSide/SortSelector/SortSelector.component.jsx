@@ -4,7 +4,7 @@ import {
     setOrdersFilterType
 } from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilterType";
 
-const SortSelector = () => {
+export const SortSelector = () => {
     const dispatch = useDispatch();
     const filterType = useSelector((state) => state.ordersFilterType.value);
 
@@ -30,5 +30,3 @@ const SortSelector = () => {
         </FormControl>
     )
 }
-
-export default SortSelector;

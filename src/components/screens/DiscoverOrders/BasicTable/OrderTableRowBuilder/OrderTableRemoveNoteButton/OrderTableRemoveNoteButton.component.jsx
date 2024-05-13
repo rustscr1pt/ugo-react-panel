@@ -3,7 +3,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import * as React from "react";
 import route_fillers from "../../../../../../constants&addons/route_fillers";
 
-const OrderTableRemoveNoteButton = (props) => {
+export const OrderTableRemoveNoteButton = (props) => {
 
     function remove_note_return_list(note_id, related_id, setNotes) {
         fetch(`${route_fillers.url}/api/orders/remove_note`, {
@@ -40,5 +40,3 @@ const OrderTableRemoveNoteButton = (props) => {
             </IconButton>
     )
 }
-
-export default OrderTableRemoveNoteButton;

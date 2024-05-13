@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {
     setOrdersFilteredQuery
 } from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilteredQuery";
-const TextFieldQuery = () => {
+export const TextFieldQuery = () => {
     const filteredQuery = useSelector((state) => state.ordersFilteredQuery.value);
     const dispatch = useDispatch();
 
@@ -21,6 +21,4 @@ const TextFieldQuery = () => {
         </div>
     )
 }
-
-export default TextFieldQuery;
 

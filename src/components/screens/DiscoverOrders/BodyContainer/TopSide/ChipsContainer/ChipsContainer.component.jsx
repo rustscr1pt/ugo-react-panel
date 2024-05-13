@@ -1,11 +1,10 @@
 import './ChipsContainer.style.sass';
-import SingleChip from "./SingleChip";
+import {SingleChip} from "./SingleChip/SingleChip.component";
 
-const ChipsContainer = () => {
+export const ChipsContainer = () => {
     return (
         <div className="chips-container">
             <SingleChip/>
         </div>
     )
 }
-export default ChipsContainer;

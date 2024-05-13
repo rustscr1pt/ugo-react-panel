@@ -12,7 +12,7 @@ import {
     clearOrdersFilteredQuery
 } from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilteredQuery";
 
-const SearchButton = () => {
+export const SearchButton = () => {
     const dispatch = useDispatch();
 
     const filterCondition = useSelector((state) => state.ordersFilterCondition.value);
@@ -60,5 +60,3 @@ const SearchButton = () => {
         )
     }
 }
-
-export default SearchButton;

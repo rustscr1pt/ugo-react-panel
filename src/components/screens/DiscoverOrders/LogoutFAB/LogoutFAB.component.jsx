@@ -3,7 +3,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import {Fab} from "@mui/material";
 import {useDispatch} from "react-redux";
 import {setAuthValue} from "../../../redux/separatedBases/AuthAndAlert/Auth";
-const LogoutFAB = () => {
+export const LogoutFAB = () => {
     const dispatch = useDispatch();
 
     function logout() {
@@ -19,5 +19,3 @@ const LogoutFAB = () => {
         </div>
     )
 }
-
-export default LogoutFAB;

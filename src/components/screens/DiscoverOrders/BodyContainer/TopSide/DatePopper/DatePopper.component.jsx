@@ -3,11 +3,11 @@ import Box from '@mui/material/Box';
 import Popper from '@mui/material/Popper';
 import Fade from '@mui/material/Fade';
 import "./DatePopper.style.sass";
-import BasicDateCalendar from "./DatePicker";
-import PopperButton from "./PopperButton";
-import DateCloseButton from "./DateCloseButton";
+import {PopperButton} from "./PopperButton/PopperButton.component";
+import {DateCloseButton} from "./DateCloseButton/DateCloseButton.component";
+import BasicDateCalendar from "./DatePicker/DatePicker.component";
 
-const DatePopper = () => {
+export const DatePopper = () => {
     const [open, setOpen] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -23,16 +23,23 @@ const DatePopper = () => {
         <div className="date-popper-container">
             <PopperButton id={id} handleClick={handleClick}/>
             <Popper
-                style={{zIndex : 10, paddingTop : "0.5%"}}
+                style={{zIndex: 10, paddingTop: "0.5%"}}
                 id={id}
                 open={open}
                 anchorEl={anchorEl}
                 placement="bottom-end"
                 transition
             >
-                {({ TransitionProps }) => (
+                {({TransitionProps}) => (
                     <Fade {...TransitionProps} timeout={350}>
-                        <Box sx={{ border: 1, p: 1, bgcolor: 'background.paper', display : "flex", flexDirection : "column", alignItems : "center" }}>
+                        <Box sx={{
+                            border: 1,
+                            p: 1,
+                            bgcolor: 'background.paper',
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center"
+                        }}>
                             <DateCloseButton
                                 setOpen={setOpen}
                             />
@@ -44,5 +51,3 @@ const DatePopper = () => {
         </div>
     );
 }
-
-export default DatePopper;

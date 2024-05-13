@@ -11,12 +11,12 @@ import Typography from "@mui/material/Typography";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
-import OrderTableRemoveOrderButton from "./OrderTableRemoveOrderButton";
-import OrderTableStatusSelector from "./OrderTableStatusSelector";
-import OrderTableAddNoteBox from "./OrderTableAddNoteBox";
-import OrderTableRemoveNoteButton from "./OrderTableRemoveNoteButton";
+import {OrderTableStatusSelector} from "./OrderTableStatusSelector/OrderTableStatusSelector.component";
+import {OrderTableRemoveOrderButton} from "./OrderTableRemoveOrderButton/OrderTableRemoveOrderButton.component";
+import {OrderTableAddNoteBox} from "./OrderTableAddNoteBox/OrderTableAddNoteBox.component";
+import {OrderTableRemoveNoteButton} from "./OrderTableRemoveNoteButton/OrderTableRemoveNoteButton.component";
 
-const OrderTableRowBuilder = (props) => {
+export const OrderTableRowBuilder = (props) => {
     const [open, setOpen] = useState(false);
     const object = props.object;
     const [selectValue, changeSelectValue] = useState(object.request_status);
@@ -98,5 +98,3 @@ const OrderTableRowBuilder = (props) => {
         </React.Fragment>
     )
 }
-
-export default OrderTableRowBuilder;

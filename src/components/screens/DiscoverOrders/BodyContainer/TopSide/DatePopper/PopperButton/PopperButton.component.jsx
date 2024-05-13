@@ -2,7 +2,7 @@ import * as React from "react";
 import {Button} from "@mui/material";
 import SortIcon from '@mui/icons-material/Sort';
 
-const PopperButton = (props) => {
+export const PopperButton = (props) => {
     return (
         <Button
             sx={{width : "100%"}}
@@ -15,5 +15,3 @@ const PopperButton = (props) => {
         </Button>
     )
 }
-
-export default PopperButton;
