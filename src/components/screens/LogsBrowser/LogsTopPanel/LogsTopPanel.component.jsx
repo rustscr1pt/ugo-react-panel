@@ -6,7 +6,7 @@ import CachedIcon from '@mui/icons-material/Cached';
 import {toggleLogsReloadActivator} from "../../../redux/separatedBases/ScreenBases/LogsBrowser/LogsReloadActivator/LogsReloadActivator";
 import PagePosition from "../../../../constants&addons/screen_enums.ts";
 import {setNewScreenPosition} from "../../../redux/separatedBases/ScreenPosition/ScreenPosition";
-const LogsTopPanel = () => {
+export const LogsTopPanel = () => {
 
     return (
         <div className="LogsTopPanel">
@@ -34,4 +34,3 @@ const LogsTopPanel = () => {
         </div>
     )
 }
-export default LogsTopPanel;

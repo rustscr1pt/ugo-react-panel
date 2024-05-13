@@ -1,7 +1,7 @@
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 
-const LogsTableRowBuilder = (props) => {
+export const LogsTableRowBuilder = (props) => {
     return (
         <TableRow
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -12,4 +12,3 @@ const LogsTableRowBuilder = (props) => {
         </TableRow>
     )
 }
-export default LogsTableRowBuilder;

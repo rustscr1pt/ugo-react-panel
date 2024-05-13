@@ -1,8 +1,6 @@
 import "./LogsBrowser.style.sass"
 import {useEffect} from "react";
 import route_fillers from "../../../constants&addons/route_fillers";
-import LogsTable from "./LogsTable";
-import LogsTopPanel from "./LogsTopPanel";
 import {useDispatch, useSelector} from "react-redux";
 import {setAsErrorLogsVector, setLogsVector} from "../../redux/separatedBases/ScreenBases/LogsBrowser/LogsVector/LogsVector";
 import {setLogsRowCount} from "../../redux/separatedBases/ScreenBases/LogsBrowser/LogsPagination/LogsRowCount";
@@ -10,7 +8,9 @@ import {setLogsCurrentPage} from "../../redux/separatedBases/ScreenBases/LogsBro
 import {setLogsRowsPerPage} from "../../redux/separatedBases/ScreenBases/LogsBrowser/LogsPagination/LogsRowsPerPage";
 import {PagePagination} from "../DiscoverOrders/PagePagination/PagePagination.component";
 import {LogoutFAB} from "../DiscoverOrders/LogoutFAB/LogoutFAB.component";
-const LogsBrowser = () => {
+import {LogsTopPanel} from "./LogsTopPanel/LogsTopPanel.component";
+import {LogsTable} from "./LogsTable/LogsTable.component";
+export const LogsBrowser = () => {
     const dispatch = useDispatch();
 
     const rowsPerPage = useSelector((state) => state.logsRowPerPage.value);
@@ -67,4 +67,3 @@ const LogsBrowser = () => {
         </div>
     )
 }
-export default LogsBrowser;

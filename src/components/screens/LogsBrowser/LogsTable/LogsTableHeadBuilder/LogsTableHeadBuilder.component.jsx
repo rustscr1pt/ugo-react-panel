@@ -3,7 +3,7 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import * as React from "react";
 
-const LogsTableHeadBuilder = () => {
+export const LogsTableHeadBuilder = () => {
     return (
         <TableHead>
             <TableRow>
@@ -14,4 +14,3 @@ const LogsTableHeadBuilder = () => {
         </TableHead>
     )
 }
-export default LogsTableHeadBuilder;

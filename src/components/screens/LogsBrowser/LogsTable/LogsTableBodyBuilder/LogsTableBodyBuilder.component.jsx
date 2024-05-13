@@ -1,9 +1,9 @@
 import TableBody from "@mui/material/TableBody";
 import * as React from "react";
-import LogsTableRowBuilder from "./LogsTableRowBuilder";
 import {useSelector} from "react-redux";
+import {LogsTableRowBuilder} from "./LogsTableRowBuilder/LogsTableRowBuilder.component";
 
-const LogsTableBodyBuilder = (props) => {
+export const LogsTableBodyBuilder = () => {
     const logsVector = useSelector((state) => state.logsVector.value);
     return (
         <TableBody>
@@ -18,5 +18,3 @@ const LogsTableBodyBuilder = (props) => {
         </TableBody>
     )
 }
-
-export default LogsTableBodyBuilder;
