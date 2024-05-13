@@ -1,9 +1,9 @@
 import PagePosition from "../../constants&addons/screen_enums.ts";
-import ManageAdmins from "./ManageAdmins";
 import {useSelector} from "react-redux";
 import React from "react";
 import {DiscoverOrders} from "./DiscoverOrders/DiscoverOrders.component";
 import {LogsBrowser} from "./LogsBrowser/LogsBrowser.component";
+import {ManageAdmins} from "./ManageAdmins/ManageAdmins.component";
 
 const Screens = () => {
     const screenPosition = useSelector((state) => state.screenPosition.value);

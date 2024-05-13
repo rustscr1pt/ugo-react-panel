@@ -1,12 +1,12 @@
 import "./AdminTopPanelContainer.style.sass";
-import FoldUnwrapAdminDiv from "./FoldUnwrapAdminDiv";
 import ButtonGridPlacement from "../../../unified_components/ButtonGridPlacement";
 import LogoDevIcon from '@mui/icons-material/LogoDev';
 import BorderAllIcon from '@mui/icons-material/BorderAll';
 import PagePosition from "../../../../constants&addons/screen_enums.ts";
 import {setNewScreenPosition} from "../../../redux/separatedBases/ScreenPosition/ScreenPosition";
+import {FoldUnwrapAdminDiv} from "./FoldUnwrapAdminDiv/FoldUnwrapAdminDiv.component";
 
-const AdminTopPanelContainer = () => {
+export const AdminTopPanelContainer = () => {
 
     return (
         <div className="TopPanelContainer">
@@ -28,4 +28,3 @@ const AdminTopPanelContainer = () => {
         </div>
     )
 }
-export default AdminTopPanelContainer;

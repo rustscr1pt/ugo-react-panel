@@ -1,7 +1,7 @@
 import IconButton from '@mui/material/IconButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
-const ShowPasswordButton = (props) => {
+export const ShowPasswordButton = (props) => {
     function change_password_visibility() {
         props.setPasswordVisibility((previous) => !previous);
     }
@@ -16,4 +16,3 @@ const ShowPasswordButton = (props) => {
         </IconButton>
     )
 }
-export default ShowPasswordButton;

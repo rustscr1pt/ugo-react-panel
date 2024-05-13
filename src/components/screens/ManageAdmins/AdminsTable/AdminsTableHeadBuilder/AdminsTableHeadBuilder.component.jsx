@@ -3,7 +3,7 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import * as React from "react";
 
-const AdminsTableHeadBuilder = () => {
+export const AdminsTableHeadBuilder = () => {
     return (
         <TableHead>
             <TableRow>
@@ -17,5 +17,3 @@ const AdminsTableHeadBuilder = () => {
         </TableHead>
     )
 }
-
-export default AdminsTableHeadBuilder;

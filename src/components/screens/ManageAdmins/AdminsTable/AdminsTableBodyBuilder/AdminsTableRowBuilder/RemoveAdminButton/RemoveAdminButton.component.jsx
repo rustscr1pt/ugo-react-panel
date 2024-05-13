@@ -6,7 +6,7 @@ import {
     toggleAdminsReloadActivator
 } from "../../../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminsReloadActivator/AdminsReloadActivator";
 
-const RemoveAdminButton = (props) => {
+export const RemoveAdminButton = (props) => {
     const dispatch = useDispatch();
 
     function remove_admin_account() {
@@ -43,4 +43,3 @@ const RemoveAdminButton = (props) => {
         </IconButton>
     )
 }
-export default RemoveAdminButton;

@@ -1,11 +1,11 @@
 import TableCell from "@mui/material/TableCell";
-import ShowPasswordButton from "./ShowPasswordButton";
-import RemoveAdminButton from "./RemoveAdminButton";
 import TableRow from "@mui/material/TableRow";
 import * as React from "react";
 import {useState} from "react";
+import {ShowPasswordButton} from "./ShowPasswordButton/ShowPasswordButton.component";
+import {RemoveAdminButton} from "./RemoveAdminButton/RemoveAdminButton.component";
 
-const AdminsTableRowBuilder = (props) => {
+export const AdminsTableRowBuilder = (props) => {
 
     const [passwordVisibility, setPasswordVisibility] = useState(false);
 
@@ -42,4 +42,3 @@ const AdminsTableRowBuilder = (props) => {
         </TableRow>
     )
 }
-export default AdminsTableRowBuilder;

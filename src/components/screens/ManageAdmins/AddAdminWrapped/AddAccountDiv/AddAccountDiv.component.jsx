@@ -7,7 +7,7 @@ import {resetAdminNewLogin} from "../../../../redux/separatedBases/ScreenBases/M
 import {resetAdminNewPassword} from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminNewPassAndLogin/AdminNewPassword";
 import {setAuthValue} from "../../../../redux/separatedBases/AuthAndAlert/Auth";
 import {toggleAdminsReloadActivator} from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminsReloadActivator/AdminsReloadActivator";
-const AddAccountDiv = () => {
+export const AddAccountDiv = () => {
     const dispatch = useDispatch();
 
     const newUser = useSelector((state) => state.adminNewLogin.value);
@@ -60,4 +60,3 @@ const AddAccountDiv = () => {
         </div>
     )
 }
-export default AddAccountDiv;

@@ -1,14 +1,14 @@
 import {useEffect} from "react";
-import AdminsTable from "./AdminsTable";
 import route_fillers from "../../../constants&addons/route_fillers";
 import "./ManageAdmins.style.sass";
-import AddAdminWrapped from "./AddAdminWrapped";
-import AdminTopPanelContainer from "./AdminTopPanelContainer";
 import {useDispatch, useSelector} from "react-redux";
 import {setAdminsVector} from "../../redux/separatedBases/ScreenBases/ManageAdmins/AdminsVector/AdminsVector";
 import {LogoutFAB} from "../DiscoverOrders/LogoutFAB/LogoutFAB.component";
+import {AdminTopPanelContainer} from "./AdminTopPanelContainer/AdminTopPanelContainer.component";
+import {AddAdminWrapped} from "./AddAdminWrapped/AddAdminWrapped.component";
+import {AdminsTable} from "./AdminsTable/AdminsTable.component";
 
-const ManageAdmins = (props) => {
+export const ManageAdmins = () => {
     const adminsReloadActivator = useSelector((state) => state.adminsReloadActivator.value)
     const dispatch = useDispatch();
 
@@ -46,5 +46,3 @@ const ManageAdmins = (props) => {
         </div>
     )
 }
-
-export default ManageAdmins;

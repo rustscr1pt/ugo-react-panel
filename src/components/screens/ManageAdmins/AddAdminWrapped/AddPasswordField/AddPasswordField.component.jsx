@@ -7,7 +7,7 @@ import {
     setAdminNewPassword
 } from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminNewPassAndLogin/AdminNewPassword";
 
-const AddPasswordField = () => {
+export const AddPasswordField = () => {
     const password = useSelector((state) => state.adminNewPassword.value);
 
     return (
@@ -21,4 +21,3 @@ const AddPasswordField = () => {
         </div>
     )
 }
-export default AddPasswordField;

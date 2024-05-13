@@ -1,12 +1,12 @@
 import "./AddAdminWrapped.style.sass"
-import AddLoginField from "./AddLoginField";
-import AddPasswordField from "./AddPasswordField";
-import GeneratePasswordDiv from "./GeneratePasswordDiv";
-import AddAccountDiv from "./AddAccountDiv";
 import {motion} from "framer-motion";
 import {useSelector} from "react-redux";
+import {AddLoginField} from "./AddLoginField/AddLoginField.component";
+import {AddPasswordField} from "./AddPasswordField/AddPasswordField.component";
+import {GeneratePasswordDiv} from "./GeneratePasswordDiv/GeneratePasswordDiv.component";
+import {AddAccountDiv} from "./AddAccountDiv/AddAccountDiv.component";
 
-const AddAdminWrapped = () => {
+export const AddAdminWrapped = () => {
     const isShown = useSelector((state) => state.displayAddAccount.value);
 
     if (isShown) {
@@ -25,5 +25,3 @@ const AddAdminWrapped = () => {
         )
     }
 }
-
-export default AddAdminWrapped;

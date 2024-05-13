@@ -7,7 +7,7 @@ import {useSelector} from "react-redux";
 import {
     toggleDisplayAddAccount
 } from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/DisplayAddAccount/DisplayAddAccount";
-const FoldUnwrapAdminDiv = () => {
+export const FoldUnwrapAdminDiv = () => {
     const isShown = useSelector((state) => state.displayAddAccount.value);
 
     switch (isShown) {
@@ -33,5 +33,3 @@ const FoldUnwrapAdminDiv = () => {
             )
     }
 }
-
-export default FoldUnwrapAdminDiv;

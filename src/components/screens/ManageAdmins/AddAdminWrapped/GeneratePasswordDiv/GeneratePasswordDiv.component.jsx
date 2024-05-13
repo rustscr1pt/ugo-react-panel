@@ -7,7 +7,7 @@ import {
     setAdminNewPassword
 } from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminNewPassAndLogin/AdminNewPassword";
 
-const GeneratePasswordDiv = () => {
+export const GeneratePasswordDiv = () => {
     const dispatch = useDispatch();
     function generate_password() {
         dispatch(setAdminNewPassword(generate(15, false, false)))
@@ -23,4 +23,3 @@ const GeneratePasswordDiv = () => {
         </div>
     )
 }
-export default GeneratePasswordDiv;
