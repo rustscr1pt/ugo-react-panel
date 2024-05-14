@@ -5,9 +5,9 @@ import {motion} from "framer-motion";
 import {useDispatch, useSelector} from "react-redux";
 import {setLoginField} from "../redux/separatedBases/LoginAndPassword/Login";
 import {setPasswordField} from "../redux/separatedBases/LoginAndPassword/Password";
-import {HandleLoginAttempt} from "./functions/HandleLoginAttempt";
-import {DisplayAlert} from "./functions/DisplayAlert";
-import {RemoveAlert} from "./functions/RemoveAlert";
+import {HandleLoginAttempt} from "./_functions/HandleLoginAttempt";
+import {DisplayAlert} from "./_functions/DisplayAlert";
+import {RemoveAlert} from "./_functions/RemoveAlert";
 
 export const Auth = () => {
     const login = useSelector((state) => state.login.value);

@@ -6,7 +6,7 @@ import '@fontsource/roboto/700.css';
 import {useSelector} from "react-redux";
 import {Auth} from "../auth/auth.component";
 import {Screens} from "../screens/Screens.component";
-import {CheckAndAuth} from "./functions/CheckAndAuth";
+import {CheckAndAuth} from "./_functions/CheckAndAuth";
 
 
 export const App = () => {

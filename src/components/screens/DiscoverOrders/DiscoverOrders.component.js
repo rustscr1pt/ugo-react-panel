@@ -1,16 +1,14 @@
-import React, {useEffect} from "react";
+import React from "react";
 import './DiscoverOrders.style.sass'
 import Box from "@mui/material/Box";
-import route_fillers from "../../../constants&addons/route_fillers";
 import {useDispatch, useSelector} from "react-redux";
-import {setOrdersVector} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersVector/OrdersVector";
-import {setOrdersRowCount} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersRowCount";
 import {setOrdersCurrentPage} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersCurrentPage";
 import {setOrdersRowsPerPage} from "../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersRowsPerPage";
 import {BasicOrderTable} from "./BasicTable/BasicOrderTable.component";
 import {BodyContainer} from "./BodyContainer/BodyContainer.component";
 import {PagePagination} from "./PagePagination/PagePagination.component";
 import {LogoutFAB} from "./LogoutFAB/LogoutFAB.component";
+import {GetAndDisplayOrders} from "./_functions/GetAndDisplayOrders";
 
 
 export const DiscoverOrders = () => {
@@ -29,54 +27,7 @@ export const DiscoverOrders = () => {
     const reloadActivator = useSelector((state) => state.ordersReloadActivator.value);
 
     // Make a request and display orders using rowsPerPage & page
-    useEffect(() => {
-        if (filterCondition) {
-            fetch(`${route_fillers.url}/api/orders/page/filtered`, {
-                method : "POST",
-                body : JSON.stringify({
-                    rows_per_page : `${rowsPerPage}`,
-                    page_number : `${page}`,
-                    filter_type : `${filterType}`,
-                    filter_query : `${filteredQuery}`
-                }),
-                headers : {
-                    "Content-Type" : "application/json"
-                }
-            })
-                .then((response) => response.json())
-                .then((json) => {
-                    dispatch(setOrdersVector(json.reply));
-                    dispatch(setOrdersRowCount(parseInt(json.message)));
-                })
-                .catch(function(err) {
-                    console.log(err);
-                })
-        }
-        else {
-            fetch(`${route_fillers.url}/api/orders/get/page`, {
-                method : "POST",
-                body : JSON.stringify({
-                    rows_per_page : `${rowsPerPage}`,
-                    page_number : `${page}`
-                }),
-                headers : {
-                    "Content-Type" : "application/json"
-                }
-            })
-                .then(
-                    (response) => response.json())
-                .then((json) => {
-                    console.log(json);
-                    dispatch(setOrdersVector(json.reply))
-                    dispatch(setOrdersRowCount(parseInt(json.message)));
-                })
-                .catch(
-                    function(err){
-                        console.log(err)
-                    }
-                )
-        }
-    }, [reloadActivator, page, rowsPerPage, filterCondition]);
+    GetAndDisplayOrders(filterCondition, rowsPerPage, page, filterType, filteredQuery, reloadActivator, dispatch);
 
     return (
         <Box sx={{width : "100%"}}>
