@@ -1,18 +1,18 @@
 import {useEffect} from "react";
-import Auth from "../auth";
 import BlackHeader from "../black_header"
 import route_fillers from "../../constants&addons/route_fillers";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import Screens from "../screens";
 import {useDispatch, useSelector} from "react-redux";
 import {setAuthValue} from "../redux/separatedBases/AuthAndAlert/Auth";
 import {setAlertActivity} from "../redux/separatedBases/AuthAndAlert/Alert";
+import {Auth} from "../auth/auth.component";
+import {Screens} from "../screens/Screens.component";
 
 
-const App = () => {
+export const App = () => {
     const auth = useSelector((state) => state.auth.value);
 
     const dispatch = useDispatch();
@@ -71,5 +71,3 @@ const App = () => {
         )
     }
 }
-
-export default App;

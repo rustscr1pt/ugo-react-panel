@@ -5,7 +5,7 @@ import FormControl from "@mui/material/FormControl";
 import * as React from "react";
 import {useDispatch} from "react-redux";
 
-const TextFieldAdminManagement = (props) => {
+export const TextFieldAdminManagement = (props) => {
 
     const dispatch = useDispatch();
 
@@ -30,4 +30,3 @@ const TextFieldAdminManagement = (props) => {
         </FormControl>
     )
 }
-export default TextFieldAdminManagement;

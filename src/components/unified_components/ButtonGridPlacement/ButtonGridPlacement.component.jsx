@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
-import TemplateSimpleButton from "./TemplateSimpleButton";
+import {TemplateSimpleButton} from "./TemplateSimpleButton/TemplateSimpleButton.component";
 
-const ButtonGridPlacement = (props) => {
+export const ButtonGridPlacement = (props) => {
     return (
         <Box sx={{gridRow : props.rowArea, gridColumn : props.columnArea}}>
             <TemplateSimpleButton
@@ -12,4 +12,3 @@ const ButtonGridPlacement = (props) => {
         </Box>
     )
 }
-export default ButtonGridPlacement;

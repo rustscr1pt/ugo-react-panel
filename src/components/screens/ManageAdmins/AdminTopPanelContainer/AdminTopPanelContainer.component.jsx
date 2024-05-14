@@ -1,10 +1,10 @@
 import "./AdminTopPanelContainer.style.sass";
-import ButtonGridPlacement from "../../../unified_components/ButtonGridPlacement";
 import LogoDevIcon from '@mui/icons-material/LogoDev';
 import BorderAllIcon from '@mui/icons-material/BorderAll';
 import PagePosition from "../../../../constants&addons/screen_enums.ts";
 import {setNewScreenPosition} from "../../../redux/separatedBases/ScreenPosition/ScreenPosition";
 import {FoldUnwrapAdminDiv} from "./FoldUnwrapAdminDiv/FoldUnwrapAdminDiv.component";
+import {ButtonGridPlacement} from "../../../unified_components/ButtonGridPlacement/ButtonGridPlacement.component";
 
 export const AdminTopPanelContainer = () => {
 

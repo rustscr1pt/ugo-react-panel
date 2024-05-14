@@ -1,7 +1,7 @@
 import {Button} from "@mui/material";
 import {useDispatch} from "react-redux";
 
-const TemplateSimpleButton = (props) => {
+export const TemplateSimpleButton = (props) => {
 
     const dispatch = useDispatch();
 
@@ -18,5 +18,3 @@ const TemplateSimpleButton = (props) => {
         </Button>
     )
 }
-
-export default TemplateSimpleButton;

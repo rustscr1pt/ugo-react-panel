@@ -1,11 +1,11 @@
 import "./LogsTopPanel.style.sass";
-import ButtonGridPlacement from "../../../unified_components/ButtonGridPlacement";
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import BorderAllIcon from "@mui/icons-material/BorderAll";
 import CachedIcon from '@mui/icons-material/Cached';
 import {toggleLogsReloadActivator} from "../../../redux/separatedBases/ScreenBases/LogsBrowser/LogsReloadActivator/LogsReloadActivator";
 import PagePosition from "../../../../constants&addons/screen_enums.ts";
 import {setNewScreenPosition} from "../../../redux/separatedBases/ScreenPosition/ScreenPosition";
+import {ButtonGridPlacement} from "../../../unified_components/ButtonGridPlacement/ButtonGridPlacement.component";
 export const LogsTopPanel = () => {
 
     return (

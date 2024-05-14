@@ -5,11 +5,11 @@ import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import PagePosition from "../../../../constants&addons/screen_enums.ts";
 import {setNewScreenPosition} from "../../../redux/separatedBases/ScreenPosition/ScreenPosition";
 import {DatePopper} from "./TopSide/DatePopper/DatePopper.component";
-import ButtonGridPlacement from "../../../unified_components/ButtonGridPlacement";
 import {ChipsContainer} from "./TopSide/ChipsContainer/ChipsContainer.component";
 import {TextFieldQuery} from "./BottomSide/TextFieldQuery/TextFieldQuery.component";
 import {SortSelector} from "./BottomSide/SortSelector/SortSelector.component";
 import {SearchButton} from "./BottomSide/SearchButton/SearchButton.component";
+import {ButtonGridPlacement} from "../../../unified_components/ButtonGridPlacement/ButtonGridPlacement.component";
 
 export const BodyContainer = () => {
     return (

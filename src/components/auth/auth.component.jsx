@@ -10,7 +10,7 @@ import {setAuthValue} from "../redux/separatedBases/AuthAndAlert/Auth";
 import {setLoginField} from "../redux/separatedBases/LoginAndPassword/Login";
 import {setPasswordField} from "../redux/separatedBases/LoginAndPassword/Password";
 
-const Auth = (props) => {
+export const Auth = () => {
     const login = useSelector((state) => state.login.value);
     const password = useSelector((state) => state.password.value);
     const alert = useSelector((state) => state.alert.value);
@@ -107,5 +107,3 @@ const Auth = (props) => {
         </motion.div>
     )
 }
-
-export default Auth;

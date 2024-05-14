@@ -1,12 +1,14 @@
 import "./AddAccountDiv.style.sass"
 import CreateIcon from '@mui/icons-material/Create';
-import TemplateSimpleButton from "../../../../unified_components/ButtonGridPlacement/TemplateSimpleButton";
 import route_fillers from "../../../../../constants&addons/route_fillers";
 import {useDispatch, useSelector} from "react-redux";
 import {resetAdminNewLogin} from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminNewPassAndLogin/AdminNewLogin";
 import {resetAdminNewPassword} from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminNewPassAndLogin/AdminNewPassword";
 import {setAuthValue} from "../../../../redux/separatedBases/AuthAndAlert/Auth";
 import {toggleAdminsReloadActivator} from "../../../../redux/separatedBases/ScreenBases/ManageAdmins/AdminsReloadActivator/AdminsReloadActivator";
+import {
+    TemplateSimpleButton
+} from "../../../../unified_components/ButtonGridPlacement/TemplateSimpleButton/TemplateSimpleButton.component";
 export const AddAccountDiv = () => {
     const dispatch = useDispatch();
 

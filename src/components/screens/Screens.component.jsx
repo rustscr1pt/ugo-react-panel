@@ -5,7 +5,7 @@ import {DiscoverOrders} from "./DiscoverOrders/DiscoverOrders.component";
 import {LogsBrowser} from "./LogsBrowser/LogsBrowser.component";
 import {ManageAdmins} from "./ManageAdmins/ManageAdmins.component";
 
-const Screens = () => {
+export const Screens = () => {
     const screenPosition = useSelector((state) => state.screenPosition.value);
 
     if (screenPosition === PagePosition.Discover) {
@@ -24,5 +24,3 @@ const Screens = () => {
         )
     }
 }
-
-export default Screens;
