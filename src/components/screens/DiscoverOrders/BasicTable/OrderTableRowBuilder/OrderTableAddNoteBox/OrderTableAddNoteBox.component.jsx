@@ -3,49 +3,12 @@ import SendIcon from "@mui/icons-material/Send";
 import Box from "@mui/material/Box";
 import * as React from "react";
 import {useState} from "react";
-import route_fillers from "../../../../../../constants&addons/route_fillers";
+import {SetTextField} from "./_functions/SetTextField";
+import {AddNoteToOrder} from "./_functions/AddNoteToOrder";
 
 export const OrderTableAddNoteBox = (props) => {
     const [textField, setTextField] = useState("");
     const [fieldError, setFieldError] = useState(false);
-
-    function textfield_event(event) {
-        if (event.target.value !== "") {
-            setFieldError(false);
-            setTextField(event.target.value);
-        }
-        else {
-            setTextField(event.target.value);
-        }
-    }
-    function add_note(id, setNotes) {
-        if (textField === "") {
-            setFieldError(true);
-        }
-        else {
-            fetch(`${route_fillers.url}/api/orders/add_note`, {
-                method : "POST",
-                body : JSON.stringify({
-                    order_id : `${id}`,
-                    note_to_add : `${textField}`
-                }),
-                headers : {
-                    "Content-Type" : "application/json"
-                }
-            })
-                .then((reply) => reply.json())
-                .then((json) => {
-                    if (json.is_succeed) {
-                        console.log(json.message);
-                        setNotes(json.reply)
-                        setTextField("");
-                    }
-                    else {
-                        console.log(json.message)
-                    }
-                })
-        }
-    }
 
     return (
         <Box sx={{display : 'flex', flexDirection: "row", justifyContent : "space-around", width : "100%"}}>
@@ -55,13 +18,13 @@ export const OrderTableAddNoteBox = (props) => {
                 label="Введите запись для добавления"
                 variant='outlined'
                 value={textField}
-                onChange={(event) => textfield_event(event)}
+                onChange={(event) => SetTextField(event, setTextField, setFieldError)}
             />
             <Button
                 sx={{width : "13%"}}
                 variant="contained"
                 endIcon={<SendIcon />}
-                onClick={() => add_note(props.id, props.setNotes)}
+                onClick={() => AddNoteToOrder(textField, setFieldError, props.id, props.setNotes, setTextField)}
             >
                 Добавить
             </Button>
