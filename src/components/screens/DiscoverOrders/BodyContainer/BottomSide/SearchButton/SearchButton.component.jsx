@@ -2,15 +2,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import {Button} from "@mui/material";
 import RotateLeftIcon from "@mui/icons-material/RotateLeft";
 import {useDispatch, useSelector} from "react-redux";
-import {
-    toggleOrdersFilterCondition
-} from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilterCondition";
-import {
-    setOrdersCurrentPage
-} from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersCurrentPage";
-import {
-    clearOrdersFilteredQuery
-} from "../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilteredQuery";
+import {ResetTheSearch} from "./_functions/ResetTheSearch";
+import {RequestSearchByQuery} from "./_functions/RequestSearchByQuery";
 
 export const SearchButton = () => {
     const dispatch = useDispatch();
@@ -22,18 +15,6 @@ export const SearchButton = () => {
         gridRow : "2 / 2"
     };
 
-    function request_search_by_query() {
-        dispatch(toggleOrdersFilterCondition());
-        console.log(filterCondition);
-    }
-
-    function reset_the_search() {
-        dispatch(setOrdersCurrentPage(0));
-        dispatch(toggleOrdersFilterCondition());
-        dispatch(clearOrdersFilteredQuery());
-        console.log(filterCondition);
-    }
-
     if (filterCondition) {
         return (
             <Button
@@ -41,7 +22,7 @@ export const SearchButton = () => {
                 variant="contained"
                 color="error"
                 endIcon={<RotateLeftIcon/>}
-                onClick={reset_the_search}
+                onClick={() => ResetTheSearch(filterCondition, dispatch)}
             >
                 Сброс
             </Button>
@@ -53,7 +34,7 @@ export const SearchButton = () => {
                 sx={placement}
                 variant="contained"
                 endIcon={<SearchIcon/>}
-                onClick={request_search_by_query}
+                onClick={() => RequestSearchByQuery(filterCondition, dispatch)}
             >
                 Поиск
             </Button>
