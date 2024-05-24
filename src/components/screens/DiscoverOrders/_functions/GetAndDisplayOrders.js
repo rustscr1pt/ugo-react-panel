@@ -6,7 +6,7 @@ import {
 } from "../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersRowCount";
 
 // Make a request and display orders using rowsPerPage & page
-export const GetAndDisplayOrders = (filterCondition, rowsPerPage, page, filterType, filteredQuery, reloadActivator, dispatch) => {
+export const GetAndDisplayOrders = (filterCondition, rowsPerPage, page, filterType, filteredQuery, reloadActivator, dispatch, sourceType) => {
     useEffect(() => {
         if (filterCondition) {
             fetch(`${route_fillers.url}/api/orders/page/filtered`, {

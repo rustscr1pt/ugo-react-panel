@@ -14,6 +14,8 @@ import {GetAndDisplayOrders} from "./_functions/GetAndDisplayOrders";
 export const DiscoverOrders = () => {
     const dispatch = useDispatch();
 
+    const sourceType = useSelector((state) => state.selectedBase.value);
+
     const filteredQuery = useSelector((state) => state.ordersFilteredQuery.value);
     const filterType = useSelector((state) => state.ordersFilterType.value);
 
@@ -27,7 +29,7 @@ export const DiscoverOrders = () => {
     const reloadActivator = useSelector((state) => state.ordersReloadActivator.value);
 
     // Make a request and display orders using rowsPerPage & page
-    GetAndDisplayOrders(filterCondition, rowsPerPage, page, filterType, filteredQuery, reloadActivator, dispatch);
+    GetAndDisplayOrders(filterCondition, rowsPerPage, page, filterType, filteredQuery, reloadActivator, dispatch, sourceType);
 
     return (
         <Box sx={{width : "100%"}}>
