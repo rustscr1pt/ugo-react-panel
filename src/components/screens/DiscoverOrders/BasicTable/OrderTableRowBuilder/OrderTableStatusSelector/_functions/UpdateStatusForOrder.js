@@ -5,8 +5,8 @@ import {
 
 
 // On change event update the status value in mySQL
-export const UpdateStatusForOrder = (event, id, changeSelectValue, dispatch) => {
-    fetch(`${route_fillers.url}/api/orders/change_status`, {
+export const UpdateStatusForOrder = (event, id, changeSelectValue, dispatch, sourceType) => {
+    fetch(`${route_fillers.url}${format_the_route(sourceType)}`, {
         method : "POST",
         body : JSON.stringify({
             order_id : `${id}`,
@@ -31,4 +31,13 @@ export const UpdateStatusForOrder = (event, id, changeSelectValue, dispatch) => 
             console.log(err);
         })
     console.log(event.target.value);
+}
+
+function format_the_route(sourceType) {
+    if (sourceType === "ugo-vape") {
+        return "/api/orders/change_status"
+    }
+    else {
+        return "/api/walgreen/walgreen_requests/change_status"
+    }
 }
