@@ -55,5 +55,5 @@ export const GetAndDisplayOrders = (filterCondition, rowsPerPage, page, filterTy
                     }
                 )
         }
-    }, [reloadActivator, page, rowsPerPage, filterCondition]);
+    }, [reloadActivator, page, rowsPerPage, filterCondition, sourceType]);
 };
