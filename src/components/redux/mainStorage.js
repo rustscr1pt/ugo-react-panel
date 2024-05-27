@@ -22,10 +22,13 @@ import OrdersRowCount from "./separatedBases/ScreenBases/DiscoverOrders/OrdersPa
 import OrdersRowsPerPage from "./separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersRowsPerPage";
 import OrdersReloadActivator from "./separatedBases/ScreenBases/DiscoverOrders/OrdersReloadActivator/OrdersReloadActivator";
 import OrdersVector from "./separatedBases/ScreenBases/DiscoverOrders/OrdersVector/OrdersVector";
+import SelectedBase from "./separatedBases/SelectedBase/SelectedBase";
 
 export default configureStore({
     reducer : {
         screenPosition : ScreenPosition,
+
+        selectedBase : SelectedBase,
 
         auth : Auth,
         alert : Alert,

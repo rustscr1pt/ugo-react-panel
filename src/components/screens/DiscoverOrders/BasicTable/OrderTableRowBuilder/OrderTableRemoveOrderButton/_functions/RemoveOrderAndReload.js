@@ -4,8 +4,8 @@ import {
 } from "../../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersReloadActivator/OrdersReloadActivator";
 
 // Remove order by ID from db
-export const RemoveOrderAndReload = (id, dispatch) => {
-    fetch(`${route_fillers.url}/api/orders/remove_order`, {
+export const RemoveOrderAndReload = (id, dispatch, sourceType) => {
+    fetch(`${route_fillers.url}${format_the_route(sourceType)}`, {
         method : "POST",
         body : JSON.stringify({
             id : `${id}`
@@ -27,4 +27,13 @@ export const RemoveOrderAndReload = (id, dispatch) => {
         .catch(function(err) {
             console.log(err)
         })
+}
+
+function format_the_route(sourceType) {
+    if (sourceType === "ugo-vape") {
+        return "/api/orders/remove_order"
+    }
+    else {
+        return "/api/walgreen/walgreen_requests/remove_order"
+    }
 }
