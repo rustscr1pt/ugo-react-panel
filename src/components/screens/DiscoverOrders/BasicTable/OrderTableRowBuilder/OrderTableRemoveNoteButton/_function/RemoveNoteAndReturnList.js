@@ -1,7 +1,7 @@
 import route_fillers from "../../../../../../../constants&addons/route_fillers";
 
-export const RemoveNoteAndReturnList = (note_id, related_id, setNotes) => {
-    fetch(`${route_fillers.url}/api/orders/remove_note`, {
+export const RemoveNoteAndReturnList = (note_id, related_id, setNotes, sourceType) => {
+    fetch(`${route_fillers.url}${format_the_route(sourceType)}`, {
         method : "POST",
         body : JSON.stringify({
             note_id : `${note_id}`,
@@ -23,4 +23,13 @@ export const RemoveNoteAndReturnList = (note_id, related_id, setNotes) => {
         .catch(function(err) {
             console.log(err)
         })
+}
+
+function format_the_route(sourceType) {
+    if (sourceType === "ugo-vape") {
+        return "/api/orders/remove_note"
+    }
+    else {
+        return "/api/walgreen/walgreen_requests/remove_note"
+    }
 }
