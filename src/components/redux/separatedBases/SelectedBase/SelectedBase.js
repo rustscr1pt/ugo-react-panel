@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 export const SelectedBase = createSlice({
     name : "SelectedBase",
     initialState : {
-        value : "walgreen"
+        value : "ugo-vape"
     },
     reducers : {
         setNewBase(state, value) {
