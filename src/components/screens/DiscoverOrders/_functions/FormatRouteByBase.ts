@@ -1,4 +1,4 @@
-export default function format_route_by_base(filterCondition, sourceType) {
+export default function format_route_by_base(filterCondition, sourceType) : string {
     console.log("activated")
     // eslint-disable-next-line default-case
     switch (filterCondition) {
