@@ -8,11 +8,11 @@ export const OrderTableHeadBuilder = () => {
         <TableHead>
             <TableRow>
                 <TableCell sx={{color: "#FFFFFF"}}>ID</TableCell>
-                <TableCell>Статус</TableCell>
-                <TableCell>Имя</TableCell>
-                <TableCell>Почта</TableCell>
-                <TableCell>Описание</TableCell>
-                <TableCell>Время добавления</TableCell>
+                <TableCell style={{width : '20%'}}>Статус</TableCell>
+                <TableCell style={{width : '10%'}}>Имя</TableCell>
+                <TableCell style={{width : '10%'}}>Почта</TableCell>
+                <TableCell style={{width : '20%'}}>Описание</TableCell>
+                <TableCell style={{width : '15%'}}>Время добавления</TableCell>
                 <TableCell align={"center"}>Удалить</TableCell>
                 <TableCell align={"center"}>Развернуть</TableCell>
             </TableRow>

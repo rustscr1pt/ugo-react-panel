@@ -5,7 +5,7 @@ import {motion} from "framer-motion";
 import {useDispatch, useSelector} from "react-redux";
 import {setLoginField} from "../redux/separatedBases/LoginAndPassword/Login";
 import {setPasswordField} from "../redux/separatedBases/LoginAndPassword/Password";
-import {HandleLoginAttempt} from "./_functions/HandleLoginAttempt";
+import {HandleLoginAttempt} from "./_functions/HandleLoginAttempt.ts";
 import {DisplayAlert} from "./_functions/DisplayAlert";
 import {RemoveAlert} from "./_functions/RemoveAlert";
 

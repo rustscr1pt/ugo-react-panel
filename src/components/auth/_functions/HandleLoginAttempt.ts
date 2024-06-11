@@ -4,7 +4,7 @@ import {setAlertActivity} from "../../redux/separatedBases/AuthAndAlert/Alert";
 
 
 // Login using the data from the textfields
-export const HandleLoginAttempt = (login, password, dispatch) => {
+export const HandleLoginAttempt = (login : string, password : string, dispatch : any) : void => {
 
     fetch(`${route_fillers.url}/api/login/attempt`, {
         method : "POST",
