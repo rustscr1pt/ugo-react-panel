@@ -4,10 +4,11 @@ import {setOrdersVector} from "../../../redux/separatedBases/ScreenBases/Discove
 import {
     setOrdersRowCount
 } from "../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersPagination/OrdersRowCount";
+// @ts-ignore
 import format_route_by_base from "./FormatRouteByBase.ts";
 
 // Make a request and display orders using rowsPerPage & page
-export const GetAndDisplayOrders = (filterCondition, rowsPerPage, page, filterType, filteredQuery, reloadActivator, dispatch, sourceType) => {
+export const GetAndDisplayOrders = (filterCondition, rowsPerPage, page, filterType, filteredQuery, reloadActivator, dispatch, sourceType) : void => {
     useEffect(() => {
         if (filterCondition) {
             fetch(`${route_fillers.url}${format_route_by_base(filterCondition, sourceType)}`, {

@@ -8,7 +8,7 @@ import {BasicOrderTable} from "./BasicTable/BasicOrderTable.component";
 import {BodyContainer} from "./BodyContainer/BodyContainer.component";
 import {PagePagination} from "./PagePagination/PagePagination.component";
 import {LogoutFAB} from "./LogoutFAB/LogoutFAB.component";
-import {GetAndDisplayOrders} from "./_functions/GetAndDisplayOrders";
+import {GetAndDisplayOrders} from "./_functions/GetAndDisplayOrders.ts";
 
 
 export const DiscoverOrders = () => {
