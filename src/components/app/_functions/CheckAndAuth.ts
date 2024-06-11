@@ -4,9 +4,8 @@ import {setAuthValue} from "../../redux/separatedBases/AuthAndAlert/Auth";
 import {setAlertActivity} from "../../redux/separatedBases/AuthAndAlert/Alert";
 import {useDispatch} from "react-redux";
 
-export const CheckAndAuth = () => {
+export const CheckAndAuth = () : void => {
     const dispatch = useDispatch();
-
     useEffect(() => {
         if (sessionStorage.getItem("ugo-token") !== null) {
             console.log(`Active token : ${sessionStorage.getItem("ugo-token")}`);
