@@ -10,15 +10,18 @@ export const SearchButton = () => {
 
     const filterCondition = useSelector((state) => state.ordersFilterCondition.value);
 
-    const placement = {
-        gridColumn : "35 / 40",
-        gridRow : "2 / 2"
-    };
+    const gridRow = "2 / 2";
+    const gridColumn = "35 / 40";
+    const fontSize = "1vw";
 
     if (filterCondition) {
         return (
             <Button
-                sx={placement}
+                sx={{
+                    gridRow : gridRow,
+                    gridColumn : gridColumn,
+                    fontSize : fontSize
+                }}
                 variant="contained"
                 color="error"
                 endIcon={<RotateLeftIcon/>}
@@ -31,7 +34,11 @@ export const SearchButton = () => {
     else {
         return (
             <Button
-                sx={placement}
+                sx={{
+                    gridRow : gridRow,
+                    gridColumn : gridColumn,
+                    fontSize : fontSize
+                }}
                 variant="contained"
                 endIcon={<SearchIcon/>}
                 onClick={() => RequestSearchByQuery(filterCondition, dispatch)}
