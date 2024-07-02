@@ -5,7 +5,10 @@ import SortIcon from '@mui/icons-material/Sort';
 export const PopperButton = (props) => {
     return (
         <Button
-            sx={{width : "100%"}}
+            sx={{
+                width : "100%",
+                fontSize : "1vw"
+            }}
             aria-describedby={props.id}
             variant="contained"
             endIcon={<SortIcon/>}

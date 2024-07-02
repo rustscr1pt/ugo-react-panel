@@ -8,7 +8,8 @@ export const TemplateSimpleButton = (props) => {
     return (
         <Button
             sx={{
-                width : "100%"
+                width : "100%",
+                fontSize : "1vw"
             }}
             variant="contained"
             endIcon={props.icon}
