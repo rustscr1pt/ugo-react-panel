@@ -7,6 +7,9 @@ import {
 import {
     setOrdersFilterCondition
 } from "../../../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilterCondition";
+import {
+    dropOrdersFilterType
+} from "../../../../../../../redux/separatedBases/ScreenBases/DiscoverOrders/OrdersFilters/OrdersFilterType";
 
 // Close the datepicker and reset all values
 export const CloseAndReset = (setOpen, dispatch) => {
@@ -14,4 +17,5 @@ export const CloseAndReset = (setOpen, dispatch) => {
     dispatch(setOrdersCurrentPage(0));
     dispatch(clearOrdersFilteredQuery());
     dispatch(setOrdersFilterCondition(false));
+    dispatch(dropOrdersFilterType());
 }

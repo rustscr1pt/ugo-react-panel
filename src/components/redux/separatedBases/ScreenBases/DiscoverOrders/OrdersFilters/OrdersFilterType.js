@@ -8,8 +8,11 @@ export const OrdersFilterType = createSlice({
     reducers : {
         setOrdersFilterType : (state, value) => {
             state.value = value.payload;
+        },
+        dropOrdersFilterType : (state) => {
+            state.value = ""
         }
     }
 });
-export const {setOrdersFilterType} = OrdersFilterType.actions;
+export const {setOrdersFilterType, dropOrdersFilterType} = OrdersFilterType.actions;
 export default OrdersFilterType.reducer;
