@@ -23,6 +23,7 @@ import OrdersRowsPerPage from "./separatedBases/ScreenBases/DiscoverOrders/Order
 import OrdersReloadActivator from "./separatedBases/ScreenBases/DiscoverOrders/OrdersReloadActivator/OrdersReloadActivator";
 import OrdersVector from "./separatedBases/ScreenBases/DiscoverOrders/OrdersVector/OrdersVector";
 import SelectedBase from "./separatedBases/SelectedBase/SelectedBase";
+import ManageImages from "./separatedBases/ManageImages/ManageImages";
 
 export default configureStore({
     reducer : {
@@ -54,6 +55,8 @@ export default configureStore({
         ordersFilterType : OrdersFilterType,
         ordersCurrentPage : OrdersCurrentPage,
         ordersRowCount : OrdersRowCount,
-        ordersRowsPerPage : OrdersRowsPerPage
+        ordersRowsPerPage : OrdersRowsPerPage,
+
+        ManageImagesBase : ManageImages
     }
 });
