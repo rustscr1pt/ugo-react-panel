@@ -18,6 +18,9 @@ export const Screens = () => {
             <LogsBrowser/>
         )
     }
+    else if (screenPosition === PagePosition.ManageImages) {
+        return null
+    }
     else {
         return (
             <ManageAdmins/>

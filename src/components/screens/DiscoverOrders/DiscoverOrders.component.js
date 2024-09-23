@@ -9,6 +9,7 @@ import {BodyContainer} from "./BodyContainer/BodyContainer.component";
 import {PagePagination} from "./PagePagination/PagePagination.component";
 import {LogoutFAB} from "./LogoutFAB/LogoutFAB.component";
 import {GetAndDisplayOrders} from "./_functions/GetAndDisplayOrders";
+import {ManagePhotosFAB} from "./ManagePhotosFAB/ManagePhotosFAB.component";
 
 
 export const DiscoverOrders = () => {
@@ -42,6 +43,7 @@ export const DiscoverOrders = () => {
                 changePage={setOrdersCurrentPage}
                 setRowsPerPage={setOrdersRowsPerPage}
             />
+            <ManagePhotosFAB/>
             <LogoutFAB/>
         </Box>
     )
