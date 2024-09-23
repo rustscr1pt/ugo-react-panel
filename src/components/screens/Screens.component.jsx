@@ -4,6 +4,7 @@ import React from "react";
 import {DiscoverOrders} from "./DiscoverOrders/DiscoverOrders.component";
 import {LogsBrowser} from "./LogsBrowser/LogsBrowser.component";
 import {ManageAdmins} from "./ManageAdmins/ManageAdmins.component";
+import {ManageImages} from "./ManageImages/ManageImages.component";
 
 export const Screens = () => {
     const screenPosition = useSelector((state) => state.screenPosition.value);
@@ -19,7 +20,9 @@ export const Screens = () => {
         )
     }
     else if (screenPosition === PagePosition.ManageImages) {
-        return null
+        return (
+            <ManageImages/>
+        )
     }
     else {
         return (
